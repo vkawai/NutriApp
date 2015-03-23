@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6EC2C6851AC0986300C4085A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C6841AC0986300C4085A /* main.m */; };
+		6EC2C6881AC0986300C4085A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C6871AC0986300C4085A /* AppDelegate.m */; };
+		6EC2C68B1AC0986300C4085A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C68A1AC0986300C4085A /* ViewController.m */; };
+		6EC2C68E1AC0986300C4085A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EC2C68C1AC0986300C4085A /* Main.storyboard */; };
+		6EC2C6901AC0986300C4085A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EC2C68F1AC0986300C4085A /* Images.xcassets */; };
+		6EC2C6931AC0986300C4085A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC2C6911AC0986300C4085A /* LaunchScreen.xib */; };
+		6EC2C69F1AC0986300C4085A /* NutriAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C69E1AC0986300C4085A /* NutriAppTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6EC2C6991AC0986300C4085A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6EC2C6771AC0986300C4085A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EC2C67E1AC0986300C4085A;
+			remoteInfo = NutriApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6EC2C67F1AC0986300C4085A /* NutriApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EC2C6831AC0986300C4085A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EC2C6841AC0986300C4085A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6EC2C6861AC0986300C4085A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6EC2C6871AC0986300C4085A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6EC2C6891AC0986300C4085A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6EC2C68A1AC0986300C4085A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6EC2C68D1AC0986300C4085A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6EC2C68F1AC0986300C4085A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6EC2C6921AC0986300C4085A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		6EC2C6981AC0986300C4085A /* NutriAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutriAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EC2C69D1AC0986300C4085A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EC2C69E1AC0986300C4085A /* NutriAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NutriAppTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6EC2C67C1AC0986300C4085A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EC2C6951AC0986300C4085A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6EC2C6761AC0986300C4085A = {
+			isa = PBXGroup;
+			children = (
+				6EC2C6811AC0986300C4085A /* NutriApp */,
+				6EC2C69B1AC0986300C4085A /* NutriAppTests */,
+				6EC2C6801AC0986300C4085A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6EC2C6801AC0986300C4085A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EC2C67F1AC0986300C4085A /* NutriApp.app */,
+				6EC2C6981AC0986300C4085A /* NutriAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6EC2C6811AC0986300C4085A /* NutriApp */ = {
+			isa = PBXGroup;
+			children = (
+				6EC2C6861AC0986300C4085A /* AppDelegate.h */,
+				6EC2C6871AC0986300C4085A /* AppDelegate.m */,
+				6EC2C6891AC0986300C4085A /* ViewController.h */,
+				6EC2C68A1AC0986300C4085A /* ViewController.m */,
+				6EC2C68C1AC0986300C4085A /* Main.storyboard */,
+				6EC2C68F1AC0986300C4085A /* Images.xcassets */,
+				6EC2C6911AC0986300C4085A /* LaunchScreen.xib */,
+				6EC2C6821AC0986300C4085A /* Supporting Files */,
+			);
+			path = NutriApp;
+			sourceTree = "<group>";
+		};
+		6EC2C6821AC0986300C4085A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6EC2C6831AC0986300C4085A /* Info.plist */,
+				6EC2C6841AC0986300C4085A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6EC2C69B1AC0986300C4085A /* NutriAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				6EC2C69E1AC0986300C4085A /* NutriAppTests.m */,
+				6EC2C69C1AC0986300C4085A /* Supporting Files */,
+			);
+			path = NutriAppTests;
+			sourceTree = "<group>";
+		};
+		6EC2C69C1AC0986300C4085A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6EC2C69D1AC0986300C4085A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6EC2C67E1AC0986300C4085A /* NutriApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EC2C6A21AC0986300C4085A /* Build configuration list for PBXNativeTarget "NutriApp" */;
+			buildPhases = (
+				6EC2C67B1AC0986300C4085A /* Sources */,
+				6EC2C67C1AC0986300C4085A /* Frameworks */,
+				6EC2C67D1AC0986300C4085A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NutriApp;
+			productName = NutriApp;
+			productReference = 6EC2C67F1AC0986300C4085A /* NutriApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6EC2C6971AC0986300C4085A /* NutriAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EC2C6A51AC0986300C4085A /* Build configuration list for PBXNativeTarget "NutriAppTests" */;
+			buildPhases = (
+				6EC2C6941AC0986300C4085A /* Sources */,
+				6EC2C6951AC0986300C4085A /* Frameworks */,
+				6EC2C6961AC0986300C4085A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EC2C69A1AC0986300C4085A /* PBXTargetDependency */,
+			);
+			name = NutriAppTests;
+			productName = NutriAppTests;
+			productReference = 6EC2C6981AC0986300C4085A /* NutriAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6EC2C6771AC0986300C4085A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Felipe Marques Ramos";
+				TargetAttributes = {
+					6EC2C67E1AC0986300C4085A = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					6EC2C6971AC0986300C4085A = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 6EC2C67E1AC0986300C4085A;
+					};
+				};
+			};
+			buildConfigurationList = 6EC2C67A1AC0986300C4085A /* Build configuration list for PBXProject "NutriApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6EC2C6761AC0986300C4085A;
+			productRefGroup = 6EC2C6801AC0986300C4085A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6EC2C67E1AC0986300C4085A /* NutriApp */,
+				6EC2C6971AC0986300C4085A /* NutriAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6EC2C67D1AC0986300C4085A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EC2C68E1AC0986300C4085A /* Main.storyboard in Resources */,
+				6EC2C6931AC0986300C4085A /* LaunchScreen.xib in Resources */,
+				6EC2C6901AC0986300C4085A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EC2C6961AC0986300C4085A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6EC2C67B1AC0986300C4085A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EC2C68B1AC0986300C4085A /* ViewController.m in Sources */,
+				6EC2C6881AC0986300C4085A /* AppDelegate.m in Sources */,
+				6EC2C6851AC0986300C4085A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EC2C6941AC0986300C4085A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EC2C69F1AC0986300C4085A /* NutriAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6EC2C69A1AC0986300C4085A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EC2C67E1AC0986300C4085A /* NutriApp */;
+			targetProxy = 6EC2C6991AC0986300C4085A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6EC2C68C1AC0986300C4085A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EC2C68D1AC0986300C4085A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6EC2C6911AC0986300C4085A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EC2C6921AC0986300C4085A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6EC2C6A01AC0986300C4085A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6EC2C6A11AC0986300C4085A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6EC2C6A31AC0986300C4085A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NutriApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6EC2C6A41AC0986300C4085A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = NutriApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6EC2C6A61AC0986300C4085A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NutriAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriApp.app/NutriApp";
+			};
+			name = Debug;
+		};
+		6EC2C6A71AC0986300C4085A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NutriAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriApp.app/NutriApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6EC2C67A1AC0986300C4085A /* Build configuration list for PBXProject "NutriApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EC2C6A01AC0986300C4085A /* Debug */,
+				6EC2C6A11AC0986300C4085A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EC2C6A21AC0986300C4085A /* Build configuration list for PBXNativeTarget "NutriApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EC2C6A31AC0986300C4085A /* Debug */,
+				6EC2C6A41AC0986300C4085A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6EC2C6A51AC0986300C4085A /* Build configuration list for PBXNativeTarget "NutriAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EC2C6A61AC0986300C4085A /* Debug */,
+				6EC2C6A71AC0986300C4085A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6EC2C6771AC0986300C4085A /* Project object */;
+}
