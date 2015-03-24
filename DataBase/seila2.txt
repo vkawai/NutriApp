@@ -1,0 +1,44 @@
+
+CREATE TABLE grupo_alimento(
+id_grupo INTEGER PRIMARY KEY NOT NULL,
+nome_grupo text NOT NULL
+);
+
+CREATE TABLE alimento(
+id_alimento INTEGER PRIMARY KEY NOT NULL,
+id_categoria INTEGER REFERENCES grupo_alimento(id_grupo) NOT NULL,
+descricao INTEGER,
+umidade FLOAT,
+energia FLOAT,
+proteina FLOAT,
+lipideos FLOAT,
+colesterol FLOAT,
+carboidrato FLOAT,
+fibra_alimentar FLOAT,
+cinzas FLOAT,
+calcio FLOAT,
+magnesio FLOAT,
+manganes FLOAT,
+fosforo FLOAT,
+ferro FLOAT,
+sodio FLOAT,
+potassio FLOAT,
+cobre FLOAT,
+zinco FLOAT,
+retinol FLOAT,
+tiamina FLOAT,
+riboflavina FLOAT,
+piridoxina FLOAT,
+niacina FLOAT,
+vitamina_c FLOAT
+);
+
+
+
+
+
+
+;;s;(%);(kcal);(kJ);(g);(g);(mg);(g);(g);(g);(mg);(mg);Alimento;(mg);(mg);(mg);(mg);(mg);(mg);(mg);(mcg);(mg);(mg);(mg);(mg);(mg);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+Número do			Umidade	Energia		Proteína	Lipídeos	Colesterol	Carboidrato	Fibra Alimentar	Cinzas	Cálcio	Magnésio	Manganês	Fósforo	Ferro	Sódio	Potássio	Cobre	Zinco	Retinol	Tiamina	Riboflavina	Piridoxina	Niacina	Vitamina C																																																																							Alimento		Descrição dos alimentos	(%)	(kcal)	(kJ)	(g)	(g)	(mg)	(g)	(g)	(g)	(mg)	(mg)	(mg)	(mg)	(mg)	(mg)	(mg)	(mg)	(mg)	(mcg)	(mg)	(mg)	(mg)	(mg)	(mg)																																																																							
