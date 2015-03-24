@@ -7,50 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6EC2C6851AC0986300C4085A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C6841AC0986300C4085A /* main.m */; };
-		6EC2C6881AC0986300C4085A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C6871AC0986300C4085A /* AppDelegate.m */; };
-		6EC2C68B1AC0986300C4085A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C68A1AC0986300C4085A /* ViewController.m */; };
-		6EC2C68E1AC0986300C4085A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EC2C68C1AC0986300C4085A /* Main.storyboard */; };
-		6EC2C6901AC0986300C4085A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EC2C68F1AC0986300C4085A /* Images.xcassets */; };
-		6EC2C6931AC0986300C4085A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC2C6911AC0986300C4085A /* LaunchScreen.xib */; };
-		6EC2C69F1AC0986300C4085A /* NutriAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C69E1AC0986300C4085A /* NutriAppTests.m */; };
+		EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32E61AC1CA0B00347EE5 /* main.m */; };
+		EB9D32EA1AC1CA0B00347EE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32E91AC1CA0B00347EE5 /* AppDelegate.m */; };
+		EB9D32ED1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32EB1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld */; };
+		EB9D32F01AC1CA0B00347EE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32EF1AC1CA0B00347EE5 /* ViewController.m */; };
+		EB9D32F31AC1CA0B00347EE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB9D32F11AC1CA0B00347EE5 /* Main.storyboard */; };
+		EB9D32F51AC1CA0B00347EE5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9D32F41AC1CA0B00347EE5 /* Images.xcassets */; };
+		EB9D32F81AC1CA0B00347EE5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB9D32F61AC1CA0B00347EE5 /* LaunchScreen.xib */; };
+		EB9D33041AC1CA0B00347EE5 /* NutriAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D33031AC1CA0B00347EE5 /* NutriAppTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6EC2C6991AC0986300C4085A /* PBXContainerItemProxy */ = {
+		EB9D32FE1AC1CA0B00347EE5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6EC2C6771AC0986300C4085A /* Project object */;
+			containerPortal = EB9D32D91AC1CA0B00347EE5 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6EC2C67E1AC0986300C4085A;
+			remoteGlobalIDString = EB9D32E01AC1CA0B00347EE5;
 			remoteInfo = NutriApp;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6EC2C67F1AC0986300C4085A /* NutriApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EC2C6831AC0986300C4085A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6EC2C6841AC0986300C4085A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6EC2C6861AC0986300C4085A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		6EC2C6871AC0986300C4085A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6EC2C6891AC0986300C4085A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6EC2C68A1AC0986300C4085A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6EC2C68D1AC0986300C4085A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6EC2C68F1AC0986300C4085A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6EC2C6921AC0986300C4085A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		6EC2C6981AC0986300C4085A /* NutriAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutriAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EC2C69D1AC0986300C4085A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6EC2C69E1AC0986300C4085A /* NutriAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NutriAppTests.m; sourceTree = "<group>"; };
+		EB9D32E11AC1CA0B00347EE5 /* NutriApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9D32E51AC1CA0B00347EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB9D32E61AC1CA0B00347EE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EB9D32E81AC1CA0B00347EE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EB9D32E91AC1CA0B00347EE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EB9D32EC1AC1CA0B00347EE5 /* NutriApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NutriApp.xcdatamodel; sourceTree = "<group>"; };
+		EB9D32EE1AC1CA0B00347EE5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EB9D32EF1AC1CA0B00347EE5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EB9D32F21AC1CA0B00347EE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB9D32F41AC1CA0B00347EE5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EB9D32F71AC1CA0B00347EE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EB9D32FD1AC1CA0B00347EE5 /* NutriAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutriAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9D33021AC1CA0B00347EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB9D33031AC1CA0B00347EE5 /* NutriAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NutriAppTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6EC2C67C1AC0986300C4085A /* Frameworks */ = {
+		EB9D32DE1AC1CA0B00347EE5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6EC2C6951AC0986300C4085A /* Frameworks */ = {
+		EB9D32FA1AC1CA0B00347EE5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,61 +62,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6EC2C6761AC0986300C4085A = {
+		EB9D32D81AC1CA0B00347EE5 = {
 			isa = PBXGroup;
 			children = (
-				6EC2C6811AC0986300C4085A /* NutriApp */,
-				6EC2C69B1AC0986300C4085A /* NutriAppTests */,
-				6EC2C6801AC0986300C4085A /* Products */,
+				EB9D32E31AC1CA0B00347EE5 /* NutriApp */,
+				EB9D33001AC1CA0B00347EE5 /* NutriAppTests */,
+				EB9D32E21AC1CA0B00347EE5 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6EC2C6801AC0986300C4085A /* Products */ = {
+		EB9D32E21AC1CA0B00347EE5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6EC2C67F1AC0986300C4085A /* NutriApp.app */,
-				6EC2C6981AC0986300C4085A /* NutriAppTests.xctest */,
+				EB9D32E11AC1CA0B00347EE5 /* NutriApp.app */,
+				EB9D32FD1AC1CA0B00347EE5 /* NutriAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6EC2C6811AC0986300C4085A /* NutriApp */ = {
+		EB9D32E31AC1CA0B00347EE5 /* NutriApp */ = {
 			isa = PBXGroup;
 			children = (
-				6EC2C6861AC0986300C4085A /* AppDelegate.h */,
-				6EC2C6871AC0986300C4085A /* AppDelegate.m */,
-				6EC2C6891AC0986300C4085A /* ViewController.h */,
-				6EC2C68A1AC0986300C4085A /* ViewController.m */,
-				6EC2C68C1AC0986300C4085A /* Main.storyboard */,
-				6EC2C68F1AC0986300C4085A /* Images.xcassets */,
-				6EC2C6911AC0986300C4085A /* LaunchScreen.xib */,
-				6EC2C6821AC0986300C4085A /* Supporting Files */,
+				EB9D32E81AC1CA0B00347EE5 /* AppDelegate.h */,
+				EB9D32E91AC1CA0B00347EE5 /* AppDelegate.m */,
+				EB9D32EE1AC1CA0B00347EE5 /* ViewController.h */,
+				EB9D32EF1AC1CA0B00347EE5 /* ViewController.m */,
+				EB9D32F11AC1CA0B00347EE5 /* Main.storyboard */,
+				EB9D32F41AC1CA0B00347EE5 /* Images.xcassets */,
+				EB9D32F61AC1CA0B00347EE5 /* LaunchScreen.xib */,
+				EB9D32EB1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld */,
+				EB9D32E41AC1CA0B00347EE5 /* Supporting Files */,
 			);
 			path = NutriApp;
 			sourceTree = "<group>";
 		};
-		6EC2C6821AC0986300C4085A /* Supporting Files */ = {
+		EB9D32E41AC1CA0B00347EE5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6EC2C6831AC0986300C4085A /* Info.plist */,
-				6EC2C6841AC0986300C4085A /* main.m */,
+				EB9D32E51AC1CA0B00347EE5 /* Info.plist */,
+				EB9D32E61AC1CA0B00347EE5 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6EC2C69B1AC0986300C4085A /* NutriAppTests */ = {
+		EB9D33001AC1CA0B00347EE5 /* NutriAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				6EC2C69E1AC0986300C4085A /* NutriAppTests.m */,
-				6EC2C69C1AC0986300C4085A /* Supporting Files */,
+				EB9D33031AC1CA0B00347EE5 /* NutriAppTests.m */,
+				EB9D33011AC1CA0B00347EE5 /* Supporting Files */,
 			);
 			path = NutriAppTests;
 			sourceTree = "<group>";
 		};
-		6EC2C69C1AC0986300C4085A /* Supporting Files */ = {
+		EB9D33011AC1CA0B00347EE5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6EC2C69D1AC0986300C4085A /* Info.plist */,
+				EB9D33021AC1CA0B00347EE5 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -122,13 +125,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6EC2C67E1AC0986300C4085A /* NutriApp */ = {
+		EB9D32E01AC1CA0B00347EE5 /* NutriApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6EC2C6A21AC0986300C4085A /* Build configuration list for PBXNativeTarget "NutriApp" */;
+			buildConfigurationList = EB9D33071AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "NutriApp" */;
 			buildPhases = (
-				6EC2C67B1AC0986300C4085A /* Sources */,
-				6EC2C67C1AC0986300C4085A /* Frameworks */,
-				6EC2C67D1AC0986300C4085A /* Resources */,
+				EB9D32DD1AC1CA0B00347EE5 /* Sources */,
+				EB9D32DE1AC1CA0B00347EE5 /* Frameworks */,
+				EB9D32DF1AC1CA0B00347EE5 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -136,46 +139,46 @@
 			);
 			name = NutriApp;
 			productName = NutriApp;
-			productReference = 6EC2C67F1AC0986300C4085A /* NutriApp.app */;
+			productReference = EB9D32E11AC1CA0B00347EE5 /* NutriApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6EC2C6971AC0986300C4085A /* NutriAppTests */ = {
+		EB9D32FC1AC1CA0B00347EE5 /* NutriAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6EC2C6A51AC0986300C4085A /* Build configuration list for PBXNativeTarget "NutriAppTests" */;
+			buildConfigurationList = EB9D330A1AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "NutriAppTests" */;
 			buildPhases = (
-				6EC2C6941AC0986300C4085A /* Sources */,
-				6EC2C6951AC0986300C4085A /* Frameworks */,
-				6EC2C6961AC0986300C4085A /* Resources */,
+				EB9D32F91AC1CA0B00347EE5 /* Sources */,
+				EB9D32FA1AC1CA0B00347EE5 /* Frameworks */,
+				EB9D32FB1AC1CA0B00347EE5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6EC2C69A1AC0986300C4085A /* PBXTargetDependency */,
+				EB9D32FF1AC1CA0B00347EE5 /* PBXTargetDependency */,
 			);
 			name = NutriAppTests;
 			productName = NutriAppTests;
-			productReference = 6EC2C6981AC0986300C4085A /* NutriAppTests.xctest */;
+			productReference = EB9D32FD1AC1CA0B00347EE5 /* NutriAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6EC2C6771AC0986300C4085A /* Project object */ = {
+		EB9D32D91AC1CA0B00347EE5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0620;
-				ORGANIZATIONNAME = "Felipe Marques Ramos";
+				ORGANIZATIONNAME = "Vitor Kawai Sala";
 				TargetAttributes = {
-					6EC2C67E1AC0986300C4085A = {
+					EB9D32E01AC1CA0B00347EE5 = {
 						CreatedOnToolsVersion = 6.2;
 					};
-					6EC2C6971AC0986300C4085A = {
+					EB9D32FC1AC1CA0B00347EE5 = {
 						CreatedOnToolsVersion = 6.2;
-						TestTargetID = 6EC2C67E1AC0986300C4085A;
+						TestTargetID = EB9D32E01AC1CA0B00347EE5;
 					};
 				};
 			};
-			buildConfigurationList = 6EC2C67A1AC0986300C4085A /* Build configuration list for PBXProject "NutriApp" */;
+			buildConfigurationList = EB9D32DC1AC1CA0B00347EE5 /* Build configuration list for PBXProject "NutriApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -184,29 +187,29 @@
 				Base,
 				English,
 			);
-			mainGroup = 6EC2C6761AC0986300C4085A;
-			productRefGroup = 6EC2C6801AC0986300C4085A /* Products */;
+			mainGroup = EB9D32D81AC1CA0B00347EE5;
+			productRefGroup = EB9D32E21AC1CA0B00347EE5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6EC2C67E1AC0986300C4085A /* NutriApp */,
-				6EC2C6971AC0986300C4085A /* NutriAppTests */,
+				EB9D32E01AC1CA0B00347EE5 /* NutriApp */,
+				EB9D32FC1AC1CA0B00347EE5 /* NutriAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6EC2C67D1AC0986300C4085A /* Resources */ = {
+		EB9D32DF1AC1CA0B00347EE5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EC2C68E1AC0986300C4085A /* Main.storyboard in Resources */,
-				6EC2C6931AC0986300C4085A /* LaunchScreen.xib in Resources */,
-				6EC2C6901AC0986300C4085A /* Images.xcassets in Resources */,
+				EB9D32F31AC1CA0B00347EE5 /* Main.storyboard in Resources */,
+				EB9D32F81AC1CA0B00347EE5 /* LaunchScreen.xib in Resources */,
+				EB9D32F51AC1CA0B00347EE5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6EC2C6961AC0986300C4085A /* Resources */ = {
+		EB9D32FB1AC1CA0B00347EE5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -216,47 +219,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6EC2C67B1AC0986300C4085A /* Sources */ = {
+		EB9D32DD1AC1CA0B00347EE5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EC2C68B1AC0986300C4085A /* ViewController.m in Sources */,
-				6EC2C6881AC0986300C4085A /* AppDelegate.m in Sources */,
-				6EC2C6851AC0986300C4085A /* main.m in Sources */,
+				EB9D32EA1AC1CA0B00347EE5 /* AppDelegate.m in Sources */,
+				EB9D32ED1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld in Sources */,
+				EB9D32F01AC1CA0B00347EE5 /* ViewController.m in Sources */,
+				EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6EC2C6941AC0986300C4085A /* Sources */ = {
+		EB9D32F91AC1CA0B00347EE5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EC2C69F1AC0986300C4085A /* NutriAppTests.m in Sources */,
+				EB9D33041AC1CA0B00347EE5 /* NutriAppTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6EC2C69A1AC0986300C4085A /* PBXTargetDependency */ = {
+		EB9D32FF1AC1CA0B00347EE5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6EC2C67E1AC0986300C4085A /* NutriApp */;
-			targetProxy = 6EC2C6991AC0986300C4085A /* PBXContainerItemProxy */;
+			target = EB9D32E01AC1CA0B00347EE5 /* NutriApp */;
+			targetProxy = EB9D32FE1AC1CA0B00347EE5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6EC2C68C1AC0986300C4085A /* Main.storyboard */ = {
+		EB9D32F11AC1CA0B00347EE5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6EC2C68D1AC0986300C4085A /* Base */,
+				EB9D32F21AC1CA0B00347EE5 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		6EC2C6911AC0986300C4085A /* LaunchScreen.xib */ = {
+		EB9D32F61AC1CA0B00347EE5 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6EC2C6921AC0986300C4085A /* Base */,
+				EB9D32F71AC1CA0B00347EE5 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -264,7 +268,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6EC2C6A01AC0986300C4085A /* Debug */ = {
+		EB9D33051AC1CA0B00347EE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -298,15 +302,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		6EC2C6A11AC0986300C4085A /* Release */ = {
+		EB9D33061AC1CA0B00347EE5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -334,43 +343,40 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		6EC2C6A31AC0986300C4085A /* Debug */ = {
+		EB9D33081AC1CA0B00347EE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NutriApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/felipemramos/Downloads/core-plot-master/framework/build/Debug-iphoneos",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		6EC2C6A41AC0986300C4085A /* Release */ = {
+		EB9D33091AC1CA0B00347EE5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NutriApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/felipemramos/Downloads/core-plot-master/framework/build/Debug-iphoneos",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		6EC2C6A61AC0986300C4085A /* Debug */ = {
+		EB9D330B1AC1CA0B00347EE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -389,7 +395,7 @@
 			};
 			name = Debug;
 		};
-		6EC2C6A71AC0986300C4085A /* Release */ = {
+		EB9D330C1AC1CA0B00347EE5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -407,32 +413,45 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6EC2C67A1AC0986300C4085A /* Build configuration list for PBXProject "NutriApp" */ = {
+		EB9D32DC1AC1CA0B00347EE5 /* Build configuration list for PBXProject "NutriApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6EC2C6A01AC0986300C4085A /* Debug */,
-				6EC2C6A11AC0986300C4085A /* Release */,
+				EB9D33051AC1CA0B00347EE5 /* Debug */,
+				EB9D33061AC1CA0B00347EE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6EC2C6A21AC0986300C4085A /* Build configuration list for PBXNativeTarget "NutriApp" */ = {
+		EB9D33071AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "NutriApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6EC2C6A31AC0986300C4085A /* Debug */,
-				6EC2C6A41AC0986300C4085A /* Release */,
+				EB9D33081AC1CA0B00347EE5 /* Debug */,
+				EB9D33091AC1CA0B00347EE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		6EC2C6A51AC0986300C4085A /* Build configuration list for PBXNativeTarget "NutriAppTests" */ = {
+		EB9D330A1AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "NutriAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6EC2C6A61AC0986300C4085A /* Debug */,
-				6EC2C6A71AC0986300C4085A /* Release */,
+				EB9D330B1AC1CA0B00347EE5 /* Debug */,
+				EB9D330C1AC1CA0B00347EE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EB9D32EB1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EB9D32EC1AC1CA0B00347EE5 /* NutriApp.xcdatamodel */,
+			);
+			currentVersion = EB9D32EC1AC1CA0B00347EE5 /* NutriApp.xcdatamodel */;
+			path = NutriApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = 6EC2C6771AC0986300C4085A /* Project object */;
+	rootObject = EB9D32D91AC1CA0B00347EE5 /* Project object */;
 }
