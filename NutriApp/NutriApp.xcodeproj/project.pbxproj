@@ -15,6 +15,16 @@
 		EB9D32F51AC1CA0B00347EE5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9D32F41AC1CA0B00347EE5 /* Images.xcassets */; };
 		EB9D32F81AC1CA0B00347EE5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB9D32F61AC1CA0B00347EE5 /* LaunchScreen.xib */; };
 		EB9D33041AC1CA0B00347EE5 /* NutriAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D33031AC1CA0B00347EE5 /* NutriAppTests.m */; };
+		EBA43FC01AC3238400B5DC7E /* Alimento.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FBF1AC3238400B5DC7E /* Alimento.m */; };
+		EBA43FC41AC3253E00B5DC7E /* Historico.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FC31AC3253E00B5DC7E /* Historico.m */; };
+		EBA43FC71AC3258700B5DC7E /* Refeicao.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FC61AC3258700B5DC7E /* Refeicao.m */; };
+		EBA43FCA1AC326DE00B5DC7E /* AlimentoComposite.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FC91AC326DE00B5DC7E /* AlimentoComposite.m */; };
+		EBA43FCD1AC328B400B5DC7E /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FCC1AC328B400B5DC7E /* EntityManager.m */; };
+		EBA43FD31AC3321300B5DC7E /* alimento.db in Resources */ = {isa = PBXBuildFile; fileRef = EBA43FCF1AC32A3500B5DC7E /* alimento.db */; };
+		EBA43FD51AC3392200B5DC7E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */; };
+		EBA43FDB1AC340E900B5DC7E /* AlimentoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FDA1AC340E900B5DC7E /* AlimentoDAO.m */; };
+		EBA43FDE1AC3413C00B5DC7E /* HistoricoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FDD1AC3413C00B5DC7E /* HistoricoDAO.m */; };
+		EBA43FE11AC3415800B5DC7E /* RefeicaoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FE01AC3415800B5DC7E /* RefeicaoDAO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +52,24 @@
 		EB9D32FD1AC1CA0B00347EE5 /* NutriAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutriAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9D33021AC1CA0B00347EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB9D33031AC1CA0B00347EE5 /* NutriAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NutriAppTests.m; sourceTree = "<group>"; };
+		EBA43FBE1AC3238400B5DC7E /* Alimento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alimento.h; path = Entidades/Alimento.h; sourceTree = "<group>"; };
+		EBA43FBF1AC3238400B5DC7E /* Alimento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alimento.m; path = Entidades/Alimento.m; sourceTree = "<group>"; };
+		EBA43FC21AC3253E00B5DC7E /* Historico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Historico.h; path = Entidades/Historico.h; sourceTree = "<group>"; };
+		EBA43FC31AC3253E00B5DC7E /* Historico.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Historico.m; path = Entidades/Historico.m; sourceTree = "<group>"; };
+		EBA43FC51AC3258700B5DC7E /* Refeicao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Refeicao.h; path = Entidades/Refeicao.h; sourceTree = "<group>"; };
+		EBA43FC61AC3258700B5DC7E /* Refeicao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Refeicao.m; path = Entidades/Refeicao.m; sourceTree = "<group>"; };
+		EBA43FC81AC326DE00B5DC7E /* AlimentoComposite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlimentoComposite.h; path = Entidades/AlimentoComposite.h; sourceTree = "<group>"; };
+		EBA43FC91AC326DE00B5DC7E /* AlimentoComposite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlimentoComposite.m; path = Entidades/AlimentoComposite.m; sourceTree = "<group>"; };
+		EBA43FCB1AC328B400B5DC7E /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityManager.h; path = Persistencia/EntityManager.h; sourceTree = "<group>"; };
+		EBA43FCC1AC328B400B5DC7E /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityManager.m; path = Persistencia/EntityManager.m; sourceTree = "<group>"; };
+		EBA43FCF1AC32A3500B5DC7E /* alimento.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = alimento.db; sourceTree = "<group>"; };
+		EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		EBA43FD91AC340E900B5DC7E /* AlimentoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlimentoDAO.h; path = Persistencia/AlimentoDAO.h; sourceTree = "<group>"; };
+		EBA43FDA1AC340E900B5DC7E /* AlimentoDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlimentoDAO.m; path = Persistencia/AlimentoDAO.m; sourceTree = "<group>"; };
+		EBA43FDC1AC3413C00B5DC7E /* HistoricoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoricoDAO.h; path = Persistencia/HistoricoDAO.h; sourceTree = "<group>"; };
+		EBA43FDD1AC3413C00B5DC7E /* HistoricoDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoricoDAO.m; path = Persistencia/HistoricoDAO.m; sourceTree = "<group>"; };
+		EBA43FDF1AC3415800B5DC7E /* RefeicaoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefeicaoDAO.h; sourceTree = "<group>"; };
+		EBA43FE01AC3415800B5DC7E /* RefeicaoDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefeicaoDAO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBA43FD51AC3392200B5DC7E /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +94,7 @@
 		EB9D32D81AC1CA0B00347EE5 = {
 			isa = PBXGroup;
 			children = (
+				EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */,
 				EB9D32E31AC1CA0B00347EE5 /* NutriApp */,
 				EB9D33001AC1CA0B00347EE5 /* NutriAppTests */,
 				EB9D32E21AC1CA0B00347EE5 /* Products */,
@@ -83,6 +113,8 @@
 		EB9D32E31AC1CA0B00347EE5 /* NutriApp */ = {
 			isa = PBXGroup;
 			children = (
+				EBA43FD21AC331FB00B5DC7E /* Database */,
+				EBA43FC11AC3238B00B5DC7E /* Entidades */,
 				EB9D32E81AC1CA0B00347EE5 /* AppDelegate.h */,
 				EB9D32E91AC1CA0B00347EE5 /* AppDelegate.m */,
 				EB9D32EE1AC1CA0B00347EE5 /* ViewController.h */,
@@ -92,6 +124,7 @@
 				EB9D32F61AC1CA0B00347EE5 /* LaunchScreen.xib */,
 				EB9D32EB1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld */,
 				EB9D32E41AC1CA0B00347EE5 /* Supporting Files */,
+				EBA43FCE1AC328BB00B5DC7E /* Persistencia */,
 			);
 			path = NutriApp;
 			sourceTree = "<group>";
@@ -120,6 +153,44 @@
 				EB9D33021AC1CA0B00347EE5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EBA43FC11AC3238B00B5DC7E /* Entidades */ = {
+			isa = PBXGroup;
+			children = (
+				EBA43FBE1AC3238400B5DC7E /* Alimento.h */,
+				EBA43FBF1AC3238400B5DC7E /* Alimento.m */,
+				EBA43FC21AC3253E00B5DC7E /* Historico.h */,
+				EBA43FC31AC3253E00B5DC7E /* Historico.m */,
+				EBA43FC51AC3258700B5DC7E /* Refeicao.h */,
+				EBA43FC61AC3258700B5DC7E /* Refeicao.m */,
+				EBA43FC81AC326DE00B5DC7E /* AlimentoComposite.h */,
+				EBA43FC91AC326DE00B5DC7E /* AlimentoComposite.m */,
+			);
+			name = Entidades;
+			sourceTree = "<group>";
+		};
+		EBA43FCE1AC328BB00B5DC7E /* Persistencia */ = {
+			isa = PBXGroup;
+			children = (
+				EBA43FCB1AC328B400B5DC7E /* EntityManager.h */,
+				EBA43FCC1AC328B400B5DC7E /* EntityManager.m */,
+				EBA43FD91AC340E900B5DC7E /* AlimentoDAO.h */,
+				EBA43FDA1AC340E900B5DC7E /* AlimentoDAO.m */,
+				EBA43FDC1AC3413C00B5DC7E /* HistoricoDAO.h */,
+				EBA43FDD1AC3413C00B5DC7E /* HistoricoDAO.m */,
+				EBA43FDF1AC3415800B5DC7E /* RefeicaoDAO.h */,
+				EBA43FE01AC3415800B5DC7E /* RefeicaoDAO.m */,
+			);
+			name = Persistencia;
+			sourceTree = "<group>";
+		};
+		EBA43FD21AC331FB00B5DC7E /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				EBA43FCF1AC32A3500B5DC7E /* alimento.db */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBA43FD31AC3321300B5DC7E /* alimento.db in Resources */,
 				EB9D32F31AC1CA0B00347EE5 /* Main.storyboard in Resources */,
 				EB9D32F81AC1CA0B00347EE5 /* LaunchScreen.xib in Resources */,
 				EB9D32F51AC1CA0B00347EE5 /* Images.xcassets in Resources */,
@@ -223,10 +295,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBA43FC41AC3253E00B5DC7E /* Historico.m in Sources */,
 				EB9D32EA1AC1CA0B00347EE5 /* AppDelegate.m in Sources */,
+				EBA43FCA1AC326DE00B5DC7E /* AlimentoComposite.m in Sources */,
 				EB9D32ED1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld in Sources */,
 				EB9D32F01AC1CA0B00347EE5 /* ViewController.m in Sources */,
+				EBA43FC01AC3238400B5DC7E /* Alimento.m in Sources */,
+				EBA43FCD1AC328B400B5DC7E /* EntityManager.m in Sources */,
 				EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */,
+				EBA43FC71AC3258700B5DC7E /* Refeicao.m in Sources */,
+				EBA43FDE1AC3413C00B5DC7E /* HistoricoDAO.m in Sources */,
+				EBA43FE11AC3415800B5DC7E /* RefeicaoDAO.m in Sources */,
+				EBA43FDB1AC340E900B5DC7E /* AlimentoDAO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +509,7 @@
 				EB9D33091AC1CA0B00347EE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB9D330A1AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "NutriAppTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +518,7 @@
 				EB9D330C1AC1CA0B00347EE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

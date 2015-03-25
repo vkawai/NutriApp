@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-
+#import "Persistencia/HistoricoDAO.h"
+#import "Entidades/Historico.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    _em = [EntityManager sharedInstance];
+    [_em loadDatabase:@"alimento.db"];
+    HistoricoDAO *dao = [[HistoricoDAO alloc] init];
+    NSArray *r = [dao getAllData];
+    for(Historico *h in r){
+        NSLog(@"%d\n",h.codigo);
+    }
 
 }
 
@@ -26,4 +33,8 @@
     
 }
 
+- (IBAction)salvarOMundo:(id)sender {
+    bool certo = [_em saveData:@"INSERT INTO historico(id_historico,data) VALUES (101, 'hoje');"];
+    NSLog(@"%d",certo);
+}
 @end

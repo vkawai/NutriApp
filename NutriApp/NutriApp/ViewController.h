@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Persistencia/EntityManager.h"
 
 @interface ViewController : UIViewController
 
+@property EntityManager *em;
+
+- (IBAction)salvarOMundo:(id)sender;
 
 @end
 
