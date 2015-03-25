@@ -44,7 +44,14 @@ static EntityManager *instance;
 
 }
 
--(BOOL)saveData:(NSString *)query{
+/**
+ *  Método para enviar querys de INSERT, UDPATE e DELETE
+ *
+ *  @param query - String com a query SQL para SQLite
+ *
+ *  @return YES se a query for executada com sucesso, NO caso contrário.
+ */
+-(BOOL)changeData:(NSString *)query{
     sqlite3_stmt *stmt;
     const char *dbpath = [_path UTF8String];
     BOOL success = false;
@@ -63,6 +70,15 @@ static EntityManager *instance;
     return success;
 }
 
+/**
+ *  Método para enviar query de SELECT. Precisa enviar um bloco de execução
+ *  Mostrando como os dados deve ser distribuido para uma entidade.
+ *
+ *  @param query - String contendo a query SQL.
+ *  @param blk   - Bloco de execução contendo o tratamento de dado.
+ *
+ *  @return NSArray contendo o set de resultado.
+ */
 -(NSArray *)getData:(NSString *)query andBlk:(id (^)(sqlite3_stmt*))blk{
 
     sqlite3_stmt *stmt;

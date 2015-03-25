@@ -17,6 +17,6 @@
 +(instancetype)sharedInstance;
 
 -(void)loadDatabase:(NSString *)dataBaseName;
--(BOOL)saveData:(NSString *)query;
+-(BOOL)changeData:(NSString *)query;
 -(NSArray *)getData:(NSString *)query andBlk:(id (^)(sqlite3_stmt*))blk;
 @end
