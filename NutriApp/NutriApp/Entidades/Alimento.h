@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AlimentoComposite.h"
 
-@interface Alimento : NSObject
+@interface Alimento : AlimentoComposite
 
 @property int id_alimento;
 @property NSString* descricao;

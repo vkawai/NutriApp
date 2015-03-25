@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Persistencia/HistoricoDAO.h"
+#import "Persistencia/AlimentoDAO.h"
 #import "Entidades/Historico.h"
 @interface ViewController ()
 
@@ -19,10 +20,10 @@
     [super viewDidLoad];
     _em = [EntityManager sharedInstance];
     [_em loadDatabase:@"alimento.db"];
-    HistoricoDAO *dao = [[HistoricoDAO alloc] init];
+    AlimentoDAO *dao = [[AlimentoDAO alloc] init];
     NSArray *r = [dao getAllData];
-    for(Historico *h in r){
-        NSLog(@"%d\n",h.codigo);
+    for(Alimento *a in r){
+        NSLog(@"%d, %d, %@",a.id_alimento, a.id_categoria, a.descricao);
     }
 
 }
