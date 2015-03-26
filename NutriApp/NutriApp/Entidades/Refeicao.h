@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Alimento.h"
+#import "AlimentoComposite.h"
 
-@interface Refeicao : Alimento
+@interface Refeicao : AlimentoComposite
 
 @property NSArray *alimentos;
 

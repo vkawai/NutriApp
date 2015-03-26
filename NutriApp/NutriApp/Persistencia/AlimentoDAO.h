@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EntityManager.h"
+#import "Alimento.h"
 
 @interface AlimentoDAO : NSObject
+
+-(NSArray *)getAllData;
 
 @end
