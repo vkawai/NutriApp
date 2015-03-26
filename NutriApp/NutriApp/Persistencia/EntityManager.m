@@ -79,7 +79,7 @@ static EntityManager *instance;
  *
  *  @return NSArray contendo o set de resultado.
  */
--(NSArray *)getData:(NSString *)query andBlk:(id (^)(sqlite3_stmt*))blk{
+-(NSArray *)getData:(NSString *)query andBlk:(id (^)(sqlite3_stmt *stmt))blk{
 
     sqlite3_stmt *stmt;
     const char *dbpath = [_path UTF8String];

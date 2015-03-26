@@ -18,5 +18,5 @@
 
 -(void)loadDatabase:(NSString *)dataBaseName;
 -(BOOL)changeData:(NSString *)query;
--(NSArray *)getData:(NSString *)query andBlk:(id (^)(sqlite3_stmt*))blk;
+-(NSArray *)getData:(NSString *)query andBlk:(id (^)(sqlite3_stmt *stmt))blk;
 @end

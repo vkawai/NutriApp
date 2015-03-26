@@ -94,10 +94,10 @@
 		EB9D32D81AC1CA0B00347EE5 = {
 			isa = PBXGroup;
 			children = (
-				EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */,
 				EB9D32E31AC1CA0B00347EE5 /* NutriApp */,
 				EB9D33001AC1CA0B00347EE5 /* NutriAppTests */,
 				EB9D32E21AC1CA0B00347EE5 /* Products */,
+				EBB1B8D91AC4246A002A9CF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +191,14 @@
 				EBA43FCF1AC32A3500B5DC7E /* alimento.db */,
 			);
 			name = Database;
+			sourceTree = "<group>";
+		};
+		EBB1B8D91AC4246A002A9CF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
