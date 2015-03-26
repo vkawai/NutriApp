@@ -22,6 +22,12 @@ static AlimentoDAO *instance;
     return instance;
 }
 
+-(bool)insertNewAlimento:(Alimento *)obj{
+    int identifier = [[em nextIdForTable:@"alimento" withIdName:@"id_alimento"] intValue];
+    return [em changeData:[NSString stringWithFormat:@"INSERT INTO alimento VALUES (%d, %d, %@, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f)",identifier, obj.id_categoria, obj.descricao, obj.umidade, obj.energia, obj.proteina, obj.lipideos, obj.colesterol, obj.carboidrato, obj.fibra_alimentar, obj.cinzas, obj.calcio, obj.magnesio, obj.manganes, obj.fosforo, obj.ferro, obj.sodio, obj.potassio, obj.cobre, obj.zinco, obj.retinol, obj.tiamina, obj.riboflavina, obj.piridoxina, obj.niacina, obj.vitamina_c]];
+
+}   
+
 -(instancetype)init{
     self = [super init];
 
@@ -29,7 +35,7 @@ static AlimentoDAO *instance;
         Alimento *obj = [[Alimento alloc] init];
         obj.id_alimento = sqlite3_column_int(stmt, 0);
         obj.id_categoria = sqlite3_column_int(stmt, 1);
-        obj.descricao = [NSString stringWithFormat:@"%s",sqlite3_column_text(stmt, 2)];
+        obj.descricao = [NSString stringWithCString:(char*)sqlite3_column_text(stmt, 2) encoding:NSUTF8StringEncoding];
         obj.umidade = sqlite3_column_double(stmt, 3);
         obj.energia = sqlite3_column_double(stmt, 4);
         obj.proteina = sqlite3_column_double(stmt, 5);
@@ -66,20 +72,32 @@ static AlimentoDAO *instance;
     return [em changeData:query];
 }
 
--(NSArray*)getAllData{
-    NSArray *resultSet = [em getData:@"SELECT * FROM alimento" andBlk:blk];
+-(NSMutableArray*)getAllData{
+    NSMutableArray *resultSet = [[NSMutableArray alloc]initWithArray:[em getData:@"SELECT * FROM alimento" andBlk:blk]];
+    [self getGrupoAlimentosForGivenSet:resultSet];
     return resultSet;
 }
 
--(NSArray*)getAlimentosFromGivenHistory:(int)identifier{
-    NSArray *resultSet = [em getData:[NSString stringWithFormat:@"SELECT * FROM alimento INNER JOIN alimento_historico ON alimento.id_alimento=alimento_historico.id_alimento WHERE alimento_historico.id_historico=%d",identifier] andBlk:blk];
+-(NSMutableArray*)getAlimentosFromGivenHistory:(int)identifier{
+    NSMutableArray *resultSet = [[NSMutableArray alloc]initWithArray:[em getData:[NSString stringWithFormat:@"SELECT * FROM alimento INNER JOIN alimento_historico ON alimento.id_alimento=alimento_historico.id_alimento WHERE alimento_historico.id_historico=%d",identifier] andBlk:blk]];
+    [self getGrupoAlimentosForGivenSet:resultSet];
     return resultSet;
 }
 
--(NSArray*)getAlimentosFromGivenMeal:(int)identifier{
-
-    NSArray *resultSet = [em getData:[NSString stringWithFormat:@"SELECT * FROM alimento INNER JOIN alimento_refeicoes ON alimento.id_alimento=alimento_refeicoes.id_alimento WHERE alimento_refeicoes.id_refeicao=%d",identifier] andBlk:blk];
+-(NSMutableArray*)getAlimentosFromGivenMeal:(int)identifier{
+    NSMutableArray *resultSet = [[NSMutableArray alloc]initWithArray:[em getData:[NSString stringWithFormat:@"SELECT * FROM alimento INNER JOIN alimento_refeicoes ON alimento.id_alimento=alimento_refeicoes.id_alimento WHERE alimento_refeicoes.id_refeicao=%d",identifier] andBlk:blk]];
+    [self getGrupoAlimentosForGivenSet:resultSet];
     return resultSet;
+}
+
+-(void)getGrupoAlimentosForGivenSet:(NSMutableArray *)set{
+    for(int i = 0; i < [set count]; i++){
+        Alimento *obj = [set objectAtIndex:i];
+        [obj setCategoria:[[em getData:[NSString stringWithFormat:@"SELECT nome_grupo FROM grupo_alimento WHERE id_grupo=%d",obj.id_categoria] andBlk:^id(sqlite3_stmt *stmt) {
+            return [NSString stringWithCString:(char *)sqlite3_column_text(stmt, 0)  encoding:NSUTF8StringEncoding];
+        }] firstObject]];
+        [set replaceObjectAtIndex:i withObject:obj];
+    }
 }
 
 @end

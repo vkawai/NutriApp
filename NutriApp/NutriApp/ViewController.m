@@ -38,7 +38,7 @@
 }
 
 - (IBAction)salvarOMundo:(id)sender {
-    bool certo = [_em changeData:@"INSERT INTO historico(id_historico,data) VALUES (101, 'hoje');"];
+    bool certo = [_em changeData:@"INSERT INTO historico(id_historico,data) VALUES (101, '01/01/1990');"];
     NSLog(@"%d",certo);
     certo = [_em changeData:@"INSERT INTO alimento_historico VALUES (101, 1, 40);"];
     NSLog(@"%d",certo);

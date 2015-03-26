@@ -70,6 +70,7 @@
 		EBB581F11AC471180066644F /* alimento.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = alimento.db; sourceTree = "<group>"; };
 		EBB582251AC47E2B0066644F /* RefeicaoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefeicaoDAO.h; path = Persistencia/RefeicaoDAO.h; sourceTree = "<group>"; };
 		EBB582261AC47E2B0066644F /* RefeicaoDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RefeicaoDAO.m; path = Persistencia/RefeicaoDAO.m; sourceTree = "<group>"; };
+		EBB582281AC49F2A0066644F /* alimento.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = alimento.db; path = NutriApp/alimento.db; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +95,7 @@
 		EB9D32D81AC1CA0B00347EE5 = {
 			isa = PBXGroup;
 			children = (
+				EBB582281AC49F2A0066644F /* alimento.db */,
 				EB9D32E31AC1CA0B00347EE5 /* NutriApp */,
 				EB9D33001AC1CA0B00347EE5 /* NutriAppTests */,
 				EB9D32E21AC1CA0B00347EE5 /* Products */,
