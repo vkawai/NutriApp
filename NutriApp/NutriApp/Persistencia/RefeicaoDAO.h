@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AlimentoDAO.h"
+#import "../Entidades/Refeicao.h"
+#import "EntityManager.h"
 
 @interface RefeicaoDAO : NSObject
+
++(instancetype)sharedInstance;
+-(bool)query:(NSString *)query;
 
 @end

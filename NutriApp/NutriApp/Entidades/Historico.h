@@ -12,6 +12,6 @@
 
 @property int codigo;
 @property NSDate *data;
-@property NSArray *alimentos;
+@property NSMutableArray *alimentos;
 
 @end

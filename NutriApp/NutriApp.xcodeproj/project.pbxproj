@@ -20,11 +20,11 @@
 		EBA43FC71AC3258700B5DC7E /* Refeicao.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FC61AC3258700B5DC7E /* Refeicao.m */; };
 		EBA43FCA1AC326DE00B5DC7E /* AlimentoComposite.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FC91AC326DE00B5DC7E /* AlimentoComposite.m */; };
 		EBA43FCD1AC328B400B5DC7E /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FCC1AC328B400B5DC7E /* EntityManager.m */; };
-		EBA43FD31AC3321300B5DC7E /* alimento.db in Resources */ = {isa = PBXBuildFile; fileRef = EBA43FCF1AC32A3500B5DC7E /* alimento.db */; };
 		EBA43FD51AC3392200B5DC7E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */; };
 		EBA43FDB1AC340E900B5DC7E /* AlimentoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FDA1AC340E900B5DC7E /* AlimentoDAO.m */; };
 		EBA43FDE1AC3413C00B5DC7E /* HistoricoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FDD1AC3413C00B5DC7E /* HistoricoDAO.m */; };
-		EBA43FE11AC3415800B5DC7E /* RefeicaoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA43FE01AC3415800B5DC7E /* RefeicaoDAO.m */; };
+		EBB581F21AC4793C0066644F /* alimento.db in Resources */ = {isa = PBXBuildFile; fileRef = EBB581F11AC471180066644F /* alimento.db */; };
+		EBB582271AC47E2B0066644F /* RefeicaoDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB582261AC47E2B0066644F /* RefeicaoDAO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,14 +62,14 @@
 		EBA43FC91AC326DE00B5DC7E /* AlimentoComposite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlimentoComposite.m; path = Entidades/AlimentoComposite.m; sourceTree = "<group>"; };
 		EBA43FCB1AC328B400B5DC7E /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityManager.h; path = Persistencia/EntityManager.h; sourceTree = "<group>"; };
 		EBA43FCC1AC328B400B5DC7E /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityManager.m; path = Persistencia/EntityManager.m; sourceTree = "<group>"; };
-		EBA43FCF1AC32A3500B5DC7E /* alimento.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = alimento.db; sourceTree = "<group>"; };
 		EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		EBA43FD91AC340E900B5DC7E /* AlimentoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlimentoDAO.h; path = Persistencia/AlimentoDAO.h; sourceTree = "<group>"; };
 		EBA43FDA1AC340E900B5DC7E /* AlimentoDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlimentoDAO.m; path = Persistencia/AlimentoDAO.m; sourceTree = "<group>"; };
 		EBA43FDC1AC3413C00B5DC7E /* HistoricoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HistoricoDAO.h; path = Persistencia/HistoricoDAO.h; sourceTree = "<group>"; };
 		EBA43FDD1AC3413C00B5DC7E /* HistoricoDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HistoricoDAO.m; path = Persistencia/HistoricoDAO.m; sourceTree = "<group>"; };
-		EBA43FDF1AC3415800B5DC7E /* RefeicaoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefeicaoDAO.h; sourceTree = "<group>"; };
-		EBA43FE01AC3415800B5DC7E /* RefeicaoDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefeicaoDAO.m; sourceTree = "<group>"; };
+		EBB581F11AC471180066644F /* alimento.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = alimento.db; sourceTree = "<group>"; };
+		EBB582251AC47E2B0066644F /* RefeicaoDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefeicaoDAO.h; path = Persistencia/RefeicaoDAO.h; sourceTree = "<group>"; };
+		EBB582261AC47E2B0066644F /* RefeicaoDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RefeicaoDAO.m; path = Persistencia/RefeicaoDAO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,8 +179,8 @@
 				EBA43FDA1AC340E900B5DC7E /* AlimentoDAO.m */,
 				EBA43FDC1AC3413C00B5DC7E /* HistoricoDAO.h */,
 				EBA43FDD1AC3413C00B5DC7E /* HistoricoDAO.m */,
-				EBA43FDF1AC3415800B5DC7E /* RefeicaoDAO.h */,
-				EBA43FE01AC3415800B5DC7E /* RefeicaoDAO.m */,
+				EBB582251AC47E2B0066644F /* RefeicaoDAO.h */,
+				EBB582261AC47E2B0066644F /* RefeicaoDAO.m */,
 			);
 			name = Persistencia;
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 		EBA43FD21AC331FB00B5DC7E /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				EBA43FCF1AC32A3500B5DC7E /* alimento.db */,
+				EBB581F11AC471180066644F /* alimento.db */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBA43FD31AC3321300B5DC7E /* alimento.db in Resources */,
+				EBB581F21AC4793C0066644F /* alimento.db in Resources */,
 				EB9D32F31AC1CA0B00347EE5 /* Main.storyboard in Resources */,
 				EB9D32F81AC1CA0B00347EE5 /* LaunchScreen.xib in Resources */,
 				EB9D32F51AC1CA0B00347EE5 /* Images.xcassets in Resources */,
@@ -313,7 +313,7 @@
 				EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */,
 				EBA43FC71AC3258700B5DC7E /* Refeicao.m in Sources */,
 				EBA43FDE1AC3413C00B5DC7E /* HistoricoDAO.m in Sources */,
-				EBA43FE11AC3415800B5DC7E /* RefeicaoDAO.m in Sources */,
+				EBB582271AC47E2B0066644F /* RefeicaoDAO.m in Sources */,
 				EBA43FDB1AC340E900B5DC7E /* AlimentoDAO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

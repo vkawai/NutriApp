@@ -1,19 +1,18 @@
 //
-//  HistoricoDAO.m
+//  RefeicaoDAO.m
 //  NutriApp
 //
 //  Created by Vitor Kawai Sala on 25/03/15.
 //  Copyright (c) 2015 Vitor Kawai Sala. All rights reserved.
 //
 
-#import "HistoricoDAO.h"
-#import <sqlite3.h>
+#import "RefeicaoDAO.h"
 
-@implementation HistoricoDAO{
+@implementation RefeicaoDAO{
     EntityManager *em;
 }
 
-static HistoricoDAO *instance;
+static RefeicaoDAO *instance;
 
 +(instancetype)sharedInstance{
     static dispatch_once_t dispatcher;
@@ -33,23 +32,24 @@ static HistoricoDAO *instance;
     return [em changeData:query];
 }
 
+
 -(NSArray *)getAllData{
 
     NSArray *resultSet = [em getData:@"SELECT * FROM historico" andBlk:^id(sqlite3_stmt *stmt) {
 
         AlimentoDAO *dao = [AlimentoDAO sharedInstance];
 
-        Historico *obj = [[Historico alloc] init];
-        obj.codigo = sqlite3_column_int(stmt, 0);
-        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-        obj.data = [formatter dateFromString:[NSString stringWithFormat:@"%s",sqlite3_column_text(stmt,1)]];
+        Refeicao *obj = [[Refeicao alloc] init];
+        obj.id_alimento = sqlite3_column_int(stmt, 0);
+        obj.descricao = [NSString stringWithFormat:@"%s",sqlite3_column_text(stmt, 1)];
 
-        obj.alimentos = [[NSMutableArray alloc]initWithArray:[dao getAlimentosFromGivenHistory:obj.codigo]];
+        obj.alimentos = [[NSMutableArray alloc] initWithArray:[dao getAlimentosFromGivenMeal:obj.id_alimento]];
 
         return obj;
     }];
-
+    
     return resultSet;
 }
+
 
 @end

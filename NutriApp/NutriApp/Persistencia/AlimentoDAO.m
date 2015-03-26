@@ -7,12 +7,25 @@
 //
 
 #import "AlimentoDAO.h"
-@implementation AlimentoDAO
+@implementation AlimentoDAO{
+    id (^blk)(sqlite3_stmt*);
+    EntityManager *em;
+}
 
--(NSArray*)getAllData{
-    EntityManager *em = [EntityManager sharedInstance];
-    
-    NSArray *resultSet = [em getData:@"SELECT * FROM alimento" andBlk:^id(sqlite3_stmt *stmt) {
+static AlimentoDAO *instance;
+
++(instancetype)sharedInstance{
+    static dispatch_once_t dispatcher;
+    dispatch_once(&dispatcher,^{
+        instance = [[self alloc]init];
+    });
+    return instance;
+}
+
+-(instancetype)init{
+    self = [super init];
+
+    blk = ^id(sqlite3_stmt *stmt){
         Alimento *obj = [[Alimento alloc] init];
         obj.id_alimento = sqlite3_column_int(stmt, 0);
         obj.id_categoria = sqlite3_column_int(stmt, 1);
@@ -40,11 +53,32 @@
         obj.piridoxina = sqlite3_column_double(stmt, 23);
         obj.niacina = sqlite3_column_double(stmt, 24);
         obj.vitamina_c = sqlite3_column_double(stmt, 25);
-        
-        
+
         return obj;
-    }];
-    
+    };
+
+    em = [EntityManager sharedInstance];
+
+    return self;
+}
+
+-(bool)query:(NSString *)query{
+    return [em changeData:query];
+}
+
+-(NSArray*)getAllData{
+    NSArray *resultSet = [em getData:@"SELECT * FROM alimento" andBlk:blk];
+    return resultSet;
+}
+
+-(NSArray*)getAlimentosFromGivenHistory:(int)identifier{
+    NSArray *resultSet = [em getData:[NSString stringWithFormat:@"SELECT * FROM alimento INNER JOIN alimento_historico ON alimento.id_alimento=alimento_historico.id_alimento WHERE alimento_historico.id_historico=%d",identifier] andBlk:blk];
+    return resultSet;
+}
+
+-(NSArray*)getAlimentosFromGivenMeal:(int)identifier{
+
+    NSArray *resultSet = [em getData:[NSString stringWithFormat:@"SELECT * FROM alimento INNER JOIN alimento_refeicoes ON alimento.id_alimento=alimento_refeicoes.id_alimento WHERE alimento_refeicoes.id_refeicao=%d",identifier] andBlk:blk];
     return resultSet;
 }
 

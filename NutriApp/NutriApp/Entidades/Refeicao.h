@@ -11,6 +11,6 @@
 
 @interface Refeicao : AlimentoComposite
 
-@property NSArray *alimentos;
+@property NSMutableArray *alimentos;
 
 @end

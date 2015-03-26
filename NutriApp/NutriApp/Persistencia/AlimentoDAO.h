@@ -12,6 +12,10 @@
 
 @interface AlimentoDAO : NSObject
 
++(instancetype)sharedInstance;
+-(bool)query:(NSString *)query;
 -(NSArray *)getAllData;
+-(NSArray*)getAlimentosFromGivenHistory:(int)identifier;
+-(NSArray*)getAlimentosFromGivenMeal:(int)identifier;
 
 @end

@@ -47,9 +47,10 @@ CREATE TABLE `refeicoes`(
 CREATE TABLE `alimento_refeicoes`(
 	id_refeicao INTEGER NOT NULL,
 	id_alimento INTEGER NOT NULL,
-	quantidade FLOAT NOT NULL DEFAULT=1,
+	quantidade FLOAT NOT NULL,
 	PRIMARY KEY (id_refeicao, id_alimento),
-	FOREIGN KEY (id_refeicao, id_alimento) REFERENCES (refeicoes, alimento)
+	FOREIGN KEY (id_refeicao) REFERENCES refeicoes(id_refeicoes),
+	FOREIGN KEY (id_alimento) REFERENCES alimento(id_alimento)
 );
 
 CREATE TABLE `historico`(
@@ -60,9 +61,10 @@ CREATE TABLE `historico`(
 CREATE TABLE `alimento_historico`(
 	id_historico INTEGER NOT NULL,
 	id_alimento INTEGER NOT NULL,
-	quantidade FLOAT DEFAULT=1,
+	quantidade FLOAT,
 	PRIMARY KEY (id_historico, id_alimento),
-	FOREIGN KEY (id_historico, id_alimento) REFERENCES (historico, alimento)	
+	FOREIGN KEY (id_historico) REFERENCES historico(id_historico),
+	FOREIGN KEY (id_alimento) REFERENCES alimento(id_alimento)
 );
 
 

@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "EntityManager.h"
 #import "../Entidades/Historico.h"
+#import "AlimentoDAO.h"
+
 
 @interface HistoricoDAO : NSObject
 
++(instancetype)sharedInstance;
 -(NSArray *)getAllData;
+-(bool)query:(NSString *)query;
 
 @end

@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "Persistencia/HistoricoDAO.h"
 #import "Persistencia/AlimentoDAO.h"
 #import "Entidades/Historico.h"
+#import "Persistencia/HistoricoDAO.h"
 @interface ViewController ()
 
 @end
@@ -20,10 +20,13 @@
     [super viewDidLoad];
     _em = [EntityManager sharedInstance];
     [_em loadDatabase:@"alimento.db"];
-    AlimentoDAO *dao = [[AlimentoDAO alloc] init];
+    HistoricoDAO *dao = [[HistoricoDAO alloc] init];
     NSArray *r = [dao getAllData];
-    for(Alimento *a in r){
-        NSLog(@"%d, %d, %@",a.id_alimento, a.id_categoria, a.descricao);
+    for(Historico *a in r){
+        NSLog(@"%d, %@, %lu",a.codigo, a.data, (unsigned long)[a.alimentos count]);
+        for(Alimento *ali in a.alimentos){
+            NSLog(@"%d, %d, %@",ali.id_alimento, ali.id_categoria, ali.descricao);
+        }
     }
 
 }
@@ -36,6 +39,10 @@
 
 - (IBAction)salvarOMundo:(id)sender {
     bool certo = [_em changeData:@"INSERT INTO historico(id_historico,data) VALUES (101, 'hoje');"];
+    NSLog(@"%d",certo);
+    certo = [_em changeData:@"INSERT INTO alimento_historico VALUES (101, 1, 40);"];
+    NSLog(@"%d",certo);
+    certo = [_em changeData:@"INSERT INTO alimento_historico VALUES (101, 2, 40);"];
     NSLog(@"%d",certo);
 }
 @end
