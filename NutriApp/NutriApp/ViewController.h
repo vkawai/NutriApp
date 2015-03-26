@@ -11,9 +11,16 @@
 
 @interface ViewController : UIViewController
 
+#define kGraphHeight 300
+#define kDefaultGraphWidth 900
+
+
 @property EntityManager *em;
 
 - (IBAction)salvarOMundo:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollGrafico;
 
 @end
 

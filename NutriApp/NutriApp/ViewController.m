@@ -10,6 +10,8 @@
 #import "Persistencia/AlimentoDAO.h"
 #import "Entidades/Historico.h"
 #import "Persistencia/HistoricoDAO.h"
+#import "DiaTableViewController.h"
+
 @interface ViewController ()
 
 @end
@@ -18,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _scrollGrafico.contentSize = CGSizeMake(kDefaultGraphWidth, kGraphHeight);
+    
     _em = [EntityManager sharedInstance];
     [_em loadDatabase:@"alimento.db"];
     HistoricoDAO *dao = [[HistoricoDAO alloc] init];
@@ -38,11 +43,12 @@
 }
 
 - (IBAction)salvarOMundo:(id)sender {
-    bool certo = [_em changeData:@"INSERT INTO historico(id_historico,data) VALUES (101, 'hoje');"];
-    NSLog(@"%d",certo);
-    certo = [_em changeData:@"INSERT INTO alimento_historico VALUES (101, 1, 40);"];
-    NSLog(@"%d",certo);
-    certo = [_em changeData:@"INSERT INTO alimento_historico VALUES (101, 2, 40);"];
-    NSLog(@"%d",certo);
+//    bool certo = [_em changeData:@"INSERT INTO historico(id_historico,data) VALUES (101, 'hoje');"];
+//    NSLog(@"%d",certo);
+//    certo = [_em changeData:@"INSERT INTO alimento_historico VALUES (101, 1, 40);"];
+//    NSLog(@"%d",certo);
+//    certo = [_em changeData:@"INSERT INTO alimento_historico VALUES (101, 2, 40);"];
+//    NSLog(@"%d",certo);
+    [self presentViewController:[[DiaTableViewController alloc]init] animated:YES completion:nil];
 }
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		154511B51AC48389001BED7F /* DiaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 154511B41AC48389001BED7F /* DiaTableViewController.m */; };
+		154511B81AC48E9F001BED7F /* ComidasTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 154511B71AC48E9F001BED7F /* ComidasTableViewController.m */; };
+		154511BB1AC49576001BED7F /* GraficoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 154511BA1AC49576001BED7F /* GraficoView.m */; };
 		EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32E61AC1CA0B00347EE5 /* main.m */; };
 		EB9D32EA1AC1CA0B00347EE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32E91AC1CA0B00347EE5 /* AppDelegate.m */; };
 		EB9D32ED1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32EB1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld */; };
@@ -38,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		154511B31AC48389001BED7F /* DiaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiaTableViewController.h; path = NutriApp/DiaTableViewController.h; sourceTree = "<group>"; };
+		154511B41AC48389001BED7F /* DiaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiaTableViewController.m; path = NutriApp/DiaTableViewController.m; sourceTree = "<group>"; };
+		154511B61AC48E9F001BED7F /* ComidasTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComidasTableViewController.h; path = NutriApp/ComidasTableViewController.h; sourceTree = "<group>"; };
+		154511B71AC48E9F001BED7F /* ComidasTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ComidasTableViewController.m; path = NutriApp/ComidasTableViewController.m; sourceTree = "<group>"; };
+		154511B91AC49576001BED7F /* GraficoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GraficoView.h; path = NutriApp/GraficoView.h; sourceTree = "<group>"; };
+		154511BA1AC49576001BED7F /* GraficoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GraficoView.m; path = NutriApp/GraficoView.m; sourceTree = "<group>"; };
 		EB9D32E11AC1CA0B00347EE5 /* NutriApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9D32E51AC1CA0B00347EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB9D32E61AC1CA0B00347EE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,6 +103,12 @@
 		EB9D32D81AC1CA0B00347EE5 = {
 			isa = PBXGroup;
 			children = (
+				154511B91AC49576001BED7F /* GraficoView.h */,
+				154511BA1AC49576001BED7F /* GraficoView.m */,
+				154511B61AC48E9F001BED7F /* ComidasTableViewController.h */,
+				154511B71AC48E9F001BED7F /* ComidasTableViewController.m */,
+				154511B31AC48389001BED7F /* DiaTableViewController.h */,
+				154511B41AC48389001BED7F /* DiaTableViewController.m */,
 				EB9D32E31AC1CA0B00347EE5 /* NutriApp */,
 				EB9D33001AC1CA0B00347EE5 /* NutriAppTests */,
 				EB9D32E21AC1CA0B00347EE5 /* Products */,
@@ -305,6 +320,7 @@
 			files = (
 				EBA43FC41AC3253E00B5DC7E /* Historico.m in Sources */,
 				EB9D32EA1AC1CA0B00347EE5 /* AppDelegate.m in Sources */,
+				154511B51AC48389001BED7F /* DiaTableViewController.m in Sources */,
 				EBA43FCA1AC326DE00B5DC7E /* AlimentoComposite.m in Sources */,
 				EB9D32ED1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld in Sources */,
 				EB9D32F01AC1CA0B00347EE5 /* ViewController.m in Sources */,
@@ -312,6 +328,8 @@
 				EBA43FCD1AC328B400B5DC7E /* EntityManager.m in Sources */,
 				EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */,
 				EBA43FC71AC3258700B5DC7E /* Refeicao.m in Sources */,
+				154511BB1AC49576001BED7F /* GraficoView.m in Sources */,
+				154511B81AC48E9F001BED7F /* ComidasTableViewController.m in Sources */,
 				EBA43FDE1AC3413C00B5DC7E /* HistoricoDAO.m in Sources */,
 				EBB582271AC47E2B0066644F /* RefeicaoDAO.m in Sources */,
 				EBA43FDB1AC340E900B5DC7E /* AlimentoDAO.m in Sources */,
