@@ -42,7 +42,7 @@ static HistoricoDAO *instance;
         Historico *obj = [[Historico alloc] init];
         obj.codigo = sqlite3_column_int(stmt, 0);
         NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-        obj.data = [formatter dateFromString:[NSString stringWithFormat:@"%s",sqlite3_column_text(stmt,1)]];
+        obj.data = [formatter dateFromString:[NSString stringWithCString:(char*)sqlite3_column_text(stmt, 1) encoding:NSUTF8StringEncoding]];
 
         obj.alimentos = [[NSMutableArray alloc]initWithArray:[dao getAlimentosFromGivenHistory:obj.codigo]];
 

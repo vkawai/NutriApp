@@ -61,10 +61,17 @@ CREATE TABLE `historico`(
 CREATE TABLE `alimento_historico`(
 	id_historico INTEGER NOT NULL,
 	id_alimento INTEGER NOT NULL,
+    id_tiporefeicao INTEGER NOT NULL,
 	quantidade FLOAT,
 	PRIMARY KEY (id_historico, id_alimento),
 	FOREIGN KEY (id_historico) REFERENCES historico(id_historico),
-	FOREIGN KEY (id_alimento) REFERENCES alimento(id_alimento)
+	FOREIGN KEY (id_alimento) REFERENCES alimento(id_alimento),
+    FOREIGN KEY (id_tiporefeicao) REFERENCES tipo_refeicao(id_tiporefeicao)
+);
+
+CREATE TABLE `tipo_refeicao`(
+    id_tiporefeicao INTEGER PRIMARY KEY NOT NULL,
+    descricao TEXT NOT NULL
 );
 
 
@@ -72,3 +79,4 @@ CREATE TABLE `alimento_historico`(
 .separator ";"
 .import data/grupoalimento.csv grupo_alimento
 .import data/alimento.csv alimento
+.import data/tiporefeicao.csv tipo_refeicao

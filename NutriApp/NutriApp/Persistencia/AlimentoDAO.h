@@ -14,8 +14,8 @@
 
 +(instancetype)sharedInstance;
 -(bool)query:(NSString *)query;
--(NSArray *)getAllData;
--(NSArray*)getAlimentosFromGivenHistory:(int)identifier;
--(NSArray*)getAlimentosFromGivenMeal:(int)identifier;
+-(NSMutableArray *)getAllData;
+-(NSMutableArray*)getAlimentosFromGivenHistory:(int)identifier;
+-(NSMutableArray*)getAlimentosFromGivenMeal:(int)identifier;
 
 @end

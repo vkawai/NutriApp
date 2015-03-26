@@ -98,4 +98,21 @@ static EntityManager *instance;
     return resultSet;
 }
 
+/**
+ *
+ *
+ *  @param tableName Nome da tabela
+ *  @param idName    Nome da coluna que armazena a chave
+ *
+ *  @return NSNumber contendo o valor da próxima chave disponível.
+ */
+-(NSNumber *)nextIdForTable:(NSString *)tableName withIdName:(NSString *)idName{
+    NSNumber *next = [[self getData:[NSString stringWithFormat:@"SELECT MAX(%@)+1 FROM %@",idName, tableName] andBlk:^id(sqlite3_stmt *stmt) {
+        NSNumber *result = [NSNumber numberWithInt:sqlite3_column_int(stmt, 0)];
+        return result;
+    }] firstObject];
+
+    return next;
+}
+
 @end

@@ -12,6 +12,7 @@
 @interface Alimento : AlimentoComposite
 
 @property int id_categoria;
+@property NSString *categoria;
 
 @property float umidade;
 @property float energia;

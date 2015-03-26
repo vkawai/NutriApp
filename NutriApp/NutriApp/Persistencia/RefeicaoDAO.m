@@ -41,7 +41,7 @@ static RefeicaoDAO *instance;
 
         Refeicao *obj = [[Refeicao alloc] init];
         obj.id_alimento = sqlite3_column_int(stmt, 0);
-        obj.descricao = [NSString stringWithFormat:@"%s",sqlite3_column_text(stmt, 1)];
+        obj.descricao = [NSString stringWithCString:(char*)sqlite3_column_text(stmt, 1) encoding:NSUTF8StringEncoding];
 
         obj.alimentos = [[NSMutableArray alloc] initWithArray:[dao getAlimentosFromGivenMeal:obj.id_alimento]];
 
