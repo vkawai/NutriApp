@@ -29,13 +29,13 @@ static HojeSingleton *instance;
         NSMutableArray *lanche;
         NSMutableArray *janta;
         
-        
-        
-        cafe = [[NSMutableArray alloc]initWithObjects:[[Alimento alloc]initWithNome:@"Pão" andCalorias:120.0], [[Alimento alloc]initWithNome:@"Queijo"andCalorias:144.3], nil];
-        almoco = [[NSMutableArray alloc]initWithObjects:[[Alimento alloc]initWithNome:@"Arroz" andCalorias:98.4], [[Alimento alloc]initWithNome:@"Peito de frango" andCalorias:106.7], nil];
-        lanche = [[NSMutableArray alloc]initWithObjects: nil];
-        janta = [[NSMutableArray alloc]initWithObjects:[[Alimento alloc]initWithNome:@"Macarrao" andCalorias:220.4],[[Alimento alloc]initWithNome:@"Omelete" andCalorias:389.0] , nil];
-        
+//        
+//        
+//        cafe = [[NSMutableArray alloc]initWithObjects:[[Alimento alloc]initWithNome:@"Pão" andCalorias:120.0], [[Alimento alloc]initWithNome:@"Queijo"andCalorias:144.3], nil];
+//        almoco = [[NSMutableArray alloc]initWithObjects:[[Alimento alloc]initWithNome:@"Arroz" andCalorias:98.4], [[Alimento alloc]initWithNome:@"Peito de frango" andCalorias:106.7], nil];
+//        lanche = [[NSMutableArray alloc]initWithObjects: nil];
+//        janta = [[NSMutableArray alloc]initWithObjects:[[Alimento alloc]initWithNome:@"Macarrao" andCalorias:220.4],[[Alimento alloc]initWithNome:@"Omelete" andCalorias:389.0] , nil];
+
         _historicoDoDia = [NSMutableArray arrayWithObjects:cafe, almoco, lanche, janta, nil];
         
         

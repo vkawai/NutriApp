@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "CoreDataPersistence.h"
-#import "Entidades/Historico.h"
+#import "../Persistencia/CoreDataPersistence.h"
+#import "../Entidades/Historico.h"
 #import "DiaTableViewController.h"
 #import "ComidasTableViewController.h"
 
@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     _scrollGrafico.contentSize = CGSizeMake(kDefaultGraphWidth, kGraphHeight);
     float dados[] = {0.7, 0.4, 0.5, 0.7, 0.7, 0.4, 0.5, 0.7, 0.67, 0.81, 0.76, 0.9, 1.0, 0.33, 0.85, 0.41, 0.75};
     NSMutableArray *dados2 = [[NSMutableArray alloc]init];
@@ -33,16 +33,16 @@
     }
     _graficoView = [[GraficoView alloc]initWithDados:dados2];
     
-    _em = [EntityManager sharedInstance];
-    [_em loadDatabase:@"alimento.db"];
-    HistoricoDAO *dao = [[HistoricoDAO alloc] init];
-    NSArray *r = [dao getAllData];
-    for(Historico *a in r){
-        NSLog(@"%d, %@, %lu",a.codigo, a.data, (unsigned long)[a.alimentos count]);
-        for(Alimento *ali in a.alimentos){
-            NSLog(@"%d, %d, %@",ali.id_alimento, ali.id_categoria, ali.descricao);
-        }
-    }
+//    _em = [EntityManager sharedInstance];
+//    [_em loadDatabase:@"alimento.db"];
+//    HistoricoDAO *dao = [[HistoricoDAO alloc] init];
+//    NSArray *r = [dao getAllData];
+//    for(Historico *a in r){
+//        NSLog(@"%d, %@, %lu",a.codigo, a.data, (unsigned long)[a.alimentos count]);
+//        for(Alimento *ali in a.alimentos){
+//            NSLog(@"%d, %d, %@",ali.id_alimento, ali.id_categoria, ali.descricao);
+//        }
+//    }
 
     CoreDataPersistence *cdp = [CoreDataPersistence sharedInstance];
     [cdp dbInit];
@@ -64,6 +64,6 @@
 //    NSLog(@"%d",certo);
 //    certo = [_em changeData:@"INSERT INTO alimento_historico VALUES (101, 2, 40);"];
 //    NSLog(@"%d",certo);
-    [self.navigationController pushViewController:[[DiaTableViewController alloc]init] animated:YES];
+    [self.navigationController pushViewController:[[ComidasTableViewController alloc]init] animated:YES];
 }
 @end

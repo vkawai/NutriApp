@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GraficoView.h"
 
+
+#define kGraphHeight 300
+#define kDefaultHraphWidth 900
 
 @interface ViewController : UIViewController
 

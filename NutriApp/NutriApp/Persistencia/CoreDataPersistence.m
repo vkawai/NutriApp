@@ -7,7 +7,6 @@
 //
 
 #import "CoreDataPersistence.h"
-#import <objc/runtime.h>
 #import "PersistenceInit.h"
 @implementation CoreDataPersistence
 

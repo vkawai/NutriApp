@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Alimento.h"
+#import "../Entidades/Alimento.h"
 
 @interface HojeSingleton : NSObject
 

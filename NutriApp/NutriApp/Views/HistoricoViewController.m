@@ -7,8 +7,8 @@
 //
 
 #import "HistoricoViewController.h"
-#import "HojeSingleton.h"
-#import "Alimento.h"
+#import "../Business/HojeSingleton.h"
+#import "../Entidades/Alimento.h"
 
 @interface HistoricoViewController ()
 
@@ -74,7 +74,7 @@ NSMutableArray *historicoDia;
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
     
     cell.textLabel.text = [[[historicoDia objectAtIndex:[indexPath section] ]objectAtIndex:indexPath.row] descricao];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f", [[[historicoDia objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]] energia]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f", [[[[historicoDia objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]] energia] floatValue]];
     
     return cell;
 }

@@ -1,63 +1,47 @@
 //
-//  ComidasTableViewController.m
+//  DiaTableViewController.m
 //  NutriApp
 //
 //  Created by Bruno Omella Mainieri on 3/26/15.
 //  Copyright (c) 2015 Vitor Kawai Sala. All rights reserved.
 //
 
-#import "ComidasTableViewController.h"
-#import "AlimentoDAO.h"
+#import "DiaTableViewController.h"
 #import "Alimento.h"
-#import "HojeSingleton.h"
+#import "ComidasTableViewController.h"
+#import "../Business/HojeSingleton.h"
 
-@interface ComidasTableViewController ()
+@interface DiaTableViewController ()
 
 @end
 
-@implementation ComidasTableViewController
+@implementation DiaTableViewController
 
-NSArray *tudo2;
-NSMutableArray *tudoFormatado;
-
--(instancetype)initWithRefeicao:(int)numRefeicao{
-    self = [super init];
-    if(self){
-        _num=numRefeicao;
-    }
-    return self;
-}
+NSMutableArray *cafe;
+NSMutableArray *almoco;
+NSMutableArray *lanche;
+NSMutableArray *janta;
+NSMutableArray *tudo;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    tudo2 = [[[AlimentoDAO alloc]init] getAllData];
-    tudoFormatado = [[NSMutableArray alloc]init];
-    int cur=-1;
-    for(Alimento *a in tudo2){
-        if(a.id_categoria != cur){
-            cur = a.id_categoria;
-            [tudoFormatado addObject:[[NSMutableArray alloc]init]];
-        }
-        [[tudoFormatado lastObject]addObject:a];
-    }
+    //PREENCHER OS ARRAYS COM OS DADOS DO BD
+    tudo = [HojeSingleton sharedInstance].historicoDoDia;
+    
     
     [self.tableView setSectionHeaderHeight:20];
     
-    switch(_num){
-        case 0:
-            self.navigationItem.title = @"Cafe da manha";
-            break;
-        case 1:
-            self.navigationItem.title = @"Almoco";
-            break;
-        case 2:
-            self.navigationItem.title = @"Lanche";
-            break;
-        default:
-            self.navigationItem.title = @"Janta";
-            break;
+    
+    self.navigationItem.title = @"Refeicoes";
+    
+    float totalCalorias =0.0;
+    for(NSMutableArray *lista in tudo){
+        for(Alimento *comida in lista){
+            totalCalorias += [comida.energia floatValue];
+        }
     }
+    NSLog(@"TOTAL DE CALORIAS: %f kcal",totalCalorias);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,42 +49,69 @@ NSMutableArray *tudoFormatado;
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return tudoFormatado.count;
+    return tudo.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return [[tudoFormatado objectAtIndex:section]count];
+    //return [[tudo objectAtIndex:section] count];
+    return [[tudo objectAtIndex:section]count]+1;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, -20, tableView.frame.size.width, 18)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
     [label setFont:[UIFont boldSystemFontOfSize:12]];
-    NSString *tituloSection = [[[tudoFormatado objectAtIndex:section]firstObject]categoria];
-    [label setText:NSLocalizedString(tituloSection, nil)];
+    if (section == 0){
+        [label setText:NSLocalizedString(@"Café da manha", nil)];
+    }
+    if (section == 1){
+        [label setText:NSLocalizedString(@"Almoço", nil)];
+    }
+    if (section == 2){
+        [label setText:NSLocalizedString(@"Lanche", nil)];
+    }
+    if (section == 3){
+        [label setText:NSLocalizedString(@"Jantar", nil)];
+    }
     [header addSubview:label];
     [header setBackgroundColor:[UIColor grayColor]];
     return header;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
     
-    cell.textLabel.text = [[[tudoFormatado objectAtIndex:[indexPath section] ]objectAtIndex:indexPath.row] descricao];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f", [[[tudoFormatado objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]] energia]];
+    if([indexPath row] == [self tableView:[self tableView] numberOfRowsInSection:indexPath.section]-1){
+        cell.textLabel.text = @"Adicionar novo alimento...";
+        
+    }
+    else{
+        cell.textLabel.text = [[[tudo objectAtIndex:[indexPath section]] objectAtIndex:indexPath.row] descricao];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal",[[[[tudo objectAtIndex:[indexPath section]] objectAtIndex:indexPath.row] energia]  floatValue]];
+        
+    }
+    
+    
+    
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    Alimento *esteAlimento = [[tudoFormatado objectAtIndex:[indexPath section]]objectAtIndex:indexPath.row];
-    NSLog(@"%@", esteAlimento.descricao);
-    [[[HojeSingleton sharedInstance].historicoDoDia objectAtIndex:_num] addObject:esteAlimento];
+    if([indexPath row] == [[tudo objectAtIndex:[indexPath section]] count]){
+        [self.navigationController pushViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES];
+        //[self presentViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES completion:nil];
+    }
 }
 
 /*

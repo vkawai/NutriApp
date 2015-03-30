@@ -1,48 +1,67 @@
 //
-//  DiaTableViewController.m
+//  ComidasTableViewController.m
 //  NutriApp
 //
 //  Created by Bruno Omella Mainieri on 3/26/15.
 //  Copyright (c) 2015 Vitor Kawai Sala. All rights reserved.
 //
 
-#import "DiaTableViewController.h"
-#import "Alimento.h"
 #import "ComidasTableViewController.h"
-#import "AlimentoDAO.h"
-#import "HojeSingleton.h"
+#import "../Entidades/Alimento.h"
+#import "../Business/HojeSingleton.h"
+#import "../Persistencia/CoreDataPersistence.h"
 
-@interface DiaTableViewController ()
+@interface ComidasTableViewController ()
 
 @end
 
-@implementation DiaTableViewController
+@implementation ComidasTableViewController
 
-NSMutableArray *cafe;
-NSMutableArray *almoco;
-NSMutableArray *lanche;
-NSMutableArray *janta;
-NSMutableArray *tudo;
+NSArray *tudo2;
+NSMutableArray *tudoFormatado;
+
+-(instancetype)initWithRefeicao:(int)numRefeicao{
+    self = [super init];
+    if(self){
+        _num=numRefeicao;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //PREENCHER OS ARRAYS COM OS DADOS DO BD
-    tudo = [HojeSingleton sharedInstance].historicoDoDia;
-    
+
+
+    //CARREGA ESSE TAL DESSE TUDO2 COM TODOS OS ALIMENTOS, DE PREFERENCIA COM O NOME DA CATEGORIA JA COLOCADO LA
+
+    CoreDataPersistence *coreData = [CoreDataPersistence sharedInstance];
+    tudo2 = [coreData fetchDataForEntity:@"Alimento" usingPredicate:nil];
+    tudoFormatado = [[NSMutableArray alloc]init];
+    GrupoAlimento *cur = nil;
+    for(Alimento *a in tudo2){
+        if(a.partOf != cur){
+            cur = a.partOf;
+            [tudoFormatado addObject:[[NSMutableArray alloc]init]];
+        }
+        [[tudoFormatado lastObject]addObject:a];
+    }
     
     [self.tableView setSectionHeaderHeight:20];
     
-    
-    self.navigationItem.title = @"Refeicoes";
-    
-    float totalCalorias =0.0;
-    for(NSMutableArray *lista in tudo){
-        for(Alimento *comida in lista){
-            totalCalorias += comida.energia;
-        }
+    switch(_num){
+        case 0:
+            self.navigationItem.title = @"Cafe da manha";
+            break;
+        case 1:
+            self.navigationItem.title = @"Almoco";
+            break;
+        case 2:
+            self.navigationItem.title = @"Lanche";
+            break;
+        default:
+            self.navigationItem.title = @"Janta";
+            break;
     }
-    NSLog(@"TOTAL DE CALORIAS: %f kcal",totalCalorias);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,69 +69,42 @@ NSMutableArray *tudo;
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [self.tableView reloadData];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return tudo.count;
+    // Return the number of sections.
+    return tudoFormatado.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return [[tudo objectAtIndex:section] count];
-    return [[tudo objectAtIndex:section]count]+1;
+    // Return the number of rows in the section.
+    return [[tudoFormatado objectAtIndex:section]count];
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, -20, tableView.frame.size.width, 18)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
     [label setFont:[UIFont boldSystemFontOfSize:12]];
-    if (section == 0){
-        [label setText:NSLocalizedString(@"Café da manha", nil)];
-    }
-    if (section == 1){
-        [label setText:NSLocalizedString(@"Almoço", nil)];
-    }
-    if (section == 2){
-        [label setText:NSLocalizedString(@"Lanche", nil)];
-    }
-    if (section == 3){
-        [label setText:NSLocalizedString(@"Jantar", nil)];
-    }
+    NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section]firstObject]partOf]nomeGrupo];
+    [label setText:NSLocalizedString(tituloSection, nil)];
     [header addSubview:label];
     [header setBackgroundColor:[UIColor grayColor]];
     return header;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
     
-    if([indexPath row] == [self tableView:[self tableView] numberOfRowsInSection:indexPath.section]-1){
-        cell.textLabel.text = @"Adicionar novo alimento...";
-        
-    }
-    else{
-        cell.textLabel.text = [[[tudo objectAtIndex:[indexPath section]] objectAtIndex:indexPath.row] descricao];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal",[[[tudo objectAtIndex:[indexPath section]] objectAtIndex:indexPath.row] energia]];
-        
-    }
-    
-    
-    
+    cell.textLabel.text = [[[tudoFormatado objectAtIndex:[indexPath section] ]objectAtIndex:indexPath.row] descricao];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f", [[[[tudoFormatado objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]] energia] floatValue]];
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if([indexPath row] == [[tudo objectAtIndex:[indexPath section]] count]){
-        [self.navigationController pushViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES];
-        //[self presentViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES completion:nil];
-    }
+    Alimento *esteAlimento = [[tudoFormatado objectAtIndex:[indexPath section]]objectAtIndex:indexPath.row];
+    NSLog(@"%@", esteAlimento.descricao);
+    [[[HojeSingleton sharedInstance].historicoDoDia objectAtIndex:_num] addObject:esteAlimento];
 }
 
 /*
