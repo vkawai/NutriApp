@@ -13,5 +13,10 @@
 
 - (IBAction)salvarOMundo:(id)sender;
 
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollGrafico;
+
+@property (strong, nonatomic) IBOutlet GraficoView *graficoView;
+
 @end
 
