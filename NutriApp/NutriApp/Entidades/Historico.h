@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#define REFEICAO_CAFEMANHA 0
+#define REFEICAO_ALMOCO 1
+#define REFEICAO_LANCHE 2
+#define REFEICAO_JANTAR 3
+
 @class Refeicoes;
 
 @interface Historico : NSManagedObject
