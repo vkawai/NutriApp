@@ -20,6 +20,7 @@ static EntityManager *instance;
     return instance;
 }
 
+
 /**
  *
  *
@@ -32,11 +33,11 @@ static EntityManager *instance;
     _path = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:dataBaseName]];
 
     NSFileManager *fm = [NSFileManager defaultManager];
-
-    NSLog(@"%@\n",_path);
+//#warning REMOVER!
+//    NSLog(@"%@\n",_path);
     if([fm fileExistsAtPath:_path] == NO){
 
-        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"alimento" ofType:@"db"];
+        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:dataBaseName ofType:@"db"];
 
         [fm copyItemAtPath:bundlePath toPath:_path error:nil];
 

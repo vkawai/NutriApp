@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS `alimento_refeicoes`;
-DROP TABLE IF EXISTS `alimento_historico`;
+DROP TABLE IF EXISTS `refeicao_historico`;
 DROP TABLE IF EXISTS `alimento`;
 DROP TABLE IF EXISTS `grupo_alimento`;
 DROP TABLE IF EXISTS `historico`;
@@ -58,14 +58,14 @@ CREATE TABLE `historico`(
 	data TEXT NOT NULL
 );
 
-CREATE TABLE `alimento_historico`(
+CREATE TABLE `refeicao_historico`(
 	id_historico INTEGER NOT NULL,
-	id_alimento INTEGER NOT NULL,
+	id_refeicao INTEGER NOT NULL,
     id_tiporefeicao INTEGER NOT NULL,
 	quantidade FLOAT,
-	PRIMARY KEY (id_historico, id_alimento),
+	PRIMARY KEY (id_historico, id_refeicao),
 	FOREIGN KEY (id_historico) REFERENCES historico(id_historico),
-	FOREIGN KEY (id_alimento) REFERENCES alimento(id_alimento),
+	FOREIGN KEY (id_refeicao) REFERENCES refeicoes(id_refeicao),
     FOREIGN KEY (id_tiporefeicao) REFERENCES tipo_refeicao(id_tiporefeicao)
 );
 

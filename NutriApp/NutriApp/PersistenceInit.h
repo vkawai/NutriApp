@@ -1,5 +1,5 @@
 //
-//  HistoricoDAO.h
+//  AlimentoDAO.h
 //  NutriApp
 //
 //  Created by Vitor Kawai Sala on 25/03/15.
@@ -8,14 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "EntityManager.h"
-#import "../Entidades/Historico.h"
-#import "AlimentoDAO.h"
+#import "Alimento.h"
 
-
-@interface HistoricoDAO : NSObject
+@interface PersistenceInit : NSObject
 
 +(instancetype)sharedInstance;
--(NSArray *)getAllData;
--(bool)query:(NSString *)query;
+-(void)fillCoreDataDatabase;
+-(NSString *)getGrupoAlimentosForGivenSet:(int)identifier;
 
 @end

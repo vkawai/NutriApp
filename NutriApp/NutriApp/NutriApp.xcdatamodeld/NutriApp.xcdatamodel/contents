@@ -1,4 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1514" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+    <entity name="Alimento" representedClassName="Alimento" syncable="YES">
+        <attribute name="calcio" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="carboidrato" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="cinzas" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="cobre" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="colesterol" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="descricao" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="energia" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="ferro" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fibraAlimentar" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fosforo" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lipideos" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="magnesio" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="manganes" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="niacina" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="piridoxina" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="potassio" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="proteina" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="retinol" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="riboflavina" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="sodio" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tiamina" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="umidade" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="vitaminaC" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="zinco" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="igredientOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RefeicoesAlimento" inverseName="contais" inverseEntity="RefeicoesAlimento" syncable="YES"/>
+        <relationship name="partOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GrupoAlimento" inverseName="contains" inverseEntity="GrupoAlimento" syncable="YES"/>
+    </entity>
+    <entity name="GrupoAlimento" representedClassName="GrupoAlimento" syncable="YES">
+        <attribute name="nomeGrupo" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Alimento" inverseName="partOf" inverseEntity="Alimento" syncable="YES"/>
+    </entity>
+    <entity name="Refeicoes" representedClassName="Refeicoes" syncable="YES">
+        <attribute name="nome" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="contais" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RefeicoesAlimento" inverseName="partOf" inverseEntity="RefeicoesAlimento" syncable="YES"/>
+        <relationship name="partOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TipoRefeicao" inverseName="contains" inverseEntity="TipoRefeicao" syncable="YES"/>
+    </entity>
+    <entity name="RefeicoesAlimento" representedClassName="RefeicoesAlimento" syncable="YES">
+        <attribute name="quantidade" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="contais" maxCount="1" deletionRule="Nullify" destinationEntity="Alimento" inverseName="igredientOf" inverseEntity="Alimento" syncable="YES"/>
+        <relationship name="partOf" maxCount="1" deletionRule="Nullify" destinationEntity="Refeicoes" inverseName="contais" inverseEntity="Refeicoes" syncable="YES"/>
+    </entity>
+    <entity name="TipoRefeicao" representedClassName="TipoRefeicao" syncable="YES">
+        <attribute name="descricao" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Refeicoes" inverseName="partOf" inverseEntity="Refeicoes" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Alimento" positionX="-497" positionY="-27" width="128" height="433"/>
+        <element name="GrupoAlimento" positionX="-243" positionY="162" width="128" height="73"/>
+        <element name="Refeicoes" positionX="-54" positionY="36" width="128" height="88"/>
+        <element name="RefeicoesAlimento" positionX="-288" positionY="18" width="128" height="88"/>
+        <element name="TipoRefeicao" positionX="-47" positionY="206" width="128" height="73"/>
+    </elements>
 </model>
