@@ -10,6 +10,7 @@
 #import "Alimento.h"
 #import "ComidasTableViewController.h"
 #import "AlimentoDAO.h"
+#import "HojeSingleton.h"
 
 @interface DiaTableViewController ()
 
@@ -27,11 +28,13 @@ NSMutableArray *tudo;
     [super viewDidLoad];
     
     //PREENCHER OS ARRAYS COM OS DADOS DO BD
+    tudo = [HojeSingleton sharedInstance].historicoDoDia;
+    
+    
+    [self.tableView setSectionHeaderHeight:20];
+    
     
     self.navigationItem.title = @"Refeicoes";
-    
-    Alimento *vazio = [[Alimento alloc] init];
-    [vazio setEnergia:0.0];
     
     float totalCalorias =0.0;
     for(NSMutableArray *lista in tudo){
@@ -47,15 +50,19 @@ NSMutableArray *tudo;
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return tudo.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //return [[tudo objectAtIndex:section] count];
-    return 5;
+    return [[tudo objectAtIndex:section]count]+1;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -102,8 +109,9 @@ NSMutableArray *tudo;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if([indexPath row] == [self.tableView numberOfRowsInSection:indexPath.section]-1){
+    if([indexPath row] == [[tudo objectAtIndex:[indexPath section]] count]){
         [self.navigationController pushViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES];
+        //[self presentViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES completion:nil];
     }
 }
 

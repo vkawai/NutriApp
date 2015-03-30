@@ -9,6 +9,7 @@
 #import "ComidasTableViewController.h"
 #import "AlimentoDAO.h"
 #import "Alimento.h"
+#import "HojeSingleton.h"
 
 @interface ComidasTableViewController ()
 
@@ -16,7 +17,8 @@
 
 @implementation ComidasTableViewController
 
-NSArray *tudo;
+NSArray *tudo2;
+NSMutableArray *tudoFormatado;
 
 -(instancetype)initWithRefeicao:(int)numRefeicao{
     self = [super init];
@@ -29,7 +31,18 @@ NSArray *tudo;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    tudo = [[[AlimentoDAO alloc]init] getAllData];
+    tudo2 = [[[AlimentoDAO alloc]init] getAllData];
+    tudoFormatado = [[NSMutableArray alloc]init];
+    int cur=-1;
+    for(Alimento *a in tudo2){
+        if(a.id_categoria != cur){
+            cur = a.id_categoria;
+            [tudoFormatado addObject:[[NSMutableArray alloc]init]];
+        }
+        [[tudoFormatado lastObject]addObject:a];
+    }
+    
+    [self.tableView setSectionHeaderHeight:20];
     
     switch(_num){
         case 0:
@@ -55,27 +68,40 @@ NSArray *tudo;
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return tudoFormatado.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return tudo.count;
+    return [[tudoFormatado objectAtIndex:section]count];
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, -20, tableView.frame.size.width, 18)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
+    [label setFont:[UIFont boldSystemFontOfSize:12]];
+    NSString *tituloSection = [[[tudoFormatado objectAtIndex:section]firstObject]categoria];
+    [label setText:NSLocalizedString(tituloSection, nil)];
+    [header addSubview:label];
+    [header setBackgroundColor:[UIColor grayColor]];
+    return header;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
     
-    cell.textLabel.text = [[tudo objectAtIndex:[indexPath row]] descricao];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f", [[tudo objectAtIndex:[indexPath row]] energia]];
+    cell.textLabel.text = [[[tudoFormatado objectAtIndex:[indexPath section] ]objectAtIndex:indexPath.row] descricao];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f", [[[tudoFormatado objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]] energia]];
     
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    Alimento *esteAlimento = [[tudoFormatado objectAtIndex:[indexPath section]]objectAtIndex:indexPath.row];
+    NSLog(@"%@", esteAlimento.descricao);
+    [[[HojeSingleton sharedInstance].historicoDoDia objectAtIndex:_num] addObject:esteAlimento];
+}
 
 /*
 // Override to support conditional editing of the table view.

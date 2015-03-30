@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Persistencia/EntityManager.h"
+#import "GraficoView.h"
 
 @interface ViewController : UIViewController
 
@@ -21,6 +22,8 @@
 
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollGrafico;
+
+@property (strong, nonatomic) IBOutlet GraficoView *graficoView;
 
 @end
 
