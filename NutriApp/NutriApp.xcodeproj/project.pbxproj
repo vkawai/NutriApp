@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E3CC3931ACB04A70013D83B /* CalendarioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3CC3921ACB04A70013D83B /* CalendarioView.m */; };
 		EB71E4241AC86AD100ED9E39 /* RefeicoesAlimento.m in Sources */ = {isa = PBXBuildFile; fileRef = EB71E4231AC86AD100ED9E39 /* RefeicoesAlimento.m */; };
 		EB71E42A1AC86AD200ED9E39 /* TipoRefeicao.m in Sources */ = {isa = PBXBuildFile; fileRef = EB71E4291AC86AD200ED9E39 /* TipoRefeicao.m */; };
 		EB71E42D1AC86AD200ED9E39 /* Alimento.m in Sources */ = {isa = PBXBuildFile; fileRef = EB71E42C1AC86AD200ED9E39 /* Alimento.m */; };
@@ -45,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E3CC3911ACB04A70013D83B /* CalendarioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarioView.h; path = Views/CalendarioView.h; sourceTree = "<group>"; };
+		6E3CC3921ACB04A70013D83B /* CalendarioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarioView.m; path = Views/CalendarioView.m; sourceTree = "<group>"; };
 		EB71E4221AC86AD100ED9E39 /* RefeicoesAlimento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefeicoesAlimento.h; path = Entidades/RefeicoesAlimento.h; sourceTree = "<group>"; };
 		EB71E4231AC86AD100ED9E39 /* RefeicoesAlimento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RefeicoesAlimento.m; path = Entidades/RefeicoesAlimento.m; sourceTree = "<group>"; };
 		EB71E4281AC86AD200ED9E39 /* TipoRefeicao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TipoRefeicao.h; path = Entidades/TipoRefeicao.h; sourceTree = "<group>"; };
@@ -245,6 +248,8 @@
 				EBEE85581AC9E47400C6EEAD /* GraficoView.m */,
 				EBEE85591AC9E47400C6EEAD /* HistoricoViewController.h */,
 				EBEE855A1AC9E47400C6EEAD /* HistoricoViewController.m */,
+				6E3CC3911ACB04A70013D83B /* CalendarioView.h */,
+				6E3CC3921ACB04A70013D83B /* CalendarioView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 				EBEE85681AC9E4E300C6EEAD /* EntityManager.m in Sources */,
 				EBEE85691AC9E4E300C6EEAD /* PersistenceInit.m in Sources */,
 				EB7AC1EE1AC7308700288EC9 /* CoreDataPersistence.m in Sources */,
+				6E3CC3931ACB04A70013D83B /* CalendarioView.m in Sources */,
 				EBEE856C1AC9E52800C6EEAD /* ViewController.m in Sources */,
 				EBEE855C1AC9E47400C6EEAD /* ConfigViewController.m in Sources */,
 				EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */,

@@ -18,14 +18,25 @@ NSMutableArray *historicoDia;
 
 @implementation HistoricoViewController
 
+#pragma view Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
+    [self.calendarioView calendarView];
     
     //MAGIA PARA CARREGAR OS DADOS DO DIA ESCOLHIDO NO CALENDARIO
     //el señor placeholder
+    self.calendarioView.selectedDay=self.calendarioView.today;// garante que o dia selecionado é o today
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dateUpdated:)
+                                                 name:@"DateUpdated"
+                                               object:nil];
+    
+    
     historicoDia = [[HojeSingleton sharedInstance]historicoDoDia];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,5 +99,11 @@ NSMutableArray *historicoDia;
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)dateUpdated:(NSNotification *)notification{
+    NSLog(@"%@",[notification object]);
+    
+}
+
 
 @end
