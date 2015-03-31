@@ -19,6 +19,7 @@
 		EBA6799A1ACB231A00F8BF94 /* RefeicoesAlimento.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA679991ACB231A00F8BF94 /* RefeicoesAlimento.m */; };
 		EBA679A31ACB23A000F8BF94 /* Alimento.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA679A21ACB23A000F8BF94 /* Alimento.m */; };
 		EBA679A61ACB304500F8BF94 /* Refeicoes.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA679A51ACB304500F8BF94 /* Refeicoes.m */; };
+		EBA679A91ACB3FAF00F8BF94 /* CalendarioView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA679A81ACB3FAF00F8BF94 /* CalendarioView.m */; };
 		EBEE85421AC9D02B00C6EEAD /* GrupoAlimento.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE85411AC9D02B00C6EEAD /* GrupoAlimento.m */; };
 		EBEE85471AC9DB1D00C6EEAD /* alimento.db in Resources */ = {isa = PBXBuildFile; fileRef = EBEE85461AC9DB1D00C6EEAD /* alimento.db */; };
 		EBEE855B1AC9E47400C6EEAD /* ComidasTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE85521AC9E47400C6EEAD /* ComidasTableViewController.m */; };
@@ -64,6 +65,8 @@
 		EBA679A21ACB23A000F8BF94 /* Alimento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alimento.m; path = Entidades/Alimento.m; sourceTree = "<group>"; };
 		EBA679A41ACB304500F8BF94 /* Refeicoes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Refeicoes.h; path = Entidades/Refeicoes.h; sourceTree = "<group>"; };
 		EBA679A51ACB304500F8BF94 /* Refeicoes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Refeicoes.m; path = Entidades/Refeicoes.m; sourceTree = "<group>"; };
+		EBA679A71ACB3FAF00F8BF94 /* CalendarioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarioView.h; path = Views/CalendarioView.h; sourceTree = "<group>"; };
+		EBA679A81ACB3FAF00F8BF94 /* CalendarioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarioView.m; path = Views/CalendarioView.m; sourceTree = "<group>"; };
 		EBEE85401AC9D02B00C6EEAD /* GrupoAlimento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrupoAlimento.h; path = Entidades/GrupoAlimento.h; sourceTree = "<group>"; };
 		EBEE85411AC9D02B00C6EEAD /* GrupoAlimento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrupoAlimento.m; path = Entidades/GrupoAlimento.m; sourceTree = "<group>"; };
 		EBEE85461AC9DB1D00C6EEAD /* alimento.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = alimento.db; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 		EBEE85501AC9E40400C6EEAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EBA679A71ACB3FAF00F8BF94 /* CalendarioView.h */,
+				EBA679A81ACB3FAF00F8BF94 /* CalendarioView.m */,
 				EBEE856A1AC9E52800C6EEAD /* ViewController.h */,
 				EBEE856B1AC9E52800C6EEAD /* ViewController.m */,
 				EBEE85511AC9E47400C6EEAD /* ComidasTableViewController.h */,
@@ -235,8 +240,6 @@
 				EBEE85581AC9E47400C6EEAD /* GraficoView.m */,
 				EBEE85591AC9E47400C6EEAD /* HistoricoViewController.h */,
 				EBEE855A1AC9E47400C6EEAD /* HistoricoViewController.m */,
-				6E3CC3911ACB04A70013D83B /* CalendarioView.h */,
-				6E3CC3921ACB04A70013D83B /* CalendarioView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -363,7 +366,7 @@
 				EBEE85691AC9E4E300C6EEAD /* PersistenceInit.m in Sources */,
 				EBA679A31ACB23A000F8BF94 /* Alimento.m in Sources */,
 				EB7AC1EE1AC7308700288EC9 /* CoreDataPersistence.m in Sources */,
-				6E3CC3931ACB04A70013D83B /* CalendarioView.m in Sources */,
+				EBA679A91ACB3FAF00F8BF94 /* CalendarioView.m in Sources */,
 				EBEE856C1AC9E52800C6EEAD /* ViewController.m in Sources */,
 				EBEE855C1AC9E47400C6EEAD /* ConfigViewController.m in Sources */,
 				EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */,

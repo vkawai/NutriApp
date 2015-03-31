@@ -25,16 +25,19 @@ NSMutableArray *historicoDia;
     [super viewDidLoad];
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
+    [self.calendarioView calendarView];
+    
+    //MAGIA PARA CARREGAR OS DADOS DO DIA ESCOLHIDO NO CALENDARIO
+    //el señor placeholder
+    self.calendarioView.selectedDay=self.calendarioView.today;// garante que o dia selecionado é o today
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dateUpdated:)
+                                                 name:@"DateUpdated"
+                                               object:nil];
+    
+    
+    historicoDia = [[HojeSingleton sharedInstance]historicoDoDia];
 
-    HojeSingleton *hs = [HojeSingleton sharedInstance];
-    historicoDia = [hs historicoDoDia];
-
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -99,5 +102,5 @@ NSMutableArray *historicoDia;
     
 }
 
-
 @end
+
