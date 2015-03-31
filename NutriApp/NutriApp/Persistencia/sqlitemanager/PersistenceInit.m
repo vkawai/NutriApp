@@ -7,6 +7,7 @@
 //
 
 #import "PersistenceInit.h"
+#import "../../Entidades/GrupoAlimento.h"
 #import "CoreDataPersistence.h"
 @implementation PersistenceInit{
     id (^blk)(sqlite3_stmt*);

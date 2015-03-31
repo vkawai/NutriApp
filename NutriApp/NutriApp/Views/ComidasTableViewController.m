@@ -8,6 +8,7 @@
 
 #import "ComidasTableViewController.h"
 #import "../Entidades/Alimento.h"
+#import "../Entidades/GrupoAlimento.h"
 #import "../Business/HojeSingleton.h"
 #import "../Persistencia/CoreDataPersistence.h"
 
@@ -19,6 +20,7 @@
 
 NSArray *tudo2;
 NSMutableArray *tudoFormatado;
+
 
 -(instancetype)initWithRefeicao:(int)numRefeicao{
     self = [super init];
@@ -85,7 +87,7 @@ NSMutableArray *tudoFormatado;
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, -20, tableView.frame.size.width, 18)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
     [label setFont:[UIFont boldSystemFontOfSize:12]];
-    NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section]firstObject]partOf]nomeGrupo];
+    NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section] firstObject] partOf] nomeGrupo];
     [label setText:NSLocalizedString(tituloSection, nil)];
     [header addSubview:label];
     [header setBackgroundColor:[UIColor grayColor]];
@@ -104,7 +106,7 @@ NSMutableArray *tudoFormatado;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     Alimento *esteAlimento = [[tudoFormatado objectAtIndex:[indexPath section]]objectAtIndex:indexPath.row];
     NSLog(@"%@", esteAlimento.descricao);
-    [[[HojeSingleton sharedInstance].historicoDoDia objectAtIndex:_num] addObject:esteAlimento];
+//    [[[HojeSingleton sharedInstance].historicoDoDia objectAtIndex:_num] addObject:esteAlimento];
 }
 
 /*

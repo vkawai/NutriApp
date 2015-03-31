@@ -9,6 +9,8 @@
 #import "HistoricoViewController.h"
 #import "../Business/HojeSingleton.h"
 #import "../Entidades/Alimento.h"
+#import "../Entidades/Refeicoes.h"
+#import "../Entidades/RefeicoesAlimento.h"
 
 @interface HistoricoViewController ()
 
@@ -22,10 +24,11 @@ NSMutableArray *historicoDia;
     [super viewDidLoad];
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
-    
-    //MAGIA PARA CARREGAR OS DADOS DO DIA ESCOLHIDO NO CALENDARIO
-    //el señor placeholder
-    historicoDia = [[HojeSingleton sharedInstance]historicoDoDia];
+
+    HojeSingleton *hs = [HojeSingleton sharedInstance];
+    historicoDia = [hs historicoDoDia];
+
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +49,7 @@ NSMutableArray *historicoDia;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[historicoDia objectAtIndex:section]count];
+    return [[historicoDia objectAtIndex:section] count];
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -72,9 +75,10 @@ NSMutableArray *historicoDia;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
-    
-    cell.textLabel.text = [[[historicoDia objectAtIndex:[indexPath section] ]objectAtIndex:indexPath.row] descricao];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f", [[[[historicoDia objectAtIndex:[indexPath section]] objectAtIndex:[indexPath row]] energia] floatValue]];
+
+    Refeicoes *r = [[historicoDia objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f", [r caloria]];
     
     return cell;
 }

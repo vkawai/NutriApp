@@ -25,39 +25,29 @@
         <attribute name="umidade" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="vitaminaC" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="zinco" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="igredientOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RefeicoesAlimento" inverseName="contais" inverseEntity="RefeicoesAlimento" syncable="YES"/>
+        <relationship name="igredientOf" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RefeicoesAlimento" inverseName="contains" inverseEntity="RefeicoesAlimento" syncable="YES"/>
         <relationship name="partOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GrupoAlimento" inverseName="contains" inverseEntity="GrupoAlimento" syncable="YES"/>
     </entity>
     <entity name="GrupoAlimento" representedClassName="GrupoAlimento" syncable="YES">
         <attribute name="nomeGrupo" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Alimento" inverseName="partOf" inverseEntity="Alimento" syncable="YES"/>
     </entity>
-    <entity name="Historico" representedClassName="Historico" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="tipoRefeicao" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="historyOf" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Refeicoes" inverseName="historyOf" inverseEntity="Refeicoes" syncable="YES"/>
-    </entity>
     <entity name="Refeicoes" representedClassName="Refeicoes" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="nome" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="contais" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RefeicoesAlimento" inverseName="partOf" inverseEntity="RefeicoesAlimento" syncable="YES"/>
-        <relationship name="historyOf" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Historico" inverseName="historyOf" inverseEntity="Historico" syncable="YES"/>
-        <relationship name="partOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TipoRefeicao" inverseName="contains" inverseEntity="TipoRefeicao" syncable="YES"/>
+        <attribute name="saved" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="tipoRefeicao" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RefeicoesAlimento" inverseName="partOf" inverseEntity="RefeicoesAlimento" syncable="YES"/>
     </entity>
     <entity name="RefeicoesAlimento" representedClassName="RefeicoesAlimento" syncable="YES">
         <attribute name="quantidade" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="contais" maxCount="1" deletionRule="Nullify" destinationEntity="Alimento" inverseName="igredientOf" inverseEntity="Alimento" syncable="YES"/>
-        <relationship name="partOf" maxCount="1" deletionRule="Nullify" destinationEntity="Refeicoes" inverseName="contais" inverseEntity="Refeicoes" syncable="YES"/>
-    </entity>
-    <entity name="TipoRefeicao" representedClassName="TipoRefeicao" syncable="YES">
-        <attribute name="descricao" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Refeicoes" inverseName="partOf" inverseEntity="Refeicoes" syncable="YES"/>
+        <relationship name="contains" maxCount="1" deletionRule="Nullify" destinationEntity="Alimento" inverseName="igredientOf" inverseEntity="Alimento" syncable="YES"/>
+        <relationship name="partOf" maxCount="1" deletionRule="Nullify" destinationEntity="Refeicoes" inverseName="contains" inverseEntity="Refeicoes" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Alimento" positionX="-434" positionY="-28" width="128" height="433"/>
-        <element name="GrupoAlimento" positionX="-56" positionY="323" width="128" height="73"/>
-        <element name="Refeicoes" positionX="-36" positionY="45" width="128" height="103"/>
-        <element name="RefeicoesAlimento" positionX="-209" positionY="20" width="128" height="88"/>
-        <element name="TipoRefeicao" positionX="-56" positionY="215" width="128" height="73"/>
-        <element name="Historico" positionX="-92" positionY="-117" width="128" height="88"/>
+        <element name="Alimento" positionX="0" positionY="0" width="128" height="435"/>
+        <element name="GrupoAlimento" positionX="250" positionY="429" width="128" height="75"/>
+        <element name="Refeicoes" positionX="502" positionY="-18" width="128" height="118"/>
+        <element name="RefeicoesAlimento" positionX="268" positionY="-27" width="128" height="90"/>
     </elements>
 </model>

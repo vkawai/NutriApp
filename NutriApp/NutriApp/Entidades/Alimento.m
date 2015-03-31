@@ -2,42 +2,67 @@
 //  Alimento.m
 //  NutriApp
 //
-//  Created by Vitor Kawai Sala on 29/03/15.
+//  Created by Vitor Kawai Sala on 31/03/15.
 //  Copyright (c) 2015 Vitor Kawai Sala. All rights reserved.
 //
 
 #import "Alimento.h"
+#import "GrupoAlimento.h"
 #import "RefeicoesAlimento.h"
-#import "CoreDataPersistence.h"
+
 
 @implementation Alimento
 
-@dynamic descricao;
-@dynamic umidade;
-@dynamic energia;
-@dynamic proteina;
-@dynamic lipideos;
-@dynamic colesterol;
-@dynamic carboidrato;
-@dynamic fibraAlimentar;
-@dynamic cinzas;
 @dynamic calcio;
+@dynamic carboidrato;
+@dynamic cinzas;
+@dynamic cobre;
+@dynamic colesterol;
+@dynamic descricao;
+@dynamic energia;
+@dynamic ferro;
+@dynamic fibraAlimentar;
+@dynamic fosforo;
+@dynamic lipideos;
 @dynamic magnesio;
 @dynamic manganes;
-@dynamic fosforo;
-@dynamic ferro;
-@dynamic sodio;
-@dynamic potassio;
-@dynamic cobre;
-@dynamic zinco;
-@dynamic retinol;
-@dynamic tiamina;
-@dynamic riboflavina;
-@dynamic piridoxina;
 @dynamic niacina;
+@dynamic piridoxina;
+@dynamic potassio;
+@dynamic proteina;
+@dynamic retinol;
+@dynamic riboflavina;
+@dynamic sodio;
+@dynamic tiamina;
+@dynamic umidade;
 @dynamic vitaminaC;
-@dynamic partOf;
+@dynamic zinco;
 @dynamic igredientOf;
+@dynamic partOf;
+
+
+- (void)addIgredientOfObject:(RefeicoesAlimento *)value{
+    NSMutableSet *set = [[NSMutableSet alloc]initWithSet:[self igredientOf]];
+
+    [set addObject:value];
+    [self setIgredientOf:[[NSSet alloc] initWithSet:set]];
+}
+
+- (void)removeIgredientOfObject:(RefeicoesAlimento *)value{
+    NSMutableSet *set = [[NSMutableSet alloc]initWithSet:[self igredientOf]];
+
+    [set removeObject:value];
+    [self setIgredientOf:[[NSSet alloc] initWithSet:set]];
+	
+}
+
+- (void)addIgredientOf:(NSSet *)values{
+	
+}
+
+- (void)removeIgredientOf:(NSSet *)values{
+	
+}
 
 
 @end

@@ -10,6 +10,7 @@
 #import "Alimento.h"
 #import "ComidasTableViewController.h"
 #import "../Business/HojeSingleton.h"
+#import "../Entidades/Refeicoes.h"
 
 @interface DiaTableViewController ()
 
@@ -17,10 +18,7 @@
 
 @implementation DiaTableViewController
 
-NSMutableArray *cafe;
-NSMutableArray *almoco;
-NSMutableArray *lanche;
-NSMutableArray *janta;
+
 NSMutableArray *tudo;
 
 - (void)viewDidLoad {
@@ -35,11 +33,20 @@ NSMutableArray *tudo;
     
     self.navigationItem.title = @"Refeicoes";
     
-    float totalCalorias =0.0;
-    for(NSMutableArray *lista in tudo){
-        for(Alimento *comida in lista){
-            totalCalorias += [comida.energia floatValue];
+    float totalCalorias = 0.0;
+//    for(NSMutableArray *lista in tudo){
+//        if([lista count] > 0){
+//            for(Refeicoes *refeicao in lista){
+//                totalCalorias += [refeicao caloria];
+//            }
+//        }
+//    }
+    for(int section = 0; section < [tudo count]; section++){
+        for(int i = 0; i < [[tudo objectAtIndex:section] count]; i++){
+            Refeicoes *refeicao = [[tudo objectAtIndex:section] objectAtIndex:i];
+            totalCalorias += [refeicao caloria];
         }
+
     }
     NSLog(@"TOTAL DE CALORIAS: %f kcal",totalCalorias);
 }
@@ -61,7 +68,7 @@ NSMutableArray *tudo;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //return [[tudo objectAtIndex:section] count];
-    return [[tudo objectAtIndex:section]count]+1;
+    return [[tudo objectAtIndex:section] count] + 1;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -96,19 +103,15 @@ NSMutableArray *tudo;
         
     }
     else{
-        cell.textLabel.text = [[[tudo objectAtIndex:[indexPath section]] objectAtIndex:indexPath.row] descricao];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal",[[[[tudo objectAtIndex:[indexPath section]] objectAtIndex:indexPath.row] energia]  floatValue]];
-        
+        Refeicoes *r = [[tudo objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        cell.textLabel.text = r.nome;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal", [r caloria]];
     }
-    
-    
-    
-    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if([indexPath row] == [[tudo objectAtIndex:[indexPath section]] count]){
+    if([indexPath row] == [[tudo objectAtIndex:indexPath.section] count]){
         [self.navigationController pushViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES];
         //[self presentViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES completion:nil];
     }

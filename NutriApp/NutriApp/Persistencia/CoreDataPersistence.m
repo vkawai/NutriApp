@@ -106,8 +106,8 @@ static id instance;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"NutriApp.sqlite"];
 
-//#warning REMOVER!
-//    NSLog(@"a: %@",storeURL);
+#warning REMOVER!
+    NSLog(@"a: %@",storeURL);
 
 
     NSError *error = nil;
