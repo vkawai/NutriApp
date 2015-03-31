@@ -20,6 +20,7 @@ NSMutableArray *historicoDia;
 
 @implementation HistoricoViewController
 
+#pragma view Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView setDataSource:self];
@@ -92,5 +93,11 @@ NSMutableArray *historicoDia;
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)dateUpdated:(NSNotification *)notification{
+    NSLog(@"%@",[notification object]);
+    
+}
+
 
 @end

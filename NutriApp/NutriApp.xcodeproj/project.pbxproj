@@ -235,6 +235,8 @@
 				EBEE85581AC9E47400C6EEAD /* GraficoView.m */,
 				EBEE85591AC9E47400C6EEAD /* HistoricoViewController.h */,
 				EBEE855A1AC9E47400C6EEAD /* HistoricoViewController.m */,
+				6E3CC3911ACB04A70013D83B /* CalendarioView.h */,
+				6E3CC3921ACB04A70013D83B /* CalendarioView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -361,6 +363,7 @@
 				EBEE85691AC9E4E300C6EEAD /* PersistenceInit.m in Sources */,
 				EBA679A31ACB23A000F8BF94 /* Alimento.m in Sources */,
 				EB7AC1EE1AC7308700288EC9 /* CoreDataPersistence.m in Sources */,
+				6E3CC3931ACB04A70013D83B /* CalendarioView.m in Sources */,
 				EBEE856C1AC9E52800C6EEAD /* ViewController.m in Sources */,
 				EBEE855C1AC9E47400C6EEAD /* ConfigViewController.m in Sources */,
 				EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */,

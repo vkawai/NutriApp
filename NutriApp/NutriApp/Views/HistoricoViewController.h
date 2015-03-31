@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalendarioView.h"
 
-@interface HistoricoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface HistoricoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet CalendarioView *calendarioView;
 
 @end
