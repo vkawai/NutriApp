@@ -157,16 +157,6 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                 </variation>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQb-q3-zYT">
-                                                <rect key="frame" x="330" y="25" width="30" height="30"/>
-                                                <color key="backgroundColor" red="0.25098039220000001" green="0.56078431370000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="88">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <variation key="heightClass=regular-widthClass=compact">
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                </variation>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnZ-77-gT0">
                                                 <rect key="frame" x="162" y="25" width="39" height="30"/>
                                                 <color key="backgroundColor" red="0.25098039220000001" green="0.56078431370000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -187,11 +177,20 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                 </variation>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQb-q3-zYT">
+                                                <rect key="frame" x="330" y="25" width="30" height="30"/>
+                                                <color key="backgroundColor" red="0.25098039220000001" green="0.56078431370000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="88">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                </variation>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="84B-Fz-FSV" firstAttribute="leading" secondItem="qnv-id-Nwq" secondAttribute="trailing" constant="26" id="8Nt-nT-Cy4"/>
-                                            <constraint firstItem="tQb-q3-zYT" firstAttribute="leading" secondItem="wa9-FS-p3h" secondAttribute="trailing" constant="30" id="BnL-p3-H9Y"/>
                                             <constraint firstItem="HgX-k1-wLA" firstAttribute="baseline" secondItem="LnZ-77-gT0" secondAttribute="baseline" id="LgZ-SZ-yC3"/>
                                             <constraint firstItem="84B-Fz-FSV" firstAttribute="baseline" secondItem="qnv-id-Nwq" secondAttribute="baseline" id="NP8-Wq-ukg"/>
                                             <constraint firstItem="qnv-id-Nwq" firstAttribute="leading" secondItem="rfY-sK-jwX" secondAttribute="trailing" constant="25" id="Oz0-tI-M00"/>
@@ -199,8 +198,11 @@
                                             <constraint firstItem="HgX-k1-wLA" firstAttribute="leading" secondItem="LnZ-77-gT0" secondAttribute="trailing" constant="19" id="Skx-df-zmx"/>
                                             <constraint firstItem="rfY-sK-jwX" firstAttribute="leading" secondItem="Rtz-wM-j0i" secondAttribute="leading" constant="25" id="U9Y-5H-vTa"/>
                                             <constraint firstItem="LnZ-77-gT0" firstAttribute="baseline" secondItem="84B-Fz-FSV" secondAttribute="baseline" id="dvm-Xn-nzJ"/>
+                                            <constraint firstItem="tQb-q3-zYT" firstAttribute="leading" secondItem="wa9-FS-p3h" secondAttribute="trailing" constant="24" id="efw-nx-jBc">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                            </constraint>
+                                            <constraint firstItem="tQb-q3-zYT" firstAttribute="bottom" secondItem="Rtz-wM-j0i" secondAttribute="bottomMargin" id="iz9-54-BlF"/>
                                             <constraint firstItem="rfY-sK-jwX" firstAttribute="top" secondItem="Rtz-wM-j0i" secondAttribute="top" constant="9" id="k8t-PQ-tmV"/>
-                                            <constraint firstItem="tQb-q3-zYT" firstAttribute="baseline" secondItem="wa9-FS-p3h" secondAttribute="baseline" id="kCm-jd-cgF"/>
                                             <constraint firstItem="LnZ-77-gT0" firstAttribute="top" secondItem="Rtz-wM-j0i" secondAttribute="topMargin" id="lpF-nO-fHm"/>
                                             <constraint firstItem="wa9-FS-p3h" firstAttribute="leading" secondItem="HgX-k1-wLA" secondAttribute="trailing" constant="17" id="sAR-7x-gJf"/>
                                             <constraint firstItem="HgX-k1-wLA" firstAttribute="baseline" secondItem="wa9-FS-p3h" secondAttribute="baseline" id="vX5-Ny-Xsq"/>
@@ -213,9 +215,9 @@
                                                 <exclude reference="84B-Fz-FSV"/>
                                                 <exclude reference="HgX-k1-wLA"/>
                                                 <exclude reference="wa9-FS-p3h"/>
-                                                <exclude reference="tQb-q3-zYT"/>
                                                 <exclude reference="LnZ-77-gT0"/>
                                                 <exclude reference="rfY-sK-jwX"/>
+                                                <exclude reference="tQb-q3-zYT"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="zC7-lv-4Ex"/>
@@ -232,8 +234,8 @@
                                                 <exclude reference="Skx-df-zmx"/>
                                                 <exclude reference="vX5-Ny-Xsq"/>
                                                 <exclude reference="sAR-7x-gJf"/>
-                                                <exclude reference="BnL-p3-H9Y"/>
-                                                <exclude reference="kCm-jd-cgF"/>
+                                                <exclude reference="efw-nx-jBc"/>
+                                                <exclude reference="iz9-54-BlF"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -242,9 +244,9 @@
                                                 <include reference="84B-Fz-FSV"/>
                                                 <include reference="HgX-k1-wLA"/>
                                                 <include reference="wa9-FS-p3h"/>
-                                                <include reference="tQb-q3-zYT"/>
                                                 <include reference="LnZ-77-gT0"/>
                                                 <include reference="rfY-sK-jwX"/>
+                                                <include reference="tQb-q3-zYT"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="zC7-lv-4Ex"/>
@@ -261,8 +263,8 @@
                                                 <include reference="Skx-df-zmx"/>
                                                 <include reference="vX5-Ny-Xsq"/>
                                                 <include reference="sAR-7x-gJf"/>
-                                                <include reference="BnL-p3-H9Y"/>
-                                                <include reference="kCm-jd-cgF"/>
+                                                <include reference="efw-nx-jBc"/>
+                                                <include reference="iz9-54-BlF"/>
                                             </mask>
                                         </variation>
                                     </view>
