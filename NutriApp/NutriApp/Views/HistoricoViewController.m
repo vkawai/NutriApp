@@ -23,6 +23,7 @@ NSMutableArray *historicoDia;
 #pragma view Methods
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tabBarItem.selectedImage =[UIImage imageNamed:@"Watch Filled-32"];
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
     [self.calendarioView calendarView];
