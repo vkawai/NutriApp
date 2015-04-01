@@ -94,7 +94,7 @@ NSMutableArray *tudo;
         [label setText:NSLocalizedString(@"Jantar", nil)];
     }
     [header addSubview:label];
-    [header setBackgroundColor:[UIColor grayColor]];
+    [header setBackgroundColor:[UIColor colorWithRed:.15 green:.48 blue:.8 alpha:1]];
     return header;
 }
 

@@ -24,7 +24,7 @@
     NSLog(@"%f",varStepX);
     
     CGContextSetLineWidth(context, 2.0);
-    CGContextSetStrokeColorWithColor(context, [[UIColor colorWithRed:1.0 green:0.5 blue:0 alpha:1.0] CGColor]);
+    CGContextSetStrokeColorWithColor(context, [[UIColor colorWithRed:.15 green:.48 blue:.8 alpha:1] CGColor]);
     
     int maxGraphHeight = kGraphHeight - kOffsetY;
     
@@ -37,7 +37,7 @@
     
     CGContextDrawPath(context, kCGPathStroke);
     
-    CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:1.0 green:0.5 blue:0 alpha:1.0] CGColor]);
+    CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:.15 green:.48 blue:.8 alpha:1] CGColor]);
     
     //cria circulos inscritos a retangulos em cada data point, e entao preenche os circulos
     for (int i = 1; i < _dados.count-1; i++)
@@ -51,7 +51,7 @@
     CGContextDrawPath(context, kCGPathFillStroke);
     
     //cor para preencher a area do grafico
-    CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:1.0 green:0.5 blue:0 alpha:0.5] CGColor]);
+    CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:.15 green:.48 blue:.8 alpha:0.5] CGColor]);
     
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, kOffsetX, kGraphHeight);

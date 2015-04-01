@@ -102,12 +102,14 @@ CoreDataPersistence *coreData;
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, -20, tableView.frame.size.width, 18)];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
-    [label setFont:[UIFont boldSystemFontOfSize:12]];
-    NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section] firstObject] partOf] nomeGrupo];
-    [label setText:NSLocalizedString(tituloSection, nil)];
-    [header addSubview:label];
-    [header setBackgroundColor:[UIColor grayColor]];
+    if([[tudoFormatado objectAtIndex:section]count]>0){
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
+        [label setFont:[UIFont boldSystemFontOfSize:12]];
+        NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section] firstObject] partOf] nomeGrupo];
+        [label setText:NSLocalizedString(tituloSection, nil)];
+        [header addSubview:label];
+        [header setBackgroundColor:[UIColor colorWithRed:.15 green:.48 blue:.8 alpha:1]];
+    }
     return header;
 }
 
