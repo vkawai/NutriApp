@@ -8,11 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "../Entidades/Alimento.h"
+#import "../Persistencia/CoreDataPersistence.h"
+#import "../Entidades/Refeicoes.h"
+#import "../Entidades/RefeicoesAlimento.h"
 
 @interface HojeSingleton : NSObject
 
 @property NSMutableArray *historicoDoDia;
+@property Refeicoes *cafeManha;
+@property Refeicoes *almoco;
+@property Refeicoes *lanche;
+@property Refeicoes *janta;
 
 +(instancetype)sharedInstance;
+-(void)saveMeals;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Persistencia/CoreDataPersistence.h"
+#import "Business/HojeSingleton.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

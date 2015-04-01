@@ -7,8 +7,6 @@
 //
 
 #import "HojeSingleton.h"
-#import "../Persistencia/CoreDataPersistence.h"
-#import "../Entidades/Refeicoes.h"
 
 @implementation HojeSingleton
 
@@ -26,38 +24,127 @@ static HojeSingleton *instance;
     self = [super init];
     
     if(self){
-        NSMutableArray *cafe = [[NSMutableArray alloc] init];
-        NSMutableArray *almoco = [[NSMutableArray alloc] init];
-        NSMutableArray *lanche = [[NSMutableArray alloc] init];
-        NSMutableArray *janta = [[NSMutableArray alloc] init];
 
-        NSArray *temp = [self loadData:@"31/03/2015"];
+        CoreDataPersistence *coredata = [CoreDataPersistence sharedInstance];
+
+        NSMutableArray *c;
+        NSMutableArray *a;
+        NSMutableArray *l;
+        NSMutableArray *j;
+
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+
+        [formatter setDateFormat:@"dd/MM/yyyy"];
+        NSDate *date = [[NSDate alloc]init];
+
+        NSArray *temp = [self loadData:[formatter stringFromDate:date]];
+
         for(Refeicoes *r in temp){
             switch ([r.tipoRefeicao intValue]) {
                 case REFEICAO_CAFEMANHA:
-                    [cafe addObject:r];
+                    _cafeManha = r;
+                    c = [self getArrayWithRefeicao:_cafeManha];
                     break;
                 case REFEICAO_ALMOCO:
-                    [almoco addObject:r];
+                    _almoco = r;
+                    a = [self getArrayWithRefeicao:_almoco];
                     break;
                 case REFEICAO_LANCHE:
-                    [lanche addObject:r];
+                    _lanche = r;
+                    l = [self getArrayWithRefeicao:_lanche];
                     break;
                 case REFEICAO_JANTAR:
-                    [janta addObject:r];
+                    _janta = r;
+                    j = [self getArrayWithRefeicao:_janta];
                     break;
             }
         }
 
+        if(_cafeManha == nil){
+            _cafeManha = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+            c = [[NSMutableArray alloc] init];
+        }
+        if(_almoco == nil){
+            _almoco = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+            a = [[NSMutableArray alloc] init];
+        }
+        if(_lanche == nil){
+            _lanche = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+            l = [[NSMutableArray alloc] init];
+        }
+        if(_janta == nil){
+            _janta = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+            j = [[NSMutableArray alloc] init];
+        }
+
 //        _historicoDoDia = [[NSDictionary alloc]initWithObjects:@[cafe, almoco, lanche, janta] forKeys:@[@"Cafe da manhã",@"Almoço",@"Lanche", @"Janta"]];
         _historicoDoDia = [[NSMutableArray alloc]init];
-        [_historicoDoDia addObject:cafe];
-        [_historicoDoDia addObject:almoco];
-        [_historicoDoDia addObject:lanche];
-        [_historicoDoDia addObject:janta];
+        [_historicoDoDia addObject:c];
+        [_historicoDoDia addObject:a];
+        [_historicoDoDia addObject:l];
+        [_historicoDoDia addObject:j];
     }
     
     return self;
+}
+
+-(NSMutableArray *)getArrayWithRefeicao:(Refeicoes *)refeicao{
+    NSArray *sortedArray = [[[refeicao contains] allObjects] sortedArrayUsingComparator:^NSComparisonResult(RefeicoesAlimento* obj1, RefeicoesAlimento* obj2) {
+        return [[[obj1 contains] descricao] compare:[[obj2 contains] descricao]];
+    }];
+    return [[NSMutableArray alloc]initWithArray:sortedArray];
+}
+
+-(void)saveMeals{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+
+
+    [formatter setDateFormat:@"dd/MM/yyyy"];
+
+    NSDate *now = [NSDate date];
+    NSString *data = [formatter stringFromDate:now];
+
+    [formatter setDateFormat:@"dd/MM/yyyy hh:mm"];
+    now = [formatter dateFromString:[NSString stringWithFormat:@"%@ 00:00",data]];
+
+
+    for (int i = 0; i < _historicoDoDia.count; i++) {
+        NSMutableArray *selected = [_historicoDoDia objectAtIndex:i];
+        for(int j = 0; j < selected.count; j++){
+            RefeicoesAlimento *ra = [selected objectAtIndex:j];
+            switch(i){
+                case REFEICAO_CAFEMANHA:
+                    [_cafeManha addContainsObject:ra];
+                    _cafeManha.data = now;
+                    _cafeManha.tipoRefeicao = @REFEICAO_CAFEMANHA;
+                    ra.partOf = _cafeManha;
+                    break;
+                case REFEICAO_ALMOCO:
+                    [_almoco addContainsObject:ra];
+                    _almoco.data = now;
+                    _almoco.tipoRefeicao = @REFEICAO_ALMOCO;
+
+                    ra.partOf = _almoco;
+                    break;
+                case REFEICAO_LANCHE:
+                    [_lanche addContainsObject:ra];
+                    _lanche.data = now;
+                    _lanche.tipoRefeicao = @REFEICAO_LANCHE;
+
+                    ra.partOf = _lanche;
+                    break;
+                case REFEICAO_JANTAR:
+                    [_janta addContainsObject:ra];
+                    _janta.data = now;
+                    _janta.tipoRefeicao = @REFEICAO_JANTAR;
+
+                    ra.partOf = _janta;
+                    break;
+            }
+        }
+    }
+
+    [[CoreDataPersistence sharedInstance] saveContext];
 }
 
 

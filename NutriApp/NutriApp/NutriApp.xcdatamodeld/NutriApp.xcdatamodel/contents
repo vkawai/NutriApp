@@ -34,7 +34,7 @@
     </entity>
     <entity name="Refeicoes" representedClassName="Refeicoes" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="nome" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="saved" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="tipoRefeicao" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RefeicoesAlimento" inverseName="partOf" inverseEntity="RefeicoesAlimento" syncable="YES"/>

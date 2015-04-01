@@ -11,6 +11,8 @@
 #import "ComidasTableViewController.h"
 #import "../Business/HojeSingleton.h"
 #import "../Entidades/Refeicoes.h"
+#import "../Entidades/RefeicoesAlimento.h"
+#import "../Persistencia/CoreDataPersistence.h"
 
 @interface DiaTableViewController ()
 
@@ -23,10 +25,12 @@ NSMutableArray *tudo;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(saveMeal)];
+    self.navigationItem.rightBarButtonItem = btn;
+
     //PREENCHER OS ARRAYS COM OS DADOS DO BD
     tudo = [HojeSingleton sharedInstance].historicoDoDia;
-    
     
     [self.tableView setSectionHeaderHeight:20];
     
@@ -43,8 +47,8 @@ NSMutableArray *tudo;
 //    }
     for(int section = 0; section < [tudo count]; section++){
         for(int i = 0; i < [[tudo objectAtIndex:section] count]; i++){
-            Refeicoes *refeicao = [[tudo objectAtIndex:section] objectAtIndex:i];
-            totalCalorias += [refeicao caloria];
+            RefeicoesAlimento *refeicao = [[tudo objectAtIndex:section] objectAtIndex:i];
+            totalCalorias += [[refeicao.contains energia] floatValue];
         }
 
     }
@@ -57,6 +61,8 @@ NSMutableArray *tudo;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [[HojeSingleton sharedInstance] saveMeals];
+
     [self.tableView reloadData];
 }
 
@@ -103,9 +109,9 @@ NSMutableArray *tudo;
         
     }
     else{
-        Refeicoes *r = [[tudo objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-        cell.textLabel.text = r.nome;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal", [r caloria]];
+        RefeicoesAlimento *r = [[tudo objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        cell.textLabel.text = r.contains.descricao;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal", [[r.contains energia] floatValue]];
     }
     return cell;
 }
@@ -113,8 +119,12 @@ NSMutableArray *tudo;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if([indexPath row] == [[tudo objectAtIndex:indexPath.section] count]){
         [self.navigationController pushViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES];
-        //[self presentViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES completion:nil];
+
     }
+}
+
+-(void)saveMeal{
+    [[HojeSingleton sharedInstance] saveMeals];
 }
 
 /*

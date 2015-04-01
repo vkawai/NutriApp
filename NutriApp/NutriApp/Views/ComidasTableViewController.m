@@ -8,6 +8,8 @@
 
 #import "ComidasTableViewController.h"
 #import "../Entidades/Alimento.h"
+#import "../Entidades/Refeicoes.h"
+#import "../Entidades/RefeicoesAlimento.h"
 #import "../Entidades/GrupoAlimento.h"
 #import "../Business/HojeSingleton.h"
 #import "../Persistencia/CoreDataPersistence.h"
@@ -18,9 +20,10 @@
 
 @implementation ComidasTableViewController
 
-NSArray *tudo2;
+NSMutableArray *tudo2;
 NSMutableArray *tudoFormatado;
-
+NSMutableArray *selected;
+CoreDataPersistence *coreData;
 
 -(instancetype)initWithRefeicao:(int)numRefeicao{
     self = [super init];
@@ -33,11 +36,25 @@ NSMutableArray *tudoFormatado;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
+    coreData = [CoreDataPersistence sharedInstance];
     //CARREGA ESSE TAL DESSE TUDO2 COM TODOS OS ALIMENTOS, DE PREFERENCIA COM O NOME DA CATEGORIA JA COLOCADO LA
-
     CoreDataPersistence *coreData = [CoreDataPersistence sharedInstance];
-    tudo2 = [coreData fetchDataForEntity:@"Alimento" usingPredicate:nil];
+
+    NSArray *buffer = [[coreData fetchDataForEntity:@"GrupoAlimento" usingPredicate:nil] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [[(GrupoAlimento *)obj1 nomeGrupo] compare:[(GrupoAlimento *)obj2 nomeGrupo]];
+    }];
+
+
+    tudo2 = [[NSMutableArray alloc]init];
+
+    for(GrupoAlimento *ga in buffer){
+        NSArray *aux = [[[ga contains] allObjects] sortedArrayUsingComparator:^NSComparisonResult(Alimento *obj1, Alimento *obj2) {
+            return [[obj1 descricao] compare:[obj2 descricao]];
+        }];
+        
+        [tudo2 addObjectsFromArray:aux];
+    }
+
     tudoFormatado = [[NSMutableArray alloc]init];
     GrupoAlimento *cur = nil;
     for(Alimento *a in tudo2){
@@ -106,7 +123,14 @@ NSMutableArray *tudoFormatado;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     Alimento *esteAlimento = [[tudoFormatado objectAtIndex:[indexPath section]]objectAtIndex:indexPath.row];
     NSLog(@"%@", esteAlimento.descricao);
-//    [[[HojeSingleton sharedInstance].historicoDoDia objectAtIndex:_num] addObject:esteAlimento];
+
+    RefeicoesAlimento *refeicaoAlimento = [NSEntityDescription insertNewObjectForEntityForName:@"RefeicoesAlimento" inManagedObjectContext:[coreData managedObjectContext]];
+
+    [esteAlimento addIgredientOfObject:refeicaoAlimento];
+    [refeicaoAlimento setContains:esteAlimento];
+
+    [[[HojeSingleton sharedInstance].historicoDoDia objectAtIndex:_num] addObject:refeicaoAlimento];
+    [selected addObject:indexPath];
 }
 
 /*

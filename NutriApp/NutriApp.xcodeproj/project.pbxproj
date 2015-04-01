@@ -16,9 +16,9 @@
 		EB9D32F81AC1CA0B00347EE5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB9D32F61AC1CA0B00347EE5 /* LaunchScreen.xib */; };
 		EB9D33041AC1CA0B00347EE5 /* NutriAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D33031AC1CA0B00347EE5 /* NutriAppTests.m */; };
 		EBA43FD51AC3392200B5DC7E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */; };
+		EBA51DE71ACC731C00CE8E05 /* Refeicoes.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA51DE61ACC731C00CE8E05 /* Refeicoes.m */; };
 		EBA6799A1ACB231A00F8BF94 /* RefeicoesAlimento.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA679991ACB231A00F8BF94 /* RefeicoesAlimento.m */; };
 		EBA679A31ACB23A000F8BF94 /* Alimento.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA679A21ACB23A000F8BF94 /* Alimento.m */; };
-		EBA679A61ACB304500F8BF94 /* Refeicoes.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA679A51ACB304500F8BF94 /* Refeicoes.m */; };
 		EBA679A91ACB3FAF00F8BF94 /* CalendarioView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA679A81ACB3FAF00F8BF94 /* CalendarioView.m */; };
 		EBEE85421AC9D02B00C6EEAD /* GrupoAlimento.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE85411AC9D02B00C6EEAD /* GrupoAlimento.m */; };
 		EBEE85471AC9DB1D00C6EEAD /* alimento.db in Resources */ = {isa = PBXBuildFile; fileRef = EBEE85461AC9DB1D00C6EEAD /* alimento.db */; };
@@ -59,12 +59,12 @@
 		EB9D33021AC1CA0B00347EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB9D33031AC1CA0B00347EE5 /* NutriAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NutriAppTests.m; sourceTree = "<group>"; };
 		EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		EBA51DE51ACC731C00CE8E05 /* Refeicoes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Refeicoes.h; path = Entidades/Refeicoes.h; sourceTree = "<group>"; };
+		EBA51DE61ACC731C00CE8E05 /* Refeicoes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Refeicoes.m; path = Entidades/Refeicoes.m; sourceTree = "<group>"; };
 		EBA679981ACB231A00F8BF94 /* RefeicoesAlimento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefeicoesAlimento.h; path = Entidades/RefeicoesAlimento.h; sourceTree = "<group>"; };
 		EBA679991ACB231A00F8BF94 /* RefeicoesAlimento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RefeicoesAlimento.m; path = Entidades/RefeicoesAlimento.m; sourceTree = "<group>"; };
 		EBA679A11ACB23A000F8BF94 /* Alimento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alimento.h; path = Entidades/Alimento.h; sourceTree = "<group>"; };
 		EBA679A21ACB23A000F8BF94 /* Alimento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alimento.m; path = Entidades/Alimento.m; sourceTree = "<group>"; };
-		EBA679A41ACB304500F8BF94 /* Refeicoes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Refeicoes.h; path = Entidades/Refeicoes.h; sourceTree = "<group>"; };
-		EBA679A51ACB304500F8BF94 /* Refeicoes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Refeicoes.m; path = Entidades/Refeicoes.m; sourceTree = "<group>"; };
 		EBA679A71ACB3FAF00F8BF94 /* CalendarioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarioView.h; path = Views/CalendarioView.h; sourceTree = "<group>"; };
 		EBA679A81ACB3FAF00F8BF94 /* CalendarioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarioView.m; path = Views/CalendarioView.m; sourceTree = "<group>"; };
 		EBEE85401AC9D02B00C6EEAD /* GrupoAlimento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrupoAlimento.h; path = Entidades/GrupoAlimento.h; sourceTree = "<group>"; };
@@ -182,8 +182,8 @@
 				EBEE85411AC9D02B00C6EEAD /* GrupoAlimento.m */,
 				EBA679981ACB231A00F8BF94 /* RefeicoesAlimento.h */,
 				EBA679991ACB231A00F8BF94 /* RefeicoesAlimento.m */,
-				EBA679A41ACB304500F8BF94 /* Refeicoes.h */,
-				EBA679A51ACB304500F8BF94 /* Refeicoes.m */,
+				EBA51DE51ACC731C00CE8E05 /* Refeicoes.h */,
+				EBA51DE61ACC731C00CE8E05 /* Refeicoes.m */,
 			);
 			name = Entidades;
 			sourceTree = "<group>";
@@ -363,6 +363,7 @@
 				EBA6799A1ACB231A00F8BF94 /* RefeicoesAlimento.m in Sources */,
 				EB9D32ED1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld in Sources */,
 				EBEE85681AC9E4E300C6EEAD /* EntityManager.m in Sources */,
+				EBA51DE71ACC731C00CE8E05 /* Refeicoes.m in Sources */,
 				EBEE85691AC9E4E300C6EEAD /* PersistenceInit.m in Sources */,
 				EBA679A31ACB23A000F8BF94 /* Alimento.m in Sources */,
 				EB7AC1EE1AC7308700288EC9 /* CoreDataPersistence.m in Sources */,
@@ -375,7 +376,6 @@
 				EBEE855D1AC9E47400C6EEAD /* DiaTableViewController.m in Sources */,
 				EBEE855B1AC9E47400C6EEAD /* ComidasTableViewController.m in Sources */,
 				EBEE855F1AC9E47400C6EEAD /* HistoricoViewController.m in Sources */,
-				EBA679A61ACB304500F8BF94 /* Refeicoes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

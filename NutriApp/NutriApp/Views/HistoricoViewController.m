@@ -80,9 +80,9 @@ NSMutableArray *historicoDia;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
 
-    Refeicoes *r = [[historicoDia objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    RefeicoesAlimento *r = [[historicoDia objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f", [r caloria]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [[r contains] energia]];
     
     return cell;
 }
