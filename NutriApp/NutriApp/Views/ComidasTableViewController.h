@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ComidasTableViewController : UITableViewController
+@interface ComidasTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property int num;
+@property UITableView *tableView;
 
 -(instancetype)initWithRefeicao:(int)numRefeicao;
 

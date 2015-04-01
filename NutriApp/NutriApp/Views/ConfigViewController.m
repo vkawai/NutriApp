@@ -36,4 +36,24 @@
 }
 */
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [_limiteText resignFirstResponder];
+}
+
+- (IBAction)salvar:(id)sender {
+    NSError *erroRegex=nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^[0-9]+$" options:NSRegularExpressionCaseInsensitive error:&erroRegex];
+    
+    if(![regex numberOfMatchesInString:_limiteText.text options:0 range:NSMakeRange(0, _limiteText.text.length)]){
+        UIAlertView *termoInvalido = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Termo inválido!",nil) message:NSLocalizedString(@"Por favor, insira apenas números inteiros.", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [termoInvalido show];
+        return;
+    }
+    NSLog(@"Voce escolheu um limite de %@ do tipo %ld",_limiteText.text, (long)_tipoSelector.selectedSegmentIndex);
+    
+}
+
+- (IBAction)limpar:(id)sender {
+    _limiteText.text = @"";
+}
 @end
