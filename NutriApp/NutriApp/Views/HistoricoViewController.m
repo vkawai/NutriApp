@@ -35,10 +35,8 @@ NSMutableArray *historicoDia;
                                              selector:@selector(dateUpdated:)
                                                  name:@"DateUpdated"
                                                object:nil];
-    
-    
-    historicoDia = [[HojeSingleton sharedInstance]historicoDoDia];
 
+    [self updateData:_calendarioView.selectedDay];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -82,9 +80,9 @@ NSMutableArray *historicoDia;
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
 
     RefeicoesAlimento *r = [[historicoDia objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    cell.textLabel.text = r.contains.descricao;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal", [[r.contains energia] floatValue]];
 
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [[r contains] energia]];
-    
     return cell;
 }
 
@@ -100,7 +98,16 @@ NSMutableArray *historicoDia;
 
 -(void)dateUpdated:(NSNotification *)notification{
     NSLog(@"%@",[notification object]);
+    [self updateData:[notification object]];
+    [_tableView reloadData];
     
+}
+
+-(void)updateData:(NSDate *)date{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
+    [[HojeSingleton sharedInstance] loadPastData:[formatter stringFromDate:date]];
+    historicoDia = [HojeSingleton sharedInstance].historicoDoDia;
 }
 
 @end

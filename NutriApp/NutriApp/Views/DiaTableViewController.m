@@ -20,7 +20,6 @@
 
 @implementation DiaTableViewController
 
-
 NSMutableArray *tudo;
 
 - (void)viewDidLoad {
@@ -29,8 +28,6 @@ NSMutableArray *tudo;
     UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(saveMeal)];
     self.navigationItem.rightBarButtonItem = btn;
 
-    //PREENCHER OS ARRAYS COM OS DADOS DO BD
-    tudo = [HojeSingleton sharedInstance].historicoDoDia;
     
     [self.tableView setSectionHeaderHeight:20];
     
@@ -61,8 +58,9 @@ NSMutableArray *tudo;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [[HojeSingleton sharedInstance] saveMeals];
-
+    //PREENCHER OS ARRAYS COM OS DADOS DO BD
+    [[HojeSingleton sharedInstance] loadTodayData];
+    tudo = [HojeSingleton sharedInstance].historicoDoDia;
     [self.tableView reloadData];
 }
 
@@ -119,7 +117,6 @@ NSMutableArray *tudo;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if([indexPath row] == [[tudo objectAtIndex:indexPath.section] count]){
         [self.navigationController pushViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES];
-
     }
 }
 
