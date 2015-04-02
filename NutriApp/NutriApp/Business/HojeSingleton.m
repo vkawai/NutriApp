@@ -22,7 +22,17 @@ static HojeSingleton *instance;
 
 -(instancetype)init{
     self = [super init];
-
+    //valores para teste, remover depois
+    float dados[] = {0.7, 0.4, 0.5, 0.7, 0.7, 0.4, 0.5, 0.7, 0.67, 0.81, 0.76, 0.9, 1.0, 0.33, 0.85, 0.41, 0.75};
+    _dadosGrafico = [[NSMutableArray alloc]init];
+    
+#warning ESSES DADOS DEVEM VIR DO SINGLETON DE UM ARRAY RESPONSAVEL POR ISSO. PEGAR TIPO OS DEZ DIAS MAIS RECENTES. DIVIDIR ELES POR 4000 PARA OBTER O FLOAT QUE VAI NO GRAFICO
+    
+    float dadosLength = sizeof(dados)/sizeof(dados[0]);
+    
+    for(int i=0; i<dadosLength; i++){
+        [_dadosGrafico addObject:[NSNumber numberWithFloat:dados[i] ]];
+    }
     return self;
 }
 
