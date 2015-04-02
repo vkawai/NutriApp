@@ -642,15 +642,52 @@
                     <view key="view" contentMode="scaleToFill" id="FBC-3R-d9i">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NutriAppForkImage" translatesAutoresizingMaskIntoConstraints="NO" id="4QZ-PK-MqP">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="75" y="335" width="240" height="45"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NutriAppKnifeImage" translatesAutoresizingMaskIntoConstraints="NO" id="UnF-sM-HRF">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="75" y="423" width="240" height="45"/>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NutriApp" translatesAutoresizingMaskIntoConstraints="NO" id="U4g-Tm-EAn">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="80" y="355" width="240" height="90"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.30980392159999998" green="0.63529411759999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="4QZ-PK-MqP"/>
+                                <exclude reference="UnF-sM-HRF"/>
+                                <exclude reference="U4g-Tm-EAn"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="4QZ-PK-MqP"/>
+                                <include reference="UnF-sM-HRF"/>
+                                <include reference="U4g-Tm-EAn"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="faca" destination="4QZ-PK-MqP" id="cN2-ci-iSa"/>
+                        <outlet property="garfo" destination="UnF-sM-HRF" id="xAv-j6-d18"/>
+                        <outlet property="nutriapp" destination="U4g-Tm-EAn" id="Fl1-Hg-rw6"/>
                         <segue destination="Pb4-r7-WIa" kind="show" identifier="loadTabBarControllerSegue" id="9bV-Ma-vCt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aiD-0h-ODg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="264"/>
+            <point key="canvasLocation" x="121.5" y="264"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LdG-qA-vDb">
@@ -765,6 +802,9 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="118" y="334" width="227" height="30"/>
+                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -917,6 +957,9 @@
     </scenes>
     <resources>
         <image name="Camping Tent-32-2" width="32" height="32"/>
+        <image name="NutriApp" width="587" height="132"/>
+        <image name="NutriAppForkImage" width="628" height="70"/>
+        <image name="NutriAppKnifeImage" width="618" height="105"/>
         <image name="User Male Circle-32" width="32" height="32"/>
         <image name="Watch-32" width="32" height="32"/>
     </resources>

@@ -17,10 +17,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _nutriapp.alpha=0;
+    [UIView animateWithDuration:2 animations:^{
+        _nutriapp.alpha=1;
+        [_faca setTransform:CGAffineTransformMakeTranslation(0, -50)];
+        [_garfo setTransform:CGAffineTransformMakeTranslation(0, 50)];
+    } completion:^(BOOL finished) {
+        [self performSelector:@selector(loadTabBarController)
+                   withObject:nil
+                   afterDelay:50];
+    }];
     
-    [self performSelector:@selector(loadTabBarController)
-               withObject:nil
-               afterDelay:1.0];
+    
+    
     
 }
 
