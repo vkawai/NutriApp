@@ -85,7 +85,8 @@
     CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
     for (int i = 1; i < _dados.count; i++)
     {
-        //dados devera trzer tambem o dia de cada valor, para escrever no grafico
+#warning dados deveriam trazer tambem o dia de cada valor, para escrever no grafico
+        //NSString *text = [_dados objectAtIndex:1].texto OU ALGO DO TIPO
         NSString *texto = [NSString stringWithFormat:@"%d/jan", i];
         CGContextShowTextAtPoint(context, kOffsetX + i * varStepX - [texto sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18]].width/2, kGraphBottom - 5, [texto cStringUsingEncoding:NSUTF8StringEncoding], [texto length]);
     }
