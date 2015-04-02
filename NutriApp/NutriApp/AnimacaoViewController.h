@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AnimacaoViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *faca;
+@property (weak, nonatomic) IBOutlet UIImageView *garfo;
+@property (weak, nonatomic) IBOutlet UIImageView *nutriapp;
 
 @end

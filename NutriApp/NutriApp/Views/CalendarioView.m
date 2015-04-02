@@ -182,10 +182,10 @@
     NSDate *diaSelec=[calendar dateFromComponents:diaSelecComp];
     
     selectedDay=diaSelec;
-    NSLog(@"HOJEEE%@",selectedDay);
     [selectedDayLabel setText:[NSString stringWithFormat:@"%@",[format stringFromDate:diaSelec]]];
     [diaSelecComp setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     selectedDay=[calendar dateFromComponents:diaSelecComp];
+    NSLog(@"DIA SENDO MANDADO%@",selectedDay);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DateUpdated"
                                                         object:selectedDay];
 }
