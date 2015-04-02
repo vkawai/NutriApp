@@ -66,7 +66,7 @@ static PersistenceInit *instance;
             obj2.nomeGrupo = groupName;
         }
 
-        obj.partOf = obj2;
+        obj.categoria = obj2;
         [obj2 addContemAlimentoObject:obj];
 
 //        NSLog(@"%@ : %@\n",obj.descricao, obj2.nomeGrupo);

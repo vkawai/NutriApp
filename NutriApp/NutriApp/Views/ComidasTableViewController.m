@@ -73,8 +73,8 @@ UIButton *botaoBusca;
     tudoFormatado = [[NSMutableArray alloc]init];
     GrupoAlimento *cur = nil;
     for(Alimento *a in tudo2){
-        if(a.partOf != cur){
-            cur = a.partOf;
+        if(a.categoria != cur){
+            cur = a.categoria;
             [tudoFormatado addObject:[[NSMutableArray alloc]init]];
         }
         [[tudoFormatado lastObject]addObject:a];
@@ -165,7 +165,7 @@ UIButton *botaoBusca;
     if([[tudoFormatado objectAtIndex:section]count]>0){
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
         [label setFont:[UIFont boldSystemFontOfSize:12]];
-        NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section] firstObject] partOf] nomeGrupo];
+        NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section] firstObject] categoria] nomeGrupo];
         [label setText:NSLocalizedString(tituloSection, nil)];
         [header addSubview:label];
         [header setBackgroundColor:[UIColor colorWithRed:.15 green:.48 blue:.8 alpha:1]];
@@ -189,7 +189,7 @@ UIButton *botaoBusca;
     RefeicoesAlimento *refeicaoAlimento = [NSEntityDescription insertNewObjectForEntityForName:@"RefeicoesAlimento" inManagedObjectContext:[coreData managedObjectContext]];
 
     [esteAlimento addIgredientOfObject:refeicaoAlimento];
-    [refeicaoAlimento setContains:esteAlimento];
+    [refeicaoAlimento setAlimento:esteAlimento];
 
     [[[HojeSingleton sharedInstance].historicoDoDia objectAtIndex:_num] addObject:refeicaoAlimento];
     [selected addObject:indexPath];

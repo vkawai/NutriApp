@@ -37,8 +37,8 @@ static HojeSingleton *instance;
 }
 
 -(NSMutableArray *)getArrayWithRefeicao:(Refeicoes *)refeicao{
-    NSArray *sortedArray = [[[refeicao contains] allObjects] sortedArrayUsingComparator:^NSComparisonResult(RefeicoesAlimento* obj1, RefeicoesAlimento* obj2) {
-        return [[[obj1 contains] descricao] compare:[[obj2 contains] descricao]];
+    NSArray *sortedArray = [[[refeicao refeicoesAlimentos] allObjects] sortedArrayUsingComparator:^NSComparisonResult(RefeicoesAlimento* obj1, RefeicoesAlimento* obj2) {
+        return [[[obj1 alimento] descricao] compare:[[obj2 alimento] descricao]];
     }];
     return [[NSMutableArray alloc]initWithArray:sortedArray];
 }
@@ -72,31 +72,31 @@ static HojeSingleton *instance;
             RefeicoesAlimento *ra = [selected objectAtIndex:j];
             switch(i){
                 case REFEICAO_CAFEMANHA:
-                    [_cafeManha addContainsObject:ra];
+                    [_cafeManha addRefeicoesAlimentosObject:ra];
                     _cafeManha.data = date;
                     _cafeManha.tipoRefeicao = @REFEICAO_CAFEMANHA;
-                    ra.partOf = _cafeManha;
+                    ra.refeicao = _cafeManha;
                     break;
                 case REFEICAO_ALMOCO:
-                    [_almoco addContainsObject:ra];
+                    [_almoco addRefeicoesAlimentosObject:ra];
                     _almoco.data = date;
                     _almoco.tipoRefeicao = @REFEICAO_ALMOCO;
 
-                    ra.partOf = _almoco;
+                    ra.refeicao = _almoco;
                     break;
                 case REFEICAO_LANCHE:
-                    [_lanche addContainsObject:ra];
+                    [_lanche addRefeicoesAlimentosObject:ra];
                     _lanche.data = date;
                     _lanche.tipoRefeicao = @REFEICAO_LANCHE;
 
-                    ra.partOf = _lanche;
+                    ra.refeicao = _lanche;
                     break;
                 case REFEICAO_JANTAR:
-                    [_janta addContainsObject:ra];
+                    [_janta addRefeicoesAlimentosObject:ra];
                     _janta.data = date;
                     _janta.tipoRefeicao = @REFEICAO_JANTAR;
 
-                    ra.partOf = _janta;
+                    ra.refeicao = _janta;
                     break;
             }
         }

@@ -45,7 +45,7 @@
 /**
  *  GrupoAlimento do qual faz parte
  */
-@property (nonatomic, retain) GrupoAlimento *partOf;
+@property (nonatomic, retain) GrupoAlimento *categoria;
 @end
 
 @interface Alimento (CoreDataGeneratedAccessors)

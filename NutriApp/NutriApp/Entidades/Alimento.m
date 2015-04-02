@@ -38,7 +38,7 @@
 @dynamic vitaminaC;
 @dynamic zinco;
 @dynamic igredientOf;
-@dynamic partOf;
+@dynamic categoria;
 
 
 - (void)addIgredientOfObject:(RefeicoesAlimento *)value{

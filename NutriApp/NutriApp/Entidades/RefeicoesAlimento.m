@@ -14,7 +14,7 @@
 @implementation RefeicoesAlimento
 
 @dynamic quantidade;
-@dynamic contains;
-@dynamic partOf;
+@dynamic alimento;
+@dynamic refeicao;
 
 @end

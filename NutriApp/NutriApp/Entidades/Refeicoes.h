@@ -25,15 +25,15 @@
 /**
  *  NSSet de RefeicoesAlimento na qual estão presente nesta refeição.
  */
-@property (nonatomic, retain) NSSet *contains;
+@property (nonatomic, retain) NSSet *refeicoesAlimentos;
 @end
 
 @interface Refeicoes (CoreDataGeneratedAccessors)
 
-- (void)addContainsObject:(RefeicoesAlimento *)value;
-- (void)removeContainsObject:(RefeicoesAlimento *)value;
-- (void)addContains:(NSSet *)values;
-- (void)removeContains:(NSSet *)values;
+- (void)addRefeicoesAlimentosObject:(RefeicoesAlimento *)value;
+- (void)removeRefeicoesAlimentosObject:(RefeicoesAlimento *)value;
+- (void)addRefeicoesAlimentos:(NSSet *)values;
+- (void)removeRefeicoesAlimentos:(NSSet *)values;
 
 -(double)caloria;
 -(double)carboidrado;
