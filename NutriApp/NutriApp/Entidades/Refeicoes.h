@@ -22,6 +22,9 @@
 @property (nonatomic, retain) NSString * nome;
 @property (nonatomic, retain) NSNumber * saved;
 @property (nonatomic, retain) NSNumber * tipoRefeicao;
+/**
+ *  NSSet de RefeicoesAlimento na qual estão presente nesta refeição.
+ */
 @property (nonatomic, retain) NSSet *contains;
 @end
 

@@ -14,7 +14,13 @@
 @interface RefeicoesAlimento : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * quantidade;
+/**
+ *  Alimento que faz parte de uma determinada Refeicao (partOf)
+ */
 @property (nonatomic, retain) Alimento *contains;
+/**
+ *  Refeicao que contem o Alimento (contains)
+ */
 @property (nonatomic, retain) Refeicoes *partOf;
 
 @end

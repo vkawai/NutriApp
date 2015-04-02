@@ -111,6 +111,15 @@ UIButton *botaoBusca;
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    //PREENCHER OS ARRAYS COM OS DADOS DO BD
+    [[HojeSingleton sharedInstance] loadTodayData];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [[HojeSingleton sharedInstance] saveMeals];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

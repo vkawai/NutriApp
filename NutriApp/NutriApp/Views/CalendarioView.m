@@ -17,12 +17,12 @@
 @synthesize today,weekSunday,selectedDay,calendar;
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 -(void)calendarView{
     
@@ -34,12 +34,12 @@
     
     today=[[NSDate alloc]init];// o init é sempre o dia atual
     calendar=[NSCalendar currentCalendar];//pega o calendario default do sistema
-    
-    
+//    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+
     weekArray=@[domButton,segButton,tercButton,quartButton,quintButton,sexButton,sabButton];// seta array de week buttons
     
     [selectedDayLabel setText:[NSString stringWithFormat:@"%@",[format stringFromDate:today]]];// altera o texto para o hoje
-   [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     for (UIButton *botao in weekArray) {
         [botao addTarget:self action:@selector(selectDay:) forControlEvents:UIControlEventTouchDown];
     }
@@ -178,10 +178,14 @@
     [diaSelecComp setDay:[sundayComp day]+(sender.tag-[sundayComp day])];
     [diaSelecComp setMonth:[sundayComp month]];
     [diaSelecComp setYear:[sundayComp year]];
+    [diaSelecComp setTimeZone:[NSTimeZone systemTimeZone]];
     NSDate *diaSelec=[calendar dateFromComponents:diaSelecComp];
     
     selectedDay=diaSelec;
+    NSLog(@"HOJEEE%@",selectedDay);
     [selectedDayLabel setText:[NSString stringWithFormat:@"%@",[format stringFromDate:diaSelec]]];
+    [diaSelecComp setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    selectedDay=[calendar dateFromComponents:diaSelecComp];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DateUpdated"
                                                         object:selectedDay];
 }

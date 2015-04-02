@@ -14,6 +14,9 @@
 @interface GrupoAlimento : NSManagedObject
 
 @property (nonatomic, retain) NSString * nomeGrupo;
+/**
+ *  NSSet de Alimentos que fazem parte do grupo.
+ */
 @property (nonatomic, retain) NSSet *contains;
 @end
 

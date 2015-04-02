@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21F93A3F1ACDAFDF003F86CE /* AnimacaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F93A3E1ACDAFDF003F86CE /* AnimacaoViewController.m */; };
 		EB7AC1EE1AC7308700288EC9 /* CoreDataPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7AC1ED1AC7308700288EC9 /* CoreDataPersistence.m */; };
 		EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32E61AC1CA0B00347EE5 /* main.m */; };
 		EB9D32EA1AC1CA0B00347EE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32E91AC1CA0B00347EE5 /* AppDelegate.m */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21F93A3D1ACDAFDF003F86CE /* AnimacaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimacaoViewController.h; sourceTree = "<group>"; };
+		21F93A3E1ACDAFDF003F86CE /* AnimacaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimacaoViewController.m; sourceTree = "<group>"; };
 		EB7AC1EC1AC7308700288EC9 /* CoreDataPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataPersistence.h; path = Persistencia/CoreDataPersistence.h; sourceTree = "<group>"; };
 		EB7AC1ED1AC7308700288EC9 /* CoreDataPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataPersistence.m; path = Persistencia/CoreDataPersistence.m; sourceTree = "<group>"; };
 		EB9D32E11AC1CA0B00347EE5 /* NutriApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +243,8 @@
 				EBEE85581AC9E47400C6EEAD /* GraficoView.m */,
 				EBEE85591AC9E47400C6EEAD /* HistoricoViewController.h */,
 				EBEE855A1AC9E47400C6EEAD /* HistoricoViewController.m */,
+				21F93A3D1ACDAFDF003F86CE /* AnimacaoViewController.h */,
+				21F93A3E1ACDAFDF003F86CE /* AnimacaoViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				EBEE855E1AC9E47400C6EEAD /* GraficoView.m in Sources */,
 				EBEE855D1AC9E47400C6EEAD /* DiaTableViewController.m in Sources */,
 				EBEE855B1AC9E47400C6EEAD /* ComidasTableViewController.m in Sources */,
+				21F93A3F1ACDAFDF003F86CE /* AnimacaoViewController.m in Sources */,
 				EBEE855F1AC9E47400C6EEAD /* HistoricoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

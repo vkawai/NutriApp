@@ -59,8 +59,12 @@
     [cdp dbInit];
 
     NSLog(@"%@",[[NSBundle mainBundle] pathForResource:@"alimento" ofType:@"db"]);
+    
+
 
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
