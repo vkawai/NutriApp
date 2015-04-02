@@ -105,7 +105,8 @@ NSMutableArray *historicoDia;
 
 -(void)updateData:(NSDate *)date{
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"dd/MM/yyyy"];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    formatter.dateFormat=@"dd/MM/YYYY HH:mm";
     [[HojeSingleton sharedInstance] loadPastData:[formatter stringFromDate:date]];
     historicoDia = [HojeSingleton sharedInstance].historicoDoDia;
 }

@@ -200,11 +200,12 @@ static HojeSingleton *instance;
     [_historicoDoDia addObject:j];
 }
 
+#pragma sakmsoa
 -(NSArray *)loadData:(NSString *)data{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd/MM/yyyy hh:mm"];
     NSDate *searchDate = [formatter dateFromString:[NSString stringWithFormat:@"%@ 00:00",data]];
-    NSLog(@"CUMIDAS PRO DIA: %@",[formatter dateFromString:[NSString stringWithFormat:@"%@ 00:00",data]]);
+    NSLog(@"CUMIDAS PRO DIA: %@",data);
     CoreDataPersistence *coredata = [CoreDataPersistence sharedInstance];
     return [coredata fetchDataForEntity:@"Refeicoes" usingPredicate:[NSPredicate predicateWithFormat:@"data == %@",searchDate]];
 }
