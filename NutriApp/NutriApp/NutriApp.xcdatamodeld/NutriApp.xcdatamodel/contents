@@ -26,11 +26,11 @@
         <attribute name="vitaminaC" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="zinco" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="igredientOf" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RefeicoesAlimento" inverseName="contains" inverseEntity="RefeicoesAlimento" syncable="YES"/>
-        <relationship name="partOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GrupoAlimento" inverseName="contains" inverseEntity="GrupoAlimento" syncable="YES"/>
+        <relationship name="partOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GrupoAlimento" inverseName="contemAlimento" inverseEntity="GrupoAlimento" syncable="YES"/>
     </entity>
     <entity name="GrupoAlimento" representedClassName="GrupoAlimento" syncable="YES">
         <attribute name="nomeGrupo" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Alimento" inverseName="partOf" inverseEntity="Alimento" syncable="YES"/>
+        <relationship name="contemAlimento" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Alimento" inverseName="partOf" inverseEntity="Alimento" syncable="YES"/>
     </entity>
     <entity name="Refeicoes" representedClassName="Refeicoes" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Date" syncable="YES"/>
@@ -45,9 +45,9 @@
         <relationship name="partOf" maxCount="1" deletionRule="Nullify" destinationEntity="Refeicoes" inverseName="contains" inverseEntity="Refeicoes" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Alimento" positionX="0" positionY="0" width="128" height="435"/>
-        <element name="GrupoAlimento" positionX="250" positionY="429" width="128" height="75"/>
-        <element name="Refeicoes" positionX="502" positionY="-18" width="128" height="118"/>
-        <element name="RefeicoesAlimento" positionX="268" positionY="-27" width="128" height="90"/>
+        <element name="Alimento" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="GrupoAlimento" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Refeicoes" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="RefeicoesAlimento" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

@@ -13,27 +13,27 @@
 @implementation GrupoAlimento
 
 @dynamic nomeGrupo;
-@dynamic contains;
+@dynamic contemAlimento;
 
-- (void)addContainsObject:(Alimento *)value{
-    NSMutableSet *set = [[NSMutableSet alloc]initWithSet:[self contains]];
+- (void)addContemAlimentoObject:(Alimento *)value{
+    NSMutableSet *set = [[NSMutableSet alloc]initWithSet:[self contemAlimento]];
 
     [set addObject:value];
-    [self setContains:[[NSSet alloc] initWithSet:set]];
+    [self setContemAlimento:[[NSSet alloc] initWithSet:set]];
 }
 
-- (void)removeContainsObject:(Alimento *)value{
-    NSMutableSet *set = [[NSMutableSet alloc]initWithSet:[self contains]];
+- (void)removeContemAlimentoObject:(Alimento *)value{
+    NSMutableSet *set = [[NSMutableSet alloc]initWithSet:[self contemAlimento]];
 
     [set removeObject:value];
-    [self setContains:[[NSSet alloc] initWithSet:set]];
+    [self setContemAlimento:[[NSSet alloc] initWithSet:set]];
 }
 
-- (void)addContains:(NSSet *)values{
+- (void)addContemAlimento:(NSSet *)values{
 	
 }
 
-- (void)removeContains:(NSSet *)values{
+- (void)removeContemAlimento:(NSSet *)values{
 	
 }
 
