@@ -40,14 +40,14 @@
         <relationship name="refeicoesAlimentos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RefeicoesAlimento" inverseName="refeicao" inverseEntity="RefeicoesAlimento" syncable="YES"/>
     </entity>
     <entity name="RefeicoesAlimento" representedClassName="RefeicoesAlimento" syncable="YES">
-        <attribute name="quantidade" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="quantidade" attributeType="Float" defaultValueString="1" syncable="YES"/>
         <relationship name="alimento" maxCount="1" deletionRule="Nullify" destinationEntity="Alimento" inverseName="igredientOf" inverseEntity="Alimento" syncable="YES"/>
         <relationship name="refeicao" maxCount="1" deletionRule="Nullify" destinationEntity="Refeicoes" inverseName="refeicoesAlimentos" inverseEntity="Refeicoes" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Alimento" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="GrupoAlimento" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Refeicoes" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="RefeicoesAlimento" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Alimento" positionX="0" positionY="0" width="128" height="435"/>
+        <element name="GrupoAlimento" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="Refeicoes" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="RefeicoesAlimento" positionX="0" positionY="0" width="128" height="88"/>
     </elements>
 </model>

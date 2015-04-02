@@ -40,6 +40,7 @@ NSMutableArray *historicoDia;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [self updateData:[_calendarioView selectedDay]];
     [self.tableView reloadData];
     _textoTipo.text = @"Total de calorias: ";
     float totalCalorias = 0.0;

@@ -110,9 +110,44 @@
 //    }
     
     //fim da parte de testes
-    
-    _dados = [[HojeSingleton sharedInstance]dadosGrafico];
-    
+
+    // ----- Carregando dados dos ultimos 10 dias -----
+    CoreDataPersistence *persistence = [CoreDataPersistence sharedInstance];
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+
+    NSDateComponents *components = [calendar components:(NSCalendarUnitDay) fromDate:[[NSDate alloc]init]];
+    NSDateComponents *dateMinusTen = [[NSDateComponents alloc]init];
+
+    [dateMinusTen setDay:[components day]-12];
+
+    [formatter setDateFormat:@"dd/MM/yyyy"];
+
+    NSString *string = [formatter stringFromDate:[[NSDate alloc]init]];
+    [formatter setDateFormat:@"dd/MM/yyyy hh:mm"];
+    NSDate *data1 = [formatter dateFromString:[NSString stringWithFormat:@"%@ 00:00",string]];
+    NSDate *data2;
+
+    data2 = [calendar dateByAddingComponents:dateMinusTen toDate:data1 options:0];
+
+    NSLog(@"%@ -> %@",data2,data1);
+
+    NSArray *fetchedData = [persistence fetchDataForEntity:@"Refeicoes" usingPredicate:[NSPredicate predicateWithFormat:@"(data <= %@) AND (data >= %@)",data1, data2]];
+
+    _dados = [[NSMutableArray alloc] init];
+
+    for (int i = 0; i < [fetchedData count]; i++) {
+        [_dados addObject:[NSNumber numberWithDouble:[[fetchedData objectAtIndex:i] caloria]]];
+    }
+
+//    [_dados addObject:@0.4]; // Workaround para a primeira vez (arrumar isso)
+    // ------------------------------------------------
+
+#warning POSSIVEL DIVISÃO POR 0!!1!1!eleven
+
     float varStepX = kDefaultGraphWidth/_dados.count;
     NSLog(@"%f",varStepX);
     

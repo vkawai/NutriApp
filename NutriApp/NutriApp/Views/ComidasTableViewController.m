@@ -70,6 +70,59 @@ UIButton *botaoBusca;
 
     [self fetchDataWithPredicate:nil];
 
+//    tudoFormatado = [[NSMutableArray alloc]init];
+//    GrupoAlimento *cur = nil;
+//    for(Alimento *a in tudo2){
+//        if(a.categoria != cur){
+//            cur = a.categoria;
+//            [tudoFormatado addObject:[[NSMutableArray alloc]init]];
+//        }
+//        [[tudoFormatado lastObject]addObject:a];
+//    }
+//    
+//    [self.tableView setSectionHeaderHeight:20];
+//    
+//    switch(_num){
+//        case 0:
+//            self.navigationItem.title = @"Cafe da manha";
+//            break;
+//        case 1:
+//            self.navigationItem.title = @"Almoco";
+//            break;
+//        case 2:
+//            self.navigationItem.title = @"Lanche";
+//            break;
+//        default:
+//            self.navigationItem.title = @"Janta";
+//            break;
+//    }
+}
+
+-(void)fetchDataWithPredicate:(NSPredicate *)predicate{
+    CoreDataPersistence *coreData = [CoreDataPersistence sharedInstance];
+
+    NSArray *buffer = [[coreData fetchDataForEntity:@"GrupoAlimento" usingPredicate:nil] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [[(GrupoAlimento *)obj1 nomeGrupo] compare:[(GrupoAlimento *)obj2 nomeGrupo]];
+    }];
+
+
+    tudo2 = [[NSMutableArray alloc]init];
+
+    for(GrupoAlimento *ga in buffer){
+        NSArray *aux;
+        if(predicate != nil){
+            aux = [[[[ga contemAlimento] filteredSetUsingPredicate:predicate] allObjects] sortedArrayUsingComparator:^NSComparisonResult(Alimento *obj1, Alimento *obj2) {
+                return [[obj1 descricao] compare:[obj2 descricao]];
+            }];
+        }
+        else{
+            aux = [[[ga contemAlimento] allObjects] sortedArrayUsingComparator:^NSComparisonResult(Alimento *obj1, Alimento *obj2) {
+                return [[obj1 descricao] compare:[obj2 descricao]];
+            }];
+        }
+        [tudo2 addObjectsFromArray:aux];
+    }
+
     tudoFormatado = [[NSMutableArray alloc]init];
     GrupoAlimento *cur = nil;
     for(Alimento *a in tudo2){
@@ -79,9 +132,9 @@ UIButton *botaoBusca;
         }
         [[tudoFormatado lastObject]addObject:a];
     }
-    
+
     [self.tableView setSectionHeaderHeight:20];
-    
+
     switch(_num){
         case 0:
             self.navigationItem.title = @"Cafe da manha";
@@ -95,25 +148,6 @@ UIButton *botaoBusca;
         default:
             self.navigationItem.title = @"Janta";
             break;
-    }
-}
-
--(void)fetchDataWithPredicate:(NSPredicate *)predicate{
-    CoreDataPersistence *coreData = [CoreDataPersistence sharedInstance];
-
-    NSArray *buffer = [[coreData fetchDataForEntity:@"GrupoAlimento" usingPredicate:predicate] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        return [[(GrupoAlimento *)obj1 nomeGrupo] compare:[(GrupoAlimento *)obj2 nomeGrupo]];
-    }];
-
-
-    tudo2 = [[NSMutableArray alloc]init];
-
-    for(GrupoAlimento *ga in buffer){
-        NSArray *aux = [[[ga contemAlimento] allObjects] sortedArrayUsingComparator:^NSComparisonResult(Alimento *obj1, Alimento *obj2) {
-            return [[obj1 descricao] compare:[obj2 descricao]];
-        }];
-
-        [tudo2 addObjectsFromArray:aux];
     }
 }
 
@@ -140,11 +174,20 @@ UIButton *botaoBusca;
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     NSLog(@"Voce buscou por: %@",searchBar.text);
 
-    [self fetchDataWithPredicate:[NSPredicate predicateWithFormat:@"ANY contemAlimento.descricao BEGINSWITH[c] %@",searchBar.text]];
+    [self fetchDataWithPredicate:[NSPredicate predicateWithFormat:@"descricao BEGINSWITH[c] %@",searchBar.text]];
 
     [_tableView reloadData];
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    NSLog(@"Voce buscou por: %@",searchBar.text);
+    if([searchBar.text isEqual: @""]){
+        [self fetchDataWithPredicate:[NSPredicate predicateWithFormat:nil]];
+    }
+    else{
+        [self fetchDataWithPredicate:[NSPredicate predicateWithFormat:@"descricao BEGINSWITH[c] %@",searchBar.text]];
+    }
+
+    [_tableView reloadData];
     
 }
 

@@ -29,20 +29,20 @@
         [useDef setValue:[NSNumber numberWithInt:0] forKey:@"tipoNutricao"];
         [useDef setValue:[NSNumber numberWithInt:-1] forKey:@"limiteNutricao"];
     }
-    
+
     NSLog(@"Tipo selecionado: %@,  limite selecionado %@",[useDef valueForKey:@"tipoNutricao"],[useDef valueForKey:@"limiteNutricao"]);
 
     _scrollGrafico.contentSize = CGSizeMake(kDefaultGraphWidth, 300);
-    float dados[] = {0.7, 0.4, 0.5, 0.7, 0.7, 0.4, 0.5, 0.7, 0.67, 0.81, 0.76, 0.9, 1.0, 0.33, 0.85, 0.41, 0.75};
-    NSMutableArray *dados2 = [[NSMutableArray alloc]init];
+//    float dados[] = {0.7, 0.4, 0.5, 0.7, 0.7, 0.4, 0.5, 0.7, 0.67, 0.81, 0.76, 0.9, 1.0, 0.33, 0.85, 0.41, 0.75};
+//    NSMutableArray *dados2 = [[NSMutableArray alloc]init];
+
     
-    
-    float dadosLength = sizeof(dados)/sizeof(dados[0]);
-    
-    for(int i=0; i<dadosLength; i++){
-        [dados2 addObject:[NSNumber numberWithFloat:dados[i] ]];
-    }
-    
+//    float dadosLength = sizeof(dados)/sizeof(dados[0]);
+//
+//    for(int i=0; i<dadosLength; i++){
+//        [dados2 addObject:[NSNumber numberWithFloat:dados[i] ]];
+//    }
+
 //    _em = [EntityManager sharedInstance];
 //    [_em loadDatabase:@"alimento.db"];
 //    HistoricoDAO *dao = [[HistoricoDAO alloc] init];
