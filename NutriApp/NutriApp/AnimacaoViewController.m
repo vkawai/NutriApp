@@ -25,7 +25,7 @@
     } completion:^(BOOL finished) {
         [self performSelector:@selector(loadTabBarController)
                    withObject:nil
-                   afterDelay:50];
+                   afterDelay:0];
     }];
     
     
