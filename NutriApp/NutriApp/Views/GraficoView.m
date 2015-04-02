@@ -65,6 +65,16 @@
     
     CGContextDrawPath(context, kCGPathFill);
     
+    //desenha a linha horizontal que representa o limite definido pelo usuario
+    CGContextSetStrokeColorWithColor(context, [[UIColor redColor]CGColor]);
+    float limite = [[[NSUserDefaults standardUserDefaults]objectForKey:@"limiteNutricao"]floatValue ];
+    if(limite>0 && limite<4000){
+        //CGContextBeginPath(context);
+        CGContextMoveToPoint(context, kOffsetX, kGraphHeight - maxGraphHeight *(limite/4000));
+        CGContextAddLineToPoint(context, kOffsetX + (_dados.count - 1)*varStepX, kGraphHeight - maxGraphHeight *(limite/4000));
+        CGContextStrokePath(context);
+    }
+    
     //"inverte o sistema de coordenadas da tela"; se não fizer isso, o texto vai ser escrito de cabeça para baixo
     CGContextSetTextMatrix (context, CGAffineTransformMake(1.0, 0.0, 0.0, -1.0, 0.0, 0.0));
     
@@ -79,6 +89,7 @@
         CGContextShowTextAtPoint(context, kOffsetX + i * varStepX - [texto sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18]].width/2, kGraphBottom - 5, [texto cStringUsingEncoding:NSUTF8StringEncoding], [texto length]);
     }
     
+    
 }
 
 
@@ -88,6 +99,7 @@
     float dados[] = {0.7, 0.4, 0.5, 0.7, 0.7, 0.4, 0.5, 0.7, 0.67, 0.81, 0.76, 0.9, 1.0, 0.33, 0.85, 0.41, 0.75};
     _dados = [[NSMutableArray alloc]init];
     
+#warning ESSES DADOS DEVEM VIR DO SINGLETON DE UM ARRAY RESPONSAVEL POR ISSO. PEGAR TIPO OS DEZ DIAS MAIS RECENTES. DIVIDIR ELES POR 4000 PARA OBTER O FLOAT QUE VAI NO GRAFICO
     
     float dadosLength = sizeof(dados)/sizeof(dados[0]);
     

@@ -42,7 +42,6 @@
     for(int i=0; i<dadosLength; i++){
         [dados2 addObject:[NSNumber numberWithFloat:dados[i] ]];
     }
-    _graficoView = [[GraficoView alloc]initWithDados:dados2];
     
 //    _em = [EntityManager sharedInstance];
 //    [_em loadDatabase:@"alimento.db"];
@@ -64,7 +63,9 @@
 
 }
 
-
+-(void)viewDidAppear:(BOOL)animated{
+    [_graficoView setNeedsDisplay];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
