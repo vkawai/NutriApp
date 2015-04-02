@@ -51,6 +51,15 @@
     }
     NSLog(@"Voce escolheu um limite de %@ do tipo %ld",_limiteText.text, (long)_tipoSelector.selectedSegmentIndex);
     
+    //guarda as configs do usuario no userDefault
+    NSUserDefaults *useDef = [NSUserDefaults standardUserDefaults];
+    [useDef setValue:[NSNumber numberWithLong:_tipoSelector.selectedSegmentIndex] forKey:@"tipoNutricao"];
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *limiteNum = [f numberFromString:_limiteText.text];
+    [useDef setValue:limiteNum forKey:@"limiteNutricao"];
+    NSLog(@"SALVO");
+    
 }
 
 - (IBAction)limpar:(id)sender {
