@@ -110,96 +110,46 @@ static HojeSingleton *instance;
 
 
     if(_cafeManha == nil){
-        int i;
-        for (i = 0; i < [refeicoes count] && [[[refeicoes objectAtIndex:i] tipoRefeicao] intValue] != REFEICAO_CAFEMANHA; i++);
-        if(i < [refeicoes count]){
-            _cafeManha = [refeicoes objectAtIndex:i];
-        }
-        else{
-            _cafeManha = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        }
+        _cafeManha = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+
     }
     if(_almoco == nil){
-        int i;
-        for (i = 0; i < [refeicoes count] && [[[refeicoes objectAtIndex:i] tipoRefeicao] intValue] != REFEICAO_ALMOCO; i++);
-        if(i < [refeicoes count]){
-            _almoco = [refeicoes objectAtIndex:i];
-        }
-        else{
-            _almoco = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        }
+        _almoco = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
     }
     if(_lanche == nil){
-        int i;
-        for (i = 0; i < [refeicoes count] && [[[refeicoes objectAtIndex:i] tipoRefeicao] intValue] != REFEICAO_LANCHE; i++);
-        if(i < [refeicoes count]){
-            _lanche = [refeicoes objectAtIndex:i];
-        }
-        else{
-            _lanche = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        }
-
+        _lanche = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+        
     }
     if(_janta == nil){
-        int i;
-        for (i = 0; i < [refeicoes count] && [[[refeicoes objectAtIndex:i] tipoRefeicao] intValue] != REFEICAO_JANTAR; i++);
-        if(i < [refeicoes count]){
-            _janta = [refeicoes objectAtIndex:i];
-        }
-        else{
-            _janta = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        }
+        _janta = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+        
     }
-
-//    [self saveMeals];
+    
+    //    [self saveMeals];
 }
 
 -(void)loadPastData:(NSString *)date{
     NSArray *refeicoes = [self loadData:date];
     [self fillDataWithArray:refeicoes];
-
+    
     CoreDataPersistence *coredata = [CoreDataPersistence sharedInstance];
-
+    
     if(_cafeManha == nil){
-        int i;
-        for (i = 0; i < [refeicoes count] && [[[refeicoes objectAtIndex:i] tipoRefeicao] intValue] != REFEICAO_CAFEMANHA; i++);
-        if(i < [refeicoes count]){
-            _cafeManha = [refeicoes objectAtIndex:i];
-        }
-        else{
-            _cafeManha = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        }
+        _cafeManha = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+        
     }
     if(_almoco == nil){
-        int i;
-        for (i = 0; i < [refeicoes count] && [[[refeicoes objectAtIndex:i] tipoRefeicao] intValue] != REFEICAO_ALMOCO; i++);
-        if(i < [refeicoes count]){
-            _almoco = [refeicoes objectAtIndex:i];
-        }
-        else{
-            _almoco = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        }
+        _almoco = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+        
     }
     if(_lanche == nil){
-        int i;
-        for (i = 0; i < [refeicoes count] && [[[refeicoes objectAtIndex:i] tipoRefeicao] intValue] != REFEICAO_LANCHE; i++);
-        if(i < [refeicoes count]){
-            _lanche = [refeicoes objectAtIndex:i];
-        }
-        else{
-            _lanche = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        }
-
+        _lanche = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+        
+        
     }
     if(_janta == nil){
-        int i;
-        for (i = 0; i < [refeicoes count] && [[[refeicoes objectAtIndex:i] tipoRefeicao] intValue] != REFEICAO_JANTAR; i++);
-        if(i < [refeicoes count]){
-            _janta = [refeicoes objectAtIndex:i];
-        }
-        else{
         _janta = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        }
+        
     }
 
 //    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -209,7 +159,11 @@ static HojeSingleton *instance;
 }
 
 -(void)fillDataWithArray:(NSArray *)array{
-
+    _almoco = nil;
+    _cafeManha = nil;
+    _lanche = nil;
+    _janta = nil;
+    
     _historicoDoDia = [[NSMutableArray alloc]init];
 
     NSMutableArray *c = [[NSMutableArray alloc] init];
