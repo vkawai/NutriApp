@@ -22,5 +22,8 @@
 
 +(instancetype)sharedInstance;
 -(void)saveMeals;
+-(void)saveMeals:(NSDate *)date;
+-(void)loadTodayData;
+-(void)loadPastData:(NSString *)date;
 
 @end

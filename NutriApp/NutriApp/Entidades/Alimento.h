@@ -37,7 +37,14 @@
 @property (nonatomic, retain) NSNumber * umidade;
 @property (nonatomic, retain) NSNumber * vitaminaC;
 @property (nonatomic, retain) NSNumber * zinco;
+
+/**
+ *  NSSet de RefeicoesAlimento.
+ */
 @property (nonatomic, retain) NSSet *igredientOf;
+/**
+ *  GrupoAlimento do qual faz parte
+ */
 @property (nonatomic, retain) GrupoAlimento *partOf;
 @end
 
