@@ -34,11 +34,12 @@
     
     today=[[NSDate alloc]init];// o init é sempre o dia atual
     calendar=[NSCalendar currentCalendar];//pega o calendario default do sistema
-    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    
     
     weekArray=@[domButton,segButton,tercButton,quartButton,quintButton,sexButton,sabButton];// seta array de week buttons
     
     [selectedDayLabel setText:[NSString stringWithFormat:@"%@",[format stringFromDate:today]]];// altera o texto para o hoje
+   [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     for (UIButton *botao in weekArray) {
         [botao addTarget:self action:@selector(selectDay:) forControlEvents:UIControlEventTouchDown];
     }
