@@ -17,14 +17,14 @@
 /**
  *  NSSet de Alimentos que fazem parte do grupo.
  */
-@property (nonatomic, retain) NSSet *contains;
+@property (nonatomic, retain) NSSet *contemAlimento;
 @end
 
 @interface GrupoAlimento (CoreDataGeneratedAccessors)
 
-- (void)addContainsObject:(Alimento *)value;
-- (void)removeContainsObject:(Alimento *)value;
-- (void)addContains:(NSSet *)values;
-- (void)removeContains:(NSSet *)values;
+- (void)addContemAlimentoObject:(Alimento *)value;
+- (void)removeContemAlimentoObject:(Alimento *)value;
+- (void)addContemAlimento:(NSSet *)values;
+- (void)removeContemAlimento:(NSSet *)values;
 
 @end

@@ -25,6 +25,9 @@ NSMutableArray *tudoFormatado;
 NSMutableArray *selected;
 CoreDataPersistence *coreData;
 
+UISearchBar *textoBusca;
+UIButton *botaoBusca;
+
 -(instancetype)initWithRefeicao:(int)numRefeicao{
     self = [super init];
     if(self){
@@ -33,8 +36,6 @@ CoreDataPersistence *coreData;
     return self;
 }
 
-UISearchBar *textoBusca;
-UIButton *botaoBusca;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,28 +67,14 @@ UIButton *botaoBusca;
     
     coreData = [CoreDataPersistence sharedInstance];
     //CARREGA ESSE TAL DESSE TUDO2 COM TODOS OS ALIMENTOS, DE PREFERENCIA COM O NOME DA CATEGORIA JA COLOCADO LA
-    CoreDataPersistence *coreData = [CoreDataPersistence sharedInstance];
 
-    NSArray *buffer = [[coreData fetchDataForEntity:@"GrupoAlimento" usingPredicate:nil] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        return [[(GrupoAlimento *)obj1 nomeGrupo] compare:[(GrupoAlimento *)obj2 nomeGrupo]];
-    }];
-
-
-    tudo2 = [[NSMutableArray alloc]init];
-
-    for(GrupoAlimento *ga in buffer){
-        NSArray *aux = [[[ga contains] allObjects] sortedArrayUsingComparator:^NSComparisonResult(Alimento *obj1, Alimento *obj2) {
-            return [[obj1 descricao] compare:[obj2 descricao]];
-        }];
-        
-        [tudo2 addObjectsFromArray:aux];
-    }
+    [self fetchDataWithPredicate:nil];
 
     tudoFormatado = [[NSMutableArray alloc]init];
     GrupoAlimento *cur = nil;
     for(Alimento *a in tudo2){
-        if(a.partOf != cur){
-            cur = a.partOf;
+        if(a.categoria != cur){
+            cur = a.categoria;
             [tudoFormatado addObject:[[NSMutableArray alloc]init]];
         }
         [[tudoFormatado lastObject]addObject:a];
@@ -108,6 +95,25 @@ UIButton *botaoBusca;
         default:
             self.navigationItem.title = @"Janta";
             break;
+    }
+}
+
+-(void)fetchDataWithPredicate:(NSPredicate *)predicate{
+    CoreDataPersistence *coreData = [CoreDataPersistence sharedInstance];
+
+    NSArray *buffer = [[coreData fetchDataForEntity:@"GrupoAlimento" usingPredicate:predicate] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [[(GrupoAlimento *)obj1 nomeGrupo] compare:[(GrupoAlimento *)obj2 nomeGrupo]];
+    }];
+
+
+    tudo2 = [[NSMutableArray alloc]init];
+
+    for(GrupoAlimento *ga in buffer){
+        NSArray *aux = [[[ga contemAlimento] allObjects] sortedArrayUsingComparator:^NSComparisonResult(Alimento *obj1, Alimento *obj2) {
+            return [[obj1 descricao] compare:[obj2 descricao]];
+        }];
+
+        [tudo2 addObjectsFromArray:aux];
     }
 }
 
@@ -133,6 +139,13 @@ UIButton *botaoBusca;
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     NSLog(@"Voce buscou por: %@",searchBar.text);
+
+    [self fetchDataWithPredicate:[NSPredicate predicateWithFormat:@"ANY contemAlimento.descricao BEGINSWITH[c] %@",searchBar.text]];
+
+    [_tableView reloadData];
+}
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
 }
 
 #pragma mark - Table view data source
@@ -152,7 +165,7 @@ UIButton *botaoBusca;
     if([[tudoFormatado objectAtIndex:section]count]>0){
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
         [label setFont:[UIFont boldSystemFontOfSize:12]];
-        NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section] firstObject] partOf] nomeGrupo];
+        NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section] firstObject] categoria] nomeGrupo];
         [label setText:NSLocalizedString(tituloSection, nil)];
         [header addSubview:label];
         [header setBackgroundColor:[UIColor colorWithRed:.15 green:.48 blue:.8 alpha:1]];
@@ -176,7 +189,7 @@ UIButton *botaoBusca;
     RefeicoesAlimento *refeicaoAlimento = [NSEntityDescription insertNewObjectForEntityForName:@"RefeicoesAlimento" inManagedObjectContext:[coreData managedObjectContext]];
 
     [esteAlimento addIgredientOfObject:refeicaoAlimento];
-    [refeicaoAlimento setContains:esteAlimento];
+    [refeicaoAlimento setAlimento:esteAlimento];
 
     [[[HojeSingleton sharedInstance].historicoDoDia objectAtIndex:_num] addObject:refeicaoAlimento];
     [selected addObject:indexPath];

@@ -17,10 +17,10 @@
 /**
  *  Alimento que faz parte de uma determinada Refeicao (partOf)
  */
-@property (nonatomic, retain) Alimento *contains;
+@property (nonatomic, retain) Alimento *alimento;
 /**
  *  Refeicao que contem o Alimento (contains)
  */
-@property (nonatomic, retain) Refeicoes *partOf;
+@property (nonatomic, retain) Refeicoes *refeicao;
 
 @end

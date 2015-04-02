@@ -41,6 +41,14 @@ NSMutableArray *historicoDia;
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
+    _textoTipo.text = @"Total de calorias: ";
+    float totalCalorias = 0.0;
+    for(Refeicoes *r in historicoDia){
+        for(RefeicoesAlimento *ra in r){
+            totalCalorias += [[ra.alimento energia]floatValue];
+        }
+    }
+    _labelValorTotal.text = [NSString stringWithFormat:@"%.2f",totalCalorias];
 }
 
 #pragma mark - Table view data source
@@ -80,8 +88,8 @@ NSMutableArray *historicoDia;
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"reuseIdentifier"];
 
     RefeicoesAlimento *r = [[historicoDia objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    cell.textLabel.text = r.contains.descricao;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal", [[r.contains energia] floatValue]];
+    cell.textLabel.text = r.alimento.descricao;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal", [[r.alimento energia] floatValue]];
 
     return cell;
 }
@@ -106,7 +114,7 @@ NSMutableArray *historicoDia;
 -(void)updateData:(NSDate *)date{
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-    formatter.dateFormat=@"dd/MM/YYYY HH:mm";
+    formatter.dateFormat=@"dd/MM/yyyy";
     [[HojeSingleton sharedInstance] loadPastData:[formatter stringFromDate:date]];
     historicoDia = [HojeSingleton sharedInstance].historicoDoDia;
 }

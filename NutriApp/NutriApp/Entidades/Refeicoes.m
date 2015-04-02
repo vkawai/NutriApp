@@ -17,30 +17,30 @@
 @dynamic nome;
 @dynamic saved;
 @dynamic tipoRefeicao;
-@dynamic contains;
+@dynamic refeicoesAlimentos;
 
 
 
 -(double)caloria{
     double res = 0;
-    for(RefeicoesAlimento *ra in [self contains]){
-        res += [ra.contains.energia doubleValue] * [ra.quantidade intValue];
+    for(RefeicoesAlimento *ra in [self refeicoesAlimentos]){
+        res += [ra.alimento.energia doubleValue] * [ra.quantidade intValue];
     }
     return res;
 }
 
 -(double)carboidrado{
     double res = 0;
-    for(RefeicoesAlimento *ra in [self contains]){
-        res += [ra.contains.carboidrato doubleValue] * [ra.quantidade intValue];
+    for(RefeicoesAlimento *ra in [self refeicoesAlimentos]){
+        res += [ra.alimento.carboidrato doubleValue] * [ra.quantidade intValue];
     }
     return res;
 }
 
 -(double)lipidio{
     double res = 0;
-    for(RefeicoesAlimento *ra in [self contains]){
-        res += [ra.contains.lipideos doubleValue] * [ra.quantidade intValue];
+    for(RefeicoesAlimento *ra in [self refeicoesAlimentos]){
+        res += [ra.alimento.lipideos doubleValue] * [ra.quantidade intValue];
     }
     return res;
 }
@@ -51,26 +51,26 @@
 
 
 
-- (void)addContainsObject:(RefeicoesAlimento *)value{
-    NSMutableSet *set = [[NSMutableSet alloc]initWithSet:[self contains]];
+- (void)addRefeicoesAlimentosObject:(RefeicoesAlimento *)value{
+    NSMutableSet *set = [[NSMutableSet alloc]initWithSet:[self refeicoesAlimentos]];
 
     [set addObject:value];
-    [self setContains:[[NSSet alloc] initWithSet:set]];
+    [self setRefeicoesAlimentos:[[NSSet alloc] initWithSet:set]];
 }
 
-- (void)removeContainsObject:(RefeicoesAlimento *)value{
-    NSMutableSet *set = [[NSMutableSet alloc]initWithSet:[self contains]];
+- (void)removeRefeicoesAlimentosObject:(RefeicoesAlimento *)value{
+    NSMutableSet *set = [[NSMutableSet alloc]initWithSet:[self refeicoesAlimentos]];
 
     [set removeObject:value];
-    [self setContains:[[NSSet alloc] initWithSet:set]];
+    [self setRefeicoesAlimentos:[[NSSet alloc] initWithSet:set]];
 
 }
 
-- (void)addContains:(NSSet *)values{
+- (void)addRefeicoesAlimentos:(NSSet *)values{
 
 }
 
-- (void)removeContains:(NSSet *)values{
+- (void)removeRefeicoesAlimentos:(NSSet *)values{
     
 }
 

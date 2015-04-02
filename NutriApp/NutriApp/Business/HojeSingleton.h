@@ -20,6 +20,8 @@
 @property Refeicoes *lanche;
 @property Refeicoes *janta;
 
+@property NSMutableArray *dadosGrafico;
+
 +(instancetype)sharedInstance;
 -(void)saveMeals;
 -(void)saveMeals:(NSDate *)date;

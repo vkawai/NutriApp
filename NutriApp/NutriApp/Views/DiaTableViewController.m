@@ -45,7 +45,7 @@ NSMutableArray *tudo;
     for(int section = 0; section < [tudo count]; section++){
         for(int i = 0; i < [[tudo objectAtIndex:section] count]; i++){
             RefeicoesAlimento *refeicao = [[tudo objectAtIndex:section] objectAtIndex:i];
-            totalCalorias += [[refeicao.contains energia] floatValue];
+            totalCalorias += [[refeicao.alimento energia] floatValue];
         }
 
     }
@@ -108,8 +108,8 @@ NSMutableArray *tudo;
     }
     else{
         RefeicoesAlimento *r = [[tudo objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-        cell.textLabel.text = r.contains.descricao;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal", [[r.contains energia] floatValue]];
+        cell.textLabel.text = r.alimento.descricao;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal", [[r.alimento energia] floatValue]];
     }
     return cell;
 }

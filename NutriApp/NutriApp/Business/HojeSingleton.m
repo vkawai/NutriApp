@@ -22,13 +22,23 @@ static HojeSingleton *instance;
 
 -(instancetype)init{
     self = [super init];
-
+    //valores para teste, remover depois
+    float dados[] = {0.7, 0.4, 0.5, 0.7, 0.7, 0.4, 0.5, 0.7, 0.67, 0.81, 0.76, 0.9, 1.0, 0.33, 0.85, 0.41, 0.75};
+    _dadosGrafico = [[NSMutableArray alloc]init];
+    
+#warning ESSES DADOS DEVEM VIR DO SINGLETON DE UM ARRAY RESPONSAVEL POR ISSO. PEGAR TIPO OS DEZ DIAS MAIS RECENTES. DIVIDIR ELES POR 4000 PARA OBTER O FLOAT QUE VAI NO GRAFICO
+    
+    float dadosLength = sizeof(dados)/sizeof(dados[0]);
+    
+    for(int i=0; i<dadosLength; i++){
+        [_dadosGrafico addObject:[NSNumber numberWithFloat:dados[i] ]];
+    }
     return self;
 }
 
 -(NSMutableArray *)getArrayWithRefeicao:(Refeicoes *)refeicao{
-    NSArray *sortedArray = [[[refeicao contains] allObjects] sortedArrayUsingComparator:^NSComparisonResult(RefeicoesAlimento* obj1, RefeicoesAlimento* obj2) {
-        return [[[obj1 contains] descricao] compare:[[obj2 contains] descricao]];
+    NSArray *sortedArray = [[[refeicao refeicoesAlimentos] allObjects] sortedArrayUsingComparator:^NSComparisonResult(RefeicoesAlimento* obj1, RefeicoesAlimento* obj2) {
+        return [[[obj1 alimento] descricao] compare:[[obj2 alimento] descricao]];
     }];
     return [[NSMutableArray alloc]initWithArray:sortedArray];
 }
@@ -62,31 +72,31 @@ static HojeSingleton *instance;
             RefeicoesAlimento *ra = [selected objectAtIndex:j];
             switch(i){
                 case REFEICAO_CAFEMANHA:
-                    [_cafeManha addContainsObject:ra];
+                    [_cafeManha addRefeicoesAlimentosObject:ra];
                     _cafeManha.data = date;
                     _cafeManha.tipoRefeicao = @REFEICAO_CAFEMANHA;
-                    ra.partOf = _cafeManha;
+                    ra.refeicao = _cafeManha;
                     break;
                 case REFEICAO_ALMOCO:
-                    [_almoco addContainsObject:ra];
+                    [_almoco addRefeicoesAlimentosObject:ra];
                     _almoco.data = date;
                     _almoco.tipoRefeicao = @REFEICAO_ALMOCO;
 
-                    ra.partOf = _almoco;
+                    ra.refeicao = _almoco;
                     break;
                 case REFEICAO_LANCHE:
-                    [_lanche addContainsObject:ra];
+                    [_lanche addRefeicoesAlimentosObject:ra];
                     _lanche.data = date;
                     _lanche.tipoRefeicao = @REFEICAO_LANCHE;
 
-                    ra.partOf = _lanche;
+                    ra.refeicao = _lanche;
                     break;
                 case REFEICAO_JANTAR:
-                    [_janta addContainsObject:ra];
+                    [_janta addRefeicoesAlimentosObject:ra];
                     _janta.data = date;
                     _janta.tipoRefeicao = @REFEICAO_JANTAR;
 
-                    ra.partOf = _janta;
+                    ra.refeicao = _janta;
                     break;
             }
         }
@@ -205,7 +215,7 @@ static HojeSingleton *instance;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd/MM/yyyy hh:mm"];
     NSDate *searchDate = [formatter dateFromString:[NSString stringWithFormat:@"%@ 00:00",data]];
-    NSLog(@"CUMIDAS PRO DIA: %@",data);
+//    NSLog(@"CUMIDAS PRO DIA: %@",[formatter dateFromString:[NSString stringWithFormat:@"%@ 00:00",data]]);
     CoreDataPersistence *coredata = [CoreDataPersistence sharedInstance];
     return [coredata fetchDataForEntity:@"Refeicoes" usingPredicate:[NSPredicate predicateWithFormat:@"data == %@",searchDate]];
 }
