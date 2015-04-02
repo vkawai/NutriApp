@@ -10,4 +10,13 @@
 
 @interface ConfigViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *tipoSelector;
+
+@property (weak, nonatomic) IBOutlet UITextField *limiteText;
+
+- (IBAction)salvar:(id)sender;
+
+- (IBAction)limpar:(id)sender;
+
+
 @end

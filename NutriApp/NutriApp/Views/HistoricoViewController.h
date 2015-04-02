@@ -13,5 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet CalendarioView *calendarioView;
+@property (weak, nonatomic) IBOutlet UILabel *textoTipo;
+@property (weak, nonatomic) IBOutlet UILabel *labelValorTotal;
 
 @end

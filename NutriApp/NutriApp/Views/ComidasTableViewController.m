@@ -33,9 +33,37 @@ CoreDataPersistence *coreData;
     return self;
 }
 
+UISearchBar *textoBusca;
+UIButton *botaoBusca;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    
+    
+    //inicializacao da table view - a classe agora é um view controller apenas, para poder ter a search bar
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height-50)];
+    
+    [self.tableView setDataSource:self];
+    [self.tableView setDelegate:self];
+    
+    [self.view addSubview:_tableView];
+    
+    //topo da tela que conterá a text bar e o botao de busca
+    textoBusca = [[UISearchBar alloc]initWithFrame:CGRectMake(10, 70, self.view.frame.size.width - 20, 40)];
+    textoBusca.placeholder = @"Buscar alimentos";
+    textoBusca.delegate = self;
+    
+    [self.view addSubview:textoBusca];
+    
+//    botaoBusca = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [botaoBusca setTitle:@"Buscar" forState:UIControlStateNormal];
+//    [botaoBusca addTarget:self action:@selector(buscar:) forControlEvents:UIControlEventTouchDown];
+//    botaoBusca.frame = CGRectMake(self.view.frame.size.width-90, 70, 80, 40);
+//    
+//    [self.view addSubview:botaoBusca];
+    
+    
     coreData = [CoreDataPersistence sharedInstance];
     //CARREGA ESSE TAL DESSE TUDO2 COM TODOS OS ALIMENTOS, DE PREFERENCIA COM O NOME DA CATEGORIA JA COLOCADO LA
     CoreDataPersistence *coreData = [CoreDataPersistence sharedInstance];
@@ -97,6 +125,16 @@ CoreDataPersistence *coreData;
     // Dispose of any resources that can be recreated.
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [textoBusca resignFirstResponder];
+}
+
+#pragma mark - Search Bar Delegate
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    NSLog(@"Voce buscou por: %@",searchBar.text);
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -111,12 +149,14 @@ CoreDataPersistence *coreData;
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, -20, tableView.frame.size.width, 18)];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
-    [label setFont:[UIFont boldSystemFontOfSize:12]];
-    NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section] firstObject] partOf] nomeGrupo];
-    [label setText:NSLocalizedString(tituloSection, nil)];
-    [header addSubview:label];
-    [header setBackgroundColor:[UIColor grayColor]];
+    if([[tudoFormatado objectAtIndex:section]count]>0){
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
+        [label setFont:[UIFont boldSystemFontOfSize:12]];
+        NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section] firstObject] partOf] nomeGrupo];
+        [label setText:NSLocalizedString(tituloSection, nil)];
+        [header addSubview:label];
+        [header setBackgroundColor:[UIColor colorWithRed:.15 green:.48 blue:.8 alpha:1]];
+    }
     return header;
 }
 
