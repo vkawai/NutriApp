@@ -18,14 +18,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _nutriapp.alpha=0;
-    [UIView animateWithDuration:2 animations:^{
+    [UIView animateWithDuration:2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _nutriapp.alpha=1;
         [_faca setTransform:CGAffineTransformMakeTranslation(0, -50)];
         [_garfo setTransform:CGAffineTransformMakeTranslation(0, 50)];
     } completion:^(BOOL finished) {
         [self performSelector:@selector(loadTabBarController)
                    withObject:nil
-                   afterDelay:0];
+                   afterDelay:0.3];
     }];
     
     

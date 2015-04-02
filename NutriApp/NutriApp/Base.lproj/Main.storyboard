@@ -634,7 +634,7 @@
         <!--Animacao View Controller-->
         <scene sceneID="anx-56-9yv">
             <objects>
-                <viewController id="VSG-Lt-hW2" customClass="AnimacaoViewController" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="VSG-Lt-hW2" customClass="AnimacaoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JHy-MZ-kHX"/>
                         <viewControllerLayoutGuide type="bottom" id="naU-Bx-msS"/>
@@ -643,38 +643,150 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NutriAppForkImage" translatesAutoresizingMaskIntoConstraints="NO" id="4QZ-PK-MqP">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="75" y="335" width="240" height="45"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ir-TW-qws">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NutriAppForkImage" translatesAutoresizingMaskIntoConstraints="NO" id="4QZ-PK-MqP">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="3Or-pq-IIU"/>
+                                            <constraint firstAttribute="height" constant="45" id="Y7c-fW-yLq"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="3Or-pq-IIU"/>
+                                                <exclude reference="Y7c-fW-yLq"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="3Or-pq-IIU"/>
+                                                <include reference="Y7c-fW-yLq"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NutriAppKnifeImage" translatesAutoresizingMaskIntoConstraints="NO" id="UnF-sM-HRF">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="d0Q-mP-4qs"/>
+                                            <constraint firstAttribute="width" constant="250" id="xeZ-h7-ivg"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="d0Q-mP-4qs"/>
+                                                <exclude reference="xeZ-h7-ivg"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="d0Q-mP-4qs"/>
+                                                <include reference="xeZ-h7-ivg"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NutriApp" translatesAutoresizingMaskIntoConstraints="NO" id="U4g-Tm-EAn">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="4HB-aV-tY1"/>
+                                            <constraint firstAttribute="height" constant="90" id="WYY-WC-KEi"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="4HB-aV-tY1"/>
+                                                <exclude reference="WYY-WC-KEi"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="4HB-aV-tY1"/>
+                                                <include reference="WYY-WC-KEi"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="BtF-4g-Qly"/>
+                                    <constraint firstAttribute="bottom" secondItem="UnF-sM-HRF" secondAttribute="bottom" constant="8" id="GVv-Km-NtM"/>
+                                    <constraint firstItem="UnF-sM-HRF" firstAttribute="top" secondItem="4QZ-PK-MqP" secondAttribute="bottom" constant="43" id="NZT-Gf-wCI"/>
+                                    <constraint firstItem="4QZ-PK-MqP" firstAttribute="leading" secondItem="8Ir-TW-qws" secondAttribute="leading" constant="8" id="ODg-eq-IqE"/>
+                                    <constraint firstAttribute="width" constant="280" id="b1J-dj-zjj"/>
+                                    <constraint firstItem="4QZ-PK-MqP" firstAttribute="top" secondItem="8Ir-TW-qws" secondAttribute="top" constant="9" id="cS5-u8-0AC"/>
+                                    <constraint firstAttribute="bottom" secondItem="U4g-Tm-EAn" secondAttribute="bottom" constant="31" id="dL8-jE-3Gy"/>
+                                    <constraint firstItem="UnF-sM-HRF" firstAttribute="leading" secondItem="8Ir-TW-qws" secondAttribute="leading" constant="8" id="fHx-G5-2T7"/>
+                                    <constraint firstAttribute="trailing" secondItem="U4g-Tm-EAn" secondAttribute="trailing" constant="17" id="nNJ-dh-VZa"/>
+                                    <constraint firstAttribute="trailing" secondItem="4QZ-PK-MqP" secondAttribute="trailing" constant="22" id="nbu-gA-wbp"/>
+                                    <constraint firstItem="U4g-Tm-EAn" firstAttribute="leading" secondItem="8Ir-TW-qws" secondAttribute="leading" constant="13" id="qOy-3a-G43"/>
+                                    <constraint firstItem="U4g-Tm-EAn" firstAttribute="top" secondItem="8Ir-TW-qws" secondAttribute="top" constant="29" id="sID-rG-W0d"/>
+                                    <constraint firstAttribute="trailing" secondItem="UnF-sM-HRF" secondAttribute="trailing" constant="22" id="vRc-vR-gc1"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="4QZ-PK-MqP"/>
+                                        <exclude reference="UnF-sM-HRF"/>
+                                        <exclude reference="U4g-Tm-EAn"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="BtF-4g-Qly"/>
+                                        <exclude reference="b1J-dj-zjj"/>
+                                        <exclude reference="ODg-eq-IqE"/>
+                                        <exclude reference="cS5-u8-0AC"/>
+                                        <exclude reference="nbu-gA-wbp"/>
+                                        <exclude reference="dL8-jE-3Gy"/>
+                                        <exclude reference="nNJ-dh-VZa"/>
+                                        <exclude reference="qOy-3a-G43"/>
+                                        <exclude reference="sID-rG-W0d"/>
+                                        <exclude reference="GVv-Km-NtM"/>
+                                        <exclude reference="NZT-Gf-wCI"/>
+                                        <exclude reference="fHx-G5-2T7"/>
+                                        <exclude reference="vRc-vR-gc1"/>
+                                    </mask>
                                 </variation>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NutriAppKnifeImage" translatesAutoresizingMaskIntoConstraints="NO" id="UnF-sM-HRF">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="75" y="423" width="240" height="45"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="4QZ-PK-MqP"/>
+                                        <include reference="UnF-sM-HRF"/>
+                                        <include reference="U4g-Tm-EAn"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="BtF-4g-Qly"/>
+                                        <include reference="b1J-dj-zjj"/>
+                                        <include reference="ODg-eq-IqE"/>
+                                        <include reference="cS5-u8-0AC"/>
+                                        <include reference="nbu-gA-wbp"/>
+                                        <include reference="dL8-jE-3Gy"/>
+                                        <include reference="nNJ-dh-VZa"/>
+                                        <include reference="qOy-3a-G43"/>
+                                        <include reference="sID-rG-W0d"/>
+                                        <include reference="GVv-Km-NtM"/>
+                                        <include reference="NZT-Gf-wCI"/>
+                                        <include reference="fHx-G5-2T7"/>
+                                        <include reference="vRc-vR-gc1"/>
+                                    </mask>
                                 </variation>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NutriApp" translatesAutoresizingMaskIntoConstraints="NO" id="U4g-Tm-EAn">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="80" y="355" width="240" height="90"/>
-                                </variation>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.30980392159999998" green="0.63529411759999999" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="8Ir-TW-qws" secondAttribute="centerY" id="UwW-tK-zFr"/>
+                            <constraint firstAttribute="centerX" secondItem="8Ir-TW-qws" secondAttribute="centerX" id="clF-Yr-LDk"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="4QZ-PK-MqP"/>
-                                <exclude reference="UnF-sM-HRF"/>
-                                <exclude reference="U4g-Tm-EAn"/>
+                                <exclude reference="8Ir-TW-qws"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="UwW-tK-zFr"/>
+                                <exclude reference="clF-Yr-LDk"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="4QZ-PK-MqP"/>
-                                <include reference="UnF-sM-HRF"/>
-                                <include reference="U4g-Tm-EAn"/>
+                                <include reference="8Ir-TW-qws"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="UwW-tK-zFr"/>
+                                <include reference="clF-Yr-LDk"/>
                             </mask>
                         </variation>
                     </view>
@@ -682,7 +794,7 @@
                         <outlet property="faca" destination="4QZ-PK-MqP" id="cN2-ci-iSa"/>
                         <outlet property="garfo" destination="UnF-sM-HRF" id="xAv-j6-d18"/>
                         <outlet property="nutriapp" destination="U4g-Tm-EAn" id="Fl1-Hg-rw6"/>
-                        <segue destination="Pb4-r7-WIa" kind="show" identifier="loadTabBarControllerSegue" id="9bV-Ma-vCt"/>
+                        <segue destination="Pb4-r7-WIa" kind="presentation" identifier="loadTabBarControllerSegue" modalTransitionStyle="crossDissolve" id="9bV-Ma-vCt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aiD-0h-ODg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -692,7 +804,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="LdG-qA-vDb">
             <objects>
-                <tabBarController id="Pb4-r7-WIa" sceneMemberID="viewController">
+                <tabBarController modalTransitionStyle="flipHorizontal" id="Pb4-r7-WIa" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5vT-cp-iAr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -804,9 +916,6 @@
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="118" y="334" width="227" height="30"/>
-                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
