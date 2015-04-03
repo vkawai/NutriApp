@@ -12,6 +12,7 @@
 
 //dados para traçar o grafico
 @property NSMutableArray *dados;
+@property NSMutableArray *dias;
 
 //dimensoes do grafico
 #define kGraphHeight 300

@@ -32,7 +32,7 @@
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, kOffsetX, kGraphHeight - maxGraphHeight * [[_dados firstObject]floatValue]);
     
-    for (int i = 1; i < _dados.count; i++){
+    for (int i = 0; i < _dados.count; i++){
         CGContextAddLineToPoint(context, kOffsetX + i * varStepX, kGraphHeight - maxGraphHeight * [[_dados objectAtIndex:i]floatValue]);
     }
     
@@ -41,7 +41,7 @@
     CGContextSetFillColorWithColor(context, [[UIColor colorWithRed:.15 green:.48 blue:.8 alpha:1] CGColor]);
     
     //cria circulos inscritos a retangulos em cada data point, e entao preenche os circulos
-    for (int i = 1; i < _dados.count-1; i++)
+    for (int i = 0; i < _dados.count; i++)
     {
         float x = kOffsetX + i * varStepX;
         float y = kGraphHeight - maxGraphHeight * [[_dados objectAtIndex:i] floatValue];
@@ -57,7 +57,7 @@
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, kOffsetX, kGraphHeight);
     CGContextAddLineToPoint(context, kOffsetX, kGraphHeight - maxGraphHeight * [[_dados firstObject]floatValue]);
-    for (int i = 1; i < _dados.count; i++)
+    for (int i = 0; i < _dados.count; i++)
     {
         CGContextAddLineToPoint(context, kOffsetX + i * varStepX, kGraphHeight - maxGraphHeight * [[_dados objectAtIndex:i]floatValue]);
     }
@@ -83,11 +83,16 @@
     CGContextSelectFont(context, "Helvetica", 14, kCGEncodingMacRoman);
     CGContextSetTextDrawingMode(context, kCGTextFill);
     CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
-    for (int i = 1; i < _dados.count; i++)
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/MM"];
+    
+    for (int i = 1; i < _dias.count; i++)
     {
 #warning dados deveriam trazer tambem o dia de cada valor, para escrever no grafico
         //NSString *text = [_dados objectAtIndex:1].texto OU ALGO DO TIPO
-        NSString *texto = [NSString stringWithFormat:@"%d/jan", i];
+        NSString *texto = [NSString stringWithFormat:@"%@", [formatter stringFromDate:[_dias
+                                                                                        objectAtIndex:i]]];
         CGContextShowTextAtPoint(context, kOffsetX + i * varStepX - [texto sizeWithFont:[UIFont fontWithName:@"Helvetica" size:18]].width/2, kGraphBottom - 5, [texto cStringUsingEncoding:NSUTF8StringEncoding], [texto length]);
     }
     
@@ -136,14 +141,30 @@
     NSLog(@"%@ -> %@",data2,data1);
 
     NSArray *fetchedData = [persistence fetchDataForEntity:@"Refeicoes" usingPredicate:[NSPredicate predicateWithFormat:@"(data <= %@) AND (data >= %@)",data1, data2]];
-
+    NSLog(@"REFEICOES RETORNADAS: %d",[fetchedData count]);
     _dados = [[NSMutableArray alloc] init];
+    _dias = [[NSMutableArray alloc]init];
 
+    NSDate *esseDia = [(Refeicoes*)[fetchedData firstObject] data];
+    
+    
+    float calorias = 0.0;
+    
     for (int i = 0; i < [fetchedData count]; i++) {
-        [_dados addObject:[NSNumber numberWithDouble:[[fetchedData objectAtIndex:i] caloria]/4000]];
+        
+        if([(Refeicoes *)[fetchedData objectAtIndex:i] data] == esseDia){
+            calorias += [[fetchedData objectAtIndex:i] caloria];
+        }
+        else{
+            [_dados addObject:[NSNumber numberWithDouble:calorias/4000]];
+            [_dias addObject:[(Refeicoes*)[fetchedData objectAtIndex:i-1]data]];
+            calorias = [[fetchedData objectAtIndex:i]caloria];
+        }
+        esseDia = [(Refeicoes*)[fetchedData objectAtIndex:i] data];
     }
-
-    [_dados addObject:@0.4]; // Workaround para a primeira vez (arrumar isso)
+    if(_dados.count==0){
+        [_dados addObject:@0.01]; // Workaround para a primeira vez (arrumar isso)
+    }
 //     ------------------------------------------------
 
 #warning POSSIVEL DIVISÃO POR 0!!1!1!eleven
@@ -161,7 +182,7 @@
     int linhasGrid = (kDefaultGraphWidth - kOffsetX) / varStepX;
     
     //desenhar a grid
-    for (int i = 0; i < linhasGrid; i++)
+    for (int i = 0; i <= linhasGrid; i++)
     {
         CGContextMoveToPoint(context, kOffsetX + i * varStepX, kGraphTop);
         CGContextAddLineToPoint(context, kOffsetX + i * varStepX, kGraphBottom);
