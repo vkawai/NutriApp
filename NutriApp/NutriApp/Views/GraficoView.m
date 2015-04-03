@@ -144,7 +144,7 @@
     }
 
     [_dados addObject:@0.4]; // Workaround para a primeira vez (arrumar isso)
-    // ------------------------------------------------
+//     ------------------------------------------------
 
 #warning POSSIVEL DIVISÃO POR 0!!1!1!eleven
 
