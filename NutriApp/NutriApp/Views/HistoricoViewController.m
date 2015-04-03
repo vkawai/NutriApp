@@ -109,6 +109,13 @@ NSMutableArray *historicoDia;
     NSLog(@"%@",[notification object]);
     [self updateData:[notification object]];
     [_tableView reloadData];
+    float totalCalorias = 0.0;
+    for(Refeicoes *r in historicoDia){
+        for(RefeicoesAlimento *ra in r){
+            totalCalorias += [[ra.alimento energia]floatValue];
+        }
+    }
+    _labelValorTotal.text = [NSString stringWithFormat:@"%.2f",totalCalorias];
     
 }
 
