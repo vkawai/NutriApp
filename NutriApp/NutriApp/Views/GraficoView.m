@@ -176,7 +176,7 @@
     
     //configura como serão traçadas as linhas da grid
     CGContextSetLineWidth(context, 0.6);
-    CGContextSetStrokeColorWithColor(context, [[UIColor lightGrayColor] CGColor]);
+    CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     
     //numero de linhas que cabem no grafico
     int linhasGrid = (kDefaultGraphWidth - kOffsetX) / varStepX;
