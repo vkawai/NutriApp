@@ -25,7 +25,7 @@ NSMutableArray *tudo;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(saveMeal)];
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveMeal)];
     self.navigationItem.rightBarButtonItem = btn;
 
     

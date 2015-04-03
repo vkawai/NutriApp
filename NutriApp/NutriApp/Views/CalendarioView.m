@@ -34,7 +34,7 @@
     
     today=[[NSDate alloc]init];// o init é sempre o dia atual
     calendar=[NSCalendar currentCalendar];//pega o calendario default do sistema
-//    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
 
     weekArray=@[domButton,segButton,tercButton,quartButton,quintButton,sexButton,sabButton];// seta array de week buttons
     
@@ -66,8 +66,6 @@
     [daysToSubstract setDay:0-([weekDayComp weekday]-1)];
     weekSunday=[calendar dateByAddingComponents:daysToSubstract toDate:today options:0];
     [self updateDay:0];
-    
-    
 }
 
 #pragma Gesture Methods
@@ -87,19 +85,24 @@
     
     [sundayComp setDay:[sundayComp day]+(7*sinal)];
     weekSunday=[calendar dateFromComponents:sundayComp];
+    
     return sundayComp;
 }
 
 -(void)updateDay:(int)sinal{
     NSDateComponents *sundayComp=[self updateWeek:sinal];
-    
+    NSLog(@"DOMINGO:%@",sundayComp);
     NSDateFormatter *soDia=[[NSDateFormatter alloc]init];
     soDia.dateFormat=@"dd";
+    [soDia setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     
     NSDateFormatter *diaInt=[[NSDateFormatter alloc]init];
     diaInt.dateFormat=@"dd/MM/YYYY";
+    [diaInt setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+
     
     long dom=[[NSString stringWithFormat:@"%@",[soDia stringFromDate:weekSunday]] integerValue];
+    NSLog(@"%lu",dom);
     long mes=[sundayComp month];
     long ano=[sundayComp year];
     long mostrar;
