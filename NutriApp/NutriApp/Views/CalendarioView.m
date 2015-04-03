@@ -66,8 +66,6 @@
     [daysToSubstract setDay:0-([weekDayComp weekday]-1)];
     weekSunday=[calendar dateByAddingComponents:daysToSubstract toDate:today options:0];
     [self updateDay:0];
-    
-    
 }
 
 #pragma Gesture Methods
