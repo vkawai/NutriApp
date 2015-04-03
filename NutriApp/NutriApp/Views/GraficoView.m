@@ -140,7 +140,7 @@
     _dados = [[NSMutableArray alloc] init];
 
     for (int i = 0; i < [fetchedData count]; i++) {
-        [_dados addObject:[NSNumber numberWithDouble:[[fetchedData objectAtIndex:i] caloria]]];
+        [_dados addObject:[NSNumber numberWithDouble:[[fetchedData objectAtIndex:i] caloria]/4000]];
     }
 
     [_dados addObject:@0.4]; // Workaround para a primeira vez (arrumar isso)
