@@ -109,7 +109,6 @@ static HojeSingleton *instance;
 #pragma mark - History load (Core Data)
 
 -(void)loadTodayData{
-    CoreDataPersistence *coredata = [CoreDataPersistence sharedInstance];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 
     [formatter setDateFormat:@"dd/MM/yyyy"];
@@ -118,57 +117,19 @@ static HojeSingleton *instance;
     NSArray *refeicoes = [self loadData:[formatter stringFromDate:date]];
     [self fillDataWithArray:refeicoes];
 
-
-    if(_cafeManha == nil){
-        _cafeManha = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-
-    }
-    if(_almoco == nil){
-        _almoco = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-    }
-    if(_lanche == nil){
-        _lanche = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        
-    }
-    if(_janta == nil){
-        _janta = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        
-    }
-    
     //    [self saveMeals];
 }
 
 -(void)loadPastData:(NSString *)date{
     NSArray *refeicoes = [self loadData:date];
     [self fillDataWithArray:refeicoes];
-    
-    CoreDataPersistence *coredata = [CoreDataPersistence sharedInstance];
-    
-    if(_cafeManha == nil){
-        _cafeManha = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        
-    }
-    if(_almoco == nil){
-        _almoco = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        
-    }
-    if(_lanche == nil){
-        _lanche = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        
-        
-    }
-    if(_janta == nil){
-        _janta = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
-        
-    }
-
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateFormat:@"dd/MM/yyyy"];
-//    [self saveMeals:[formatter dateFromString:date]];
 
 }
 
 -(void)fillDataWithArray:(NSArray *)array{
+
+    CoreDataPersistence *coredata = [CoreDataPersistence sharedInstance];
+
     _almoco = nil;
     _cafeManha = nil;
     _lanche = nil;
@@ -200,6 +161,21 @@ static HojeSingleton *instance;
                 j = [self getArrayWithRefeicao:_janta];
                 break;
         }
+    }
+
+    if(_cafeManha == nil){
+        _cafeManha = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+
+    }
+    if(_almoco == nil){
+        _almoco = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+    }
+    if(_lanche == nil){
+        _lanche = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
+
+    }
+    if(_janta == nil){
+        _janta = [NSEntityDescription insertNewObjectForEntityForName:@"Refeicoes" inManagedObjectContext:[coredata managedObjectContext]];
     }
 
     //        _historicoDoDia = [[NSDictionary alloc]initWithObjects:@[cafe, almoco, lanche, janta] forKeys:@[@"Cafe da manhã",@"Almoço",@"Lanche", @"Janta"]];

@@ -39,8 +39,6 @@ UIButton *botaoBusca;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
     
     //inicializacao da table view - a classe agora é um view controller apenas, para poder ter a search bar
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height-50)];
@@ -54,7 +52,7 @@ UIButton *botaoBusca;
     textoBusca = [[UISearchBar alloc]initWithFrame:CGRectMake(10, 70, self.view.frame.size.width - 20, 40)];
     textoBusca.placeholder = @"Buscar alimentos";
     textoBusca.delegate = self;
-    
+
     [self.view addSubview:textoBusca];
     
 //    botaoBusca = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -173,8 +171,14 @@ UIButton *botaoBusca;
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     NSLog(@"Voce buscou por: %@",searchBar.text);
+    [textoBusca resignFirstResponder];
 
-    [self fetchDataWithPredicate:[NSPredicate predicateWithFormat:@"descricao BEGINSWITH[c] %@",searchBar.text]];
+    if([searchBar.text isEqual: @""]){
+        [self fetchDataWithPredicate:[NSPredicate predicateWithFormat:nil]];
+    }
+    else{
+        [self fetchDataWithPredicate:[NSPredicate predicateWithFormat:@"descricao BEGINSWITH[c] %@",searchBar.text]];
+    }
 
     [_tableView reloadData];
 }
@@ -228,6 +232,8 @@ UIButton *botaoBusca;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     Alimento *esteAlimento = [[tudoFormatado objectAtIndex:[indexPath section]]objectAtIndex:indexPath.row];
     NSLog(@"%@", esteAlimento.descricao);
+
+    [textoBusca resignFirstResponder];
 
     RefeicoesAlimento *refeicaoAlimento = [NSEntityDescription insertNewObjectForEntityForName:@"RefeicoesAlimento" inManagedObjectContext:[coreData managedObjectContext]];
 

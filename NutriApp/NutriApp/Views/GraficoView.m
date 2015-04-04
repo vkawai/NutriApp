@@ -141,7 +141,7 @@
     NSLog(@"%@ -> %@",data2,data1);
 
     NSArray *fetchedData = [persistence fetchDataForEntity:@"Refeicoes" usingPredicate:[NSPredicate predicateWithFormat:@"(data <= %@) AND (data >= %@)",data1, data2]];
-    NSLog(@"REFEICOES RETORNADAS: %d",[fetchedData count]);
+    NSLog(@"REFEICOES RETORNADAS: %lu",(unsigned long)[fetchedData count]);
     _dados = [[NSMutableArray alloc] init];
     _dias = [[NSMutableArray alloc]init];
 
