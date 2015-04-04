@@ -26,7 +26,7 @@
 #define kDefaultGraphWidth 900
 
 //constantes das linhas verticais
-#define kOffsetX 10
+#define kOffsetX 30
 #define kStepX 50
 
 //offset do grafico na subview

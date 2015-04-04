@@ -87,7 +87,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd/MM"];
     
-    for (int i = 1; i < _dias.count; i++)
+    for (int i = 0; i < _dias.count; i++)
     {
 #warning dados deveriam trazer tambem o dia de cada valor, para escrever no grafico
         //NSString *text = [_dados objectAtIndex:1].texto OU ALGO DO TIPO
@@ -133,14 +133,16 @@
 
     NSString *string = [formatter stringFromDate:[[NSDate alloc]init]];
     [formatter setDateFormat:@"dd/MM/yyyy hh:mm"];
-    NSDate *data1 = [formatter dateFromString:[NSString stringWithFormat:@"%@ 00:00",string]];
+    NSDate *data1 = [formatter dateFromString:[NSString stringWithFormat:@"%@ 04:00",string]];
     NSDate *data2;
 
     data2 = [calendar dateByAddingComponents:dateMinusTen toDate:data1 options:0];
 
     NSLog(@"%@ -> %@",data2,data1);
 
-    NSArray *fetchedData = [persistence fetchDataForEntity:@"Refeicoes" usingPredicate:[NSPredicate predicateWithFormat:@"(data <= %@) AND (data >= %@)",data1, data2]];
+    NSArray *fetchedData = [[persistence fetchDataForEntity:@"Refeicoes" usingPredicate:[NSPredicate predicateWithFormat:@"(data <= %@) AND (data >= %@)",data1, data2]] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [[(Refeicoes *)obj1 data] compare:[(Refeicoes *)obj2 data]];
+    }];
     NSLog(@"REFEICOES RETORNADAS: %lu",(unsigned long)[fetchedData count]);
     _dados = [[NSMutableArray alloc] init];
     _dias = [[NSMutableArray alloc]init];
@@ -157,6 +159,7 @@
         }
         else{
             [_dados addObject:[NSNumber numberWithDouble:calorias/4000]];
+            NSLog(@"Valor %f dia %@", calorias, [[fetchedData objectAtIndex:i-1]data]);
             [_dias addObject:[(Refeicoes*)[fetchedData objectAtIndex:i-1]data]];
             calorias = [[fetchedData objectAtIndex:i]caloria];
         }
