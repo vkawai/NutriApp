@@ -80,6 +80,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
+
+//nós realmente deveriamos mudar este nome
 - (IBAction)salvarOMundo:(id)sender {
     
 //    CoreDataPersistence *cdp = [CoreDataPersistence sharedInstance];

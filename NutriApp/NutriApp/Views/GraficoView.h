@@ -11,7 +11,14 @@
 @interface GraficoView : UIView
 
 //dados para traçar o grafico
+/**
+ * valores entre 0.0 e 1.0 que determinam cada ponto no grafico
+ */
 @property NSMutableArray *dados;
+
+/**
+ * NSDates que correspondem aos valores de cada ponto; serão colocados em labels nos eixos do gráficos
+ */
 @property NSMutableArray *dias;
 
 //dimensoes do grafico
@@ -33,6 +40,6 @@
 //tamanho do circulo de data point
 #define kCircleRadius 3
 
--(instancetype)initWithDados:(NSMutableArray *)dados;
+//-(instancetype)initWithDados:(NSMutableArray *)dados;
 
 @end

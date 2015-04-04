@@ -49,7 +49,7 @@
         [termoInvalido show];
         return;
     }
-    NSLog(@"Voce escolheu um limite de %@ do tipo %ld",_limiteText.text, (long)_tipoSelector.selectedSegmentIndex);
+    //NSLog(@"Voce escolheu um limite de %@ do tipo %ld",_limiteText.text, (long)_tipoSelector.selectedSegmentIndex);
     
     //guarda as configs do usuario no userDefault
     NSUserDefaults *useDef = [NSUserDefaults standardUserDefaults];
