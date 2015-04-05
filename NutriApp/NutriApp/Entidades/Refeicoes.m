@@ -24,7 +24,7 @@
 -(double)caloria{
     double res = 0;
     for(RefeicoesAlimento *ra in [self refeicoesAlimentos]){
-        res += [ra.alimento.energia doubleValue] * [ra.quantidade intValue];
+        res += ([ra.alimento.energia doubleValue]/100) * [ra.quantidade intValue];
     }
     return res;
 }

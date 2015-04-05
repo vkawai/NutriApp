@@ -19,6 +19,14 @@
 @property Refeicoes *almoco;
 @property Refeicoes *lanche;
 @property Refeicoes *janta;
+/**
+ * alimento selecionado na table view de todos os alimentos; serve para passar pra view de quantidade
+ */
+@property Alimento *thisAlimento;
+/**
+ * numero da refeicao na qual estao sendo adicionados alimentos pela ComidaTableView, serve para passar para a view de quantidade
+ */
+@property int numeroRefeicao;
 
 @property NSMutableArray *dadosGrafico;
 

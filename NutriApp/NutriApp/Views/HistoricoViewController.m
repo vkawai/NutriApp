@@ -46,7 +46,8 @@ NSMutableArray *historicoDia;
     float totalCalorias = 0.0;
     for(Refeicoes *r in historicoDia){
         for(RefeicoesAlimento *ra in r){
-            totalCalorias += [[ra.alimento energia]floatValue];
+            float fator = [ra.quantidade floatValue]/100;
+            totalCalorias += [[ra.alimento energia]floatValue] * fator;
         }
     }
     _labelValorTotal.text = [NSString stringWithFormat:@"%.2f",totalCalorias];
@@ -90,7 +91,7 @@ NSMutableArray *historicoDia;
 
     RefeicoesAlimento *r = [[historicoDia objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     cell.textLabel.text = r.alimento.descricao;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal", [[r.alimento energia] floatValue]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f kcal, %d gramas", [[r.alimento energia] floatValue], [r.quantidade intValue]];
 
     return cell;
 }
@@ -112,7 +113,8 @@ NSMutableArray *historicoDia;
     float totalCalorias = 0.0;
     for(Refeicoes *r in historicoDia){
         for(RefeicoesAlimento *ra in r){
-            totalCalorias += [[ra.alimento energia]floatValue];
+            float fator = [ra.quantidade floatValue]/100;
+            totalCalorias += [[ra.alimento energia]floatValue] * fator;
         }
     }
     _labelValorTotal.text = [NSString stringWithFormat:@"%.2f",totalCalorias];

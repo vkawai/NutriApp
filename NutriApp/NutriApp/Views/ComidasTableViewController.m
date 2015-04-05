@@ -7,6 +7,7 @@
 //
 
 #import "ComidasTableViewController.h"
+#import "QuantidadeViewController.h"
 #import "../Entidades/Alimento.h"
 #import "../Entidades/Refeicoes.h"
 #import "../Entidades/RefeicoesAlimento.h"
@@ -39,6 +40,9 @@ UIButton *botaoBusca;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[HojeSingleton sharedInstance] loadTodayData];
+
     
     //inicializacao da table view - a classe agora é um view controller apenas, para poder ter a search bar
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height-50)];
@@ -151,7 +155,7 @@ UIButton *botaoBusca;
 
 -(void)viewWillAppear:(BOOL)animated{
     //PREENCHER OS ARRAYS COM OS DADOS DO BD
-    [[HojeSingleton sharedInstance] loadTodayData];
+    //[[HojeSingleton sharedInstance] loadTodayData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -233,14 +237,20 @@ UIButton *botaoBusca;
     Alimento *esteAlimento = [[tudoFormatado objectAtIndex:[indexPath section]]objectAtIndex:indexPath.row];
     NSLog(@"%@", esteAlimento.descricao);
 
+    [HojeSingleton sharedInstance].thisAlimento = esteAlimento;
+    [HojeSingleton sharedInstance].numeroRefeicao = _num;
+    
     [textoBusca resignFirstResponder];
+    
+    
+    [self.navigationController pushViewController:[[QuantidadeViewController alloc]init] animated:YES];
 
-    RefeicoesAlimento *refeicaoAlimento = [NSEntityDescription insertNewObjectForEntityForName:@"RefeicoesAlimento" inManagedObjectContext:[coreData managedObjectContext]];
-
-    [esteAlimento addIgredientOfObject:refeicaoAlimento];
-    [refeicaoAlimento setAlimento:esteAlimento];
-
-    [[[HojeSingleton sharedInstance].historicoDoDia objectAtIndex:_num] addObject:refeicaoAlimento];
+//    RefeicoesAlimento *refeicaoAlimento = [NSEntityDescription insertNewObjectForEntityForName:@"RefeicoesAlimento" inManagedObjectContext:[coreData managedObjectContext]];
+//
+//    [esteAlimento addIgredientOfObject:refeicaoAlimento];
+//    [refeicaoAlimento setAlimento:esteAlimento];
+//
+//    [[[HojeSingleton sharedInstance].historicoDoDia objectAtIndex:_num] addObject:refeicaoAlimento];
     [selected addObject:indexPath];
 }
 

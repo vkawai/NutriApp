@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15C353EC1AD0C2760002F27B /* QuantidadeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15C353EA1AD0C2760002F27B /* QuantidadeViewController.m */; };
+		15C353ED1AD0C2760002F27B /* QuantidadeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C353EB1AD0C2760002F27B /* QuantidadeViewController.xib */; };
 		21F93A3F1ACDAFDF003F86CE /* AnimacaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F93A3E1ACDAFDF003F86CE /* AnimacaoViewController.m */; };
 		EB7AC1EE1AC7308700288EC9 /* CoreDataPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7AC1ED1AC7308700288EC9 /* CoreDataPersistence.m */; };
 		EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32E61AC1CA0B00347EE5 /* main.m */; };
@@ -45,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15C353E91AD0C2760002F27B /* QuantidadeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantidadeViewController.h; sourceTree = "<group>"; };
+		15C353EA1AD0C2760002F27B /* QuantidadeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantidadeViewController.m; sourceTree = "<group>"; };
+		15C353EB1AD0C2760002F27B /* QuantidadeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuantidadeViewController.xib; sourceTree = "<group>"; };
 		21F93A3D1ACDAFDF003F86CE /* AnimacaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimacaoViewController.h; sourceTree = "<group>"; };
 		21F93A3E1ACDAFDF003F86CE /* AnimacaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimacaoViewController.m; sourceTree = "<group>"; };
 		EB7AC1EC1AC7308700288EC9 /* CoreDataPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataPersistence.h; path = Persistencia/CoreDataPersistence.h; sourceTree = "<group>"; };
@@ -229,6 +234,9 @@
 		EBEE85501AC9E40400C6EEAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				15C353E91AD0C2760002F27B /* QuantidadeViewController.h */,
+				15C353EA1AD0C2760002F27B /* QuantidadeViewController.m */,
+				15C353EB1AD0C2760002F27B /* QuantidadeViewController.xib */,
 				EBA679A71ACB3FAF00F8BF94 /* CalendarioView.h */,
 				EBA679A81ACB3FAF00F8BF94 /* CalendarioView.m */,
 				EBEE856A1AC9E52800C6EEAD /* ViewController.h */,
@@ -346,6 +354,7 @@
 				EB9D32F31AC1CA0B00347EE5 /* Main.storyboard in Resources */,
 				EB9D32F81AC1CA0B00347EE5 /* LaunchScreen.xib in Resources */,
 				EB9D32F51AC1CA0B00347EE5 /* Images.xcassets in Resources */,
+				15C353ED1AD0C2760002F27B /* QuantidadeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +376,7 @@
 				EB9D32EA1AC1CA0B00347EE5 /* AppDelegate.m in Sources */,
 				EBA6799A1ACB231A00F8BF94 /* RefeicoesAlimento.m in Sources */,
 				EB9D32ED1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld in Sources */,
+				15C353EC1AD0C2760002F27B /* QuantidadeViewController.m in Sources */,
 				EBEE85681AC9E4E300C6EEAD /* EntityManager.m in Sources */,
 				EBA51DE71ACC731C00CE8E05 /* Refeicoes.m in Sources */,
 				EBEE85691AC9E4E300C6EEAD /* PersistenceInit.m in Sources */,
