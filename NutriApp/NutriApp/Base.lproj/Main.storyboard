@@ -767,6 +767,10 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="GTS-r5-FQt"/>
+                    <connections>
+                        <outlet property="graficoView" destination="izJ-Jm-Cef" id="xLI-kz-BJh"/>
+                        <outlet property="scrollGrafico" destination="Cy6-Os-62G" id="IoR-jy-hcT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
