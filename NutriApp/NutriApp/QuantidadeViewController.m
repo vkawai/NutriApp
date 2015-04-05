@@ -43,6 +43,14 @@
 */
 
 - (IBAction)confirmar:(id)sender {
+    NSError *erroRegex=nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^[0-9]+$" options:NSRegularExpressionCaseInsensitive error:&erroRegex];
+    
+    if(![regex numberOfMatchesInString:_textoQuant.text options:0 range:NSMakeRange(0, _textoQuant.text.length)]){
+        UIAlertView *termoInvalido = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Quantidade inválida!",nil) message:NSLocalizedString(@"Por favor, insira apenas números inteiros.", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [termoInvalido show];
+        return;
+    }
     Alimento *esteAlimento = [HojeSingleton sharedInstance].thisAlimento;
     RefeicoesAlimento *refeicaoAlimento = [NSEntityDescription insertNewObjectForEntityForName:@"RefeicoesAlimento" inManagedObjectContext:[[CoreDataPersistence sharedInstance] managedObjectContext]];
     
