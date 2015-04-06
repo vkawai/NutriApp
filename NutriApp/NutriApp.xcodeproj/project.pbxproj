@@ -11,6 +11,8 @@
 		15C353ED1AD0C2760002F27B /* QuantidadeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15C353EB1AD0C2760002F27B /* QuantidadeViewController.xib */; };
 		21F93A3F1ACDAFDF003F86CE /* AnimacaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F93A3E1ACDAFDF003F86CE /* AnimacaoViewController.m */; };
 		EB7AC1EE1AC7308700288EC9 /* CoreDataPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7AC1ED1AC7308700288EC9 /* CoreDataPersistence.m */; };
+		EB8132911AD2BF3900F11F59 /* NovoAlimentoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB81328F1AD2BF3900F11F59 /* NovoAlimentoViewController.m */; };
+		EB8132921AD2BF3900F11F59 /* NovoAlimentoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB8132901AD2BF3900F11F59 /* NovoAlimentoViewController.xib */; };
 		EB9D32E71AC1CA0B00347EE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32E61AC1CA0B00347EE5 /* main.m */; };
 		EB9D32EA1AC1CA0B00347EE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32E91AC1CA0B00347EE5 /* AppDelegate.m */; };
 		EB9D32ED1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB9D32EB1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld */; };
@@ -54,6 +56,9 @@
 		21F93A3E1ACDAFDF003F86CE /* AnimacaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimacaoViewController.m; sourceTree = "<group>"; };
 		EB7AC1EC1AC7308700288EC9 /* CoreDataPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataPersistence.h; path = Persistencia/CoreDataPersistence.h; sourceTree = "<group>"; };
 		EB7AC1ED1AC7308700288EC9 /* CoreDataPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataPersistence.m; path = Persistencia/CoreDataPersistence.m; sourceTree = "<group>"; };
+		EB81328E1AD2BF3900F11F59 /* NovoAlimentoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NovoAlimentoViewController.h; path = Views/NovoAlimentoViewController.h; sourceTree = "<group>"; };
+		EB81328F1AD2BF3900F11F59 /* NovoAlimentoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NovoAlimentoViewController.m; path = Views/NovoAlimentoViewController.m; sourceTree = "<group>"; };
+		EB8132901AD2BF3900F11F59 /* NovoAlimentoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NovoAlimentoViewController.xib; path = Views/NovoAlimentoViewController.xib; sourceTree = "<group>"; };
 		EB9D32E11AC1CA0B00347EE5 /* NutriApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9D32E51AC1CA0B00347EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB9D32E61AC1CA0B00347EE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -253,6 +258,9 @@
 				EBEE855A1AC9E47400C6EEAD /* HistoricoViewController.m */,
 				21F93A3D1ACDAFDF003F86CE /* AnimacaoViewController.h */,
 				21F93A3E1ACDAFDF003F86CE /* AnimacaoViewController.m */,
+				EB81328E1AD2BF3900F11F59 /* NovoAlimentoViewController.h */,
+				EB81328F1AD2BF3900F11F59 /* NovoAlimentoViewController.m */,
+				EB8132901AD2BF3900F11F59 /* NovoAlimentoViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -355,6 +363,7 @@
 				EB9D32F81AC1CA0B00347EE5 /* LaunchScreen.xib in Resources */,
 				EB9D32F51AC1CA0B00347EE5 /* Images.xcassets in Resources */,
 				15C353ED1AD0C2760002F27B /* QuantidadeViewController.xib in Resources */,
+				EB8132921AD2BF3900F11F59 /* NovoAlimentoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +385,7 @@
 				EB9D32EA1AC1CA0B00347EE5 /* AppDelegate.m in Sources */,
 				EBA6799A1ACB231A00F8BF94 /* RefeicoesAlimento.m in Sources */,
 				EB9D32ED1AC1CA0B00347EE5 /* NutriApp.xcdatamodeld in Sources */,
+				EB8132911AD2BF3900F11F59 /* NovoAlimentoViewController.m in Sources */,
 				15C353EC1AD0C2760002F27B /* QuantidadeViewController.m in Sources */,
 				EBEE85681AC9E4E300C6EEAD /* EntityManager.m in Sources */,
 				EBA51DE71ACC731C00CE8E05 /* Refeicoes.m in Sources */,

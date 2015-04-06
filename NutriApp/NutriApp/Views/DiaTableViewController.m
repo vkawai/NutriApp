@@ -25,9 +25,6 @@ NSMutableArray *tudo;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveMeal)];
-    self.navigationItem.rightBarButtonItem = btn;
-
     
     [self.tableView setSectionHeaderHeight:20];
     
@@ -118,10 +115,6 @@ NSMutableArray *tudo;
     if([indexPath row] == [[tudo objectAtIndex:indexPath.section] count]){
         [self.navigationController pushViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES];
     }
-}
-
--(void)saveMeal{
-    [[HojeSingleton sharedInstance] saveMeals];
 }
 
 /*
