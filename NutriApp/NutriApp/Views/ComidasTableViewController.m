@@ -57,7 +57,7 @@ UIButton *botaoBusca;
     [self.view addSubview:_tableView];
     
     //topo da tela que conterá a text bar e o botao de busca
-    textoBusca = [[UISearchBar alloc]initWithFrame:CGRectMake(10, 70, self.view.frame.size.width - 20, 40)];
+    textoBusca = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, 55)];
     textoBusca.placeholder = @"Buscar alimentos";
     textoBusca.delegate = self;
 
@@ -225,6 +225,7 @@ UIButton *botaoBusca;
     if([[tudoFormatado objectAtIndex:section]count]>0){
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
         [label setFont:[UIFont boldSystemFontOfSize:12]];
+        label.textColor = [UIColor whiteColor];
         NSString *tituloSection = [[[[tudoFormatado objectAtIndex:section] firstObject] categoria] nomeGrupo];
         [label setText:NSLocalizedString(tituloSection, nil)];
         [header addSubview:label];

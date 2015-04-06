@@ -76,6 +76,7 @@ NSMutableArray *tudo;
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, -20, tableView.frame.size.width, 18)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(25, 2, tableView.frame.size.width, 18)];
     [label setFont:[UIFont boldSystemFontOfSize:12]];
+    label.textColor = [UIColor whiteColor];
     if (section == 0){
         [label setText:NSLocalizedString(@"Café da manha", nil)];
     }
