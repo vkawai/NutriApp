@@ -8,6 +8,7 @@
 
 #import "ComidasTableViewController.h"
 #import "QuantidadeViewController.h"
+#import "NovoAlimentoViewController.h"
 #import "../Entidades/Alimento.h"
 #import "../Entidades/Refeicoes.h"
 #import "../Entidades/RefeicoesAlimento.h"
@@ -68,8 +69,8 @@ UIButton *botaoBusca;
     
     coreData = [CoreDataPersistence sharedInstance];
     //CARREGA ESSE TAL DESSE TUDO2 COM TODOS OS ALIMENTOS, DE PREFERENCIA COM O NOME DA CATEGORIA JA COLOCADO LA
-
-    [self fetchDataWithPredicate:nil];
+//
+//    [self fetchDataWithPredicate:nil];
 
 //    tudoFormatado = [[NSMutableArray alloc]init];
 //    GrupoAlimento *cur = nil;
@@ -155,6 +156,7 @@ UIButton *botaoBusca;
 -(void)viewWillAppear:(BOOL)animated{
     //PREENCHER OS ARRAYS COM OS DADOS DO BD
     //[[HojeSingleton sharedInstance] loadTodayData];
+    [self fetchDataWithPredicate:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -196,6 +198,10 @@ UIButton *botaoBusca;
 
     [_tableView reloadData];
     
+}
+
+-(void)saveFood{
+    [self.navigationController pushViewController:[[NovoAlimentoViewController alloc]init] animated:NO];
 }
 
 #pragma mark - Table view data source
