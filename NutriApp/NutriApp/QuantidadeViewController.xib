@@ -17,13 +17,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecionar quantidade de" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muH-oq-PTF">
-                    <rect key="frame" x="202" y="91" width="196" height="20.5"/>
+                    <rect key="frame" x="202" y="91" width="196" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alimento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsO-k7-Rc4">
-                    <rect key="frame" x="125" y="144" width="349" height="20.5"/>
+                    <rect key="frame" x="125" y="144" width="349" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="349" id="nRc-J7-pjG"/>
                     </constraints>
@@ -31,13 +31,13 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjy-0b-Z2t">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjy-0b-Z2t">
                     <rect key="frame" x="20" y="285" width="492" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gramas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgJ-bJ-5HK">
-                    <rect key="frame" x="522" y="289" width="58" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="gramas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgJ-bJ-5HK">
+                    <rect key="frame" x="522" y="289" width="58" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="58" id="uM3-cF-tel"/>
                     </constraints>
@@ -46,7 +46,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yj7-fh-jf5">
-                    <rect key="frame" x="-1" y="506" width="600" height="44"/>
+                    <rect key="frame" x="-1" y="556" width="600" height="44"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="hYw-An-8qK"/>
                         <barButtonItem title="Confirmar" id="FdS-kV-1Vv">
@@ -71,7 +71,7 @@
                 <constraint firstItem="Yj7-fh-jf5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-1" id="QNf-e0-tOG"/>
                 <constraint firstItem="AgJ-bJ-5HK" firstAttribute="top" secondItem="rsO-k7-Rc4" secondAttribute="bottom" constant="124.5" id="b95-wU-lJz"/>
                 <constraint firstItem="rsO-k7-Rc4" firstAttribute="top" secondItem="muH-oq-PTF" secondAttribute="bottom" constant="32.5" id="eRE-Wd-Oo2"/>
-                <constraint firstAttribute="bottom" secondItem="Yj7-fh-jf5" secondAttribute="bottom" constant="50" id="kqG-cp-xtS"/>
+                <constraint firstAttribute="bottom" secondItem="Yj7-fh-jf5" secondAttribute="bottom" id="kqG-cp-xtS"/>
                 <constraint firstAttribute="trailing" secondItem="Yj7-fh-jf5" secondAttribute="trailing" constant="1" id="uOY-QD-hEb"/>
             </constraints>
             <variation key="default">

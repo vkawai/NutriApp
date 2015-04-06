@@ -42,7 +42,6 @@ UIButton *botaoBusca;
     [super viewDidLoad];
     
     [[HojeSingleton sharedInstance] loadTodayData];
-
     
     //inicializacao da table view - a classe agora é um view controller apenas, para poder ter a search bar
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height-50)];

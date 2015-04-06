@@ -116,8 +116,10 @@ NSMutableArray *tudo;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ComidasTableViewController *comidasView = [[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section];
+    comidasView.hidesBottomBarWhenPushed=YES;
     if([indexPath row] == [[tudo objectAtIndex:indexPath.section] count]){
-        [self.navigationController pushViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES];
+        [self.navigationController pushViewController:comidasView animated:YES];
     }
 }
 
