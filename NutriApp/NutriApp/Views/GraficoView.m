@@ -72,7 +72,7 @@
     if(limite>0 && limite<4000){
         //CGContextBeginPath(context);
         CGContextMoveToPoint(context, kOffsetX, kGraphHeight - maxGraphHeight *(limite/4000));
-        CGContextAddLineToPoint(context, kOffsetX + (_dados.count - 1)*varStepX, kGraphHeight - maxGraphHeight *(limite/4000));
+        CGContextAddLineToPoint(context, kDefaultGraphWidth, kGraphHeight - maxGraphHeight *(limite/4000));
         CGContextStrokePath(context);
     }
     
@@ -165,6 +165,9 @@
         }
         esseDia = [(Refeicoes*)[fetchedData objectAtIndex:i] data];
     }
+    [_dados addObject:[NSNumber numberWithDouble:calorias/4000]];
+    NSLog(@"Valor %f dia %@", calorias, [[fetchedData lastObject]data]);
+    [_dias addObject:[(Refeicoes*)[fetchedData lastObject]data]];
     if(_dados.count==0){
         [_dados addObject:@0.01]; // Workaround para a primeira vez (arrumar isso)
     }
