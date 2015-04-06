@@ -167,9 +167,11 @@
     }
     [_dados addObject:[NSNumber numberWithDouble:calorias/4000]];
     NSLog(@"Valor %f dia %@", calorias, [[fetchedData lastObject]data]);
-    [_dias addObject:[(Refeicoes*)[fetchedData lastObject]data]];
+    if(fetchedData.count > 0){
+        [_dias addObject:[(Refeicoes*)[fetchedData lastObject]data]];
+    }
     if(_dados.count==0){
-        [_dados addObject:@0.01]; // Workaround para a primeira vez (arrumar isso)
+        [_dados addObject:@0.0]; // Workaround para a primeira vez (arrumar isso)
     }
 //     ------------------------------------------------
 
