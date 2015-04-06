@@ -114,7 +114,9 @@ NSMutableArray *tudo;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if([indexPath row] == [[tudo objectAtIndex:indexPath.section] count]){
-        [self.navigationController pushViewController:[[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section] animated:YES];
+        ComidasTableViewController *ctvc = [[ComidasTableViewController alloc]initWithRefeicao:(int)indexPath.section];
+        ctvc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:ctvc animated:YES];
     }
 }
 
