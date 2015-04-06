@@ -30,16 +30,17 @@
     //setando o formato desejado para a string do dia
     NSDateFormatter *format=[[NSDateFormatter alloc]init];
     [format setDateStyle:NSDateFormatterLongStyle];
+    //    [format setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     
     
     today=[[NSDate alloc]init];// o init é sempre o dia atual
     calendar=[NSCalendar currentCalendar];//pega o calendario default do sistema
-    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-
+    //    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    
     weekArray=@[domButton,segButton,tercButton,quartButton,quintButton,sexButton,sabButton];// seta array de week buttons
     
     [selectedDayLabel setText:[NSString stringWithFormat:@"%@",[format stringFromDate:today]]];// altera o texto para o hoje
-    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    //    [calendar setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     for (UIButton *botao in weekArray) {
         [botao addTarget:self action:@selector(selectDay:) forControlEvents:UIControlEventTouchDown];
     }
@@ -66,6 +67,13 @@
     [daysToSubstract setDay:0-([weekDayComp weekday]-1)];
     weekSunday=[calendar dateByAddingComponents:daysToSubstract toDate:today options:0];
     [self updateDay:0];
+    
+    //    NSDateComponents *hj=[calendar components:(NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitTimeZone) fromDate:today];
+    //    [hj setTimeZone:[NSTimeZone systemTimeZone]];
+    //    [calendar setTimeZone:[NSTimeZone systemTimeZone]];
+    //    [hj setHour:0];
+    NSLog(@"DIA SENDO MANDADO%@",today);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"DateUpdated"                                                        object:selectedDay];
 }
 
 #pragma Gesture Methods
@@ -80,78 +88,53 @@
 
 
 #pragma Update Methods
--(NSDateComponents *)updateWeek:(int)sinal{
+-(void)updateWeek:(int)sinal{
     NSDateComponents *sundayComp=[calendar components:(NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear) fromDate:weekSunday];
     
     [sundayComp setDay:[sundayComp day]+(7*sinal)];
     weekSunday=[calendar dateFromComponents:sundayComp];
     
-    return sundayComp;
 }
 
 -(void)updateDay:(int)sinal{
-    NSDateComponents *sundayComp=[self updateWeek:sinal];
-    NSLog(@"DOMINGO:%@",sundayComp);
+    [self updateWeek:sinal];
+    NSDateComponents *sundayComp=[calendar components:(NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear) fromDate:weekSunday];;
+    NSLog(@"DOMINGO:%@",weekSunday);
     NSDateFormatter *soDia=[[NSDateFormatter alloc]init];
     soDia.dateFormat=@"dd";
-    [soDia setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     
     NSDateFormatter *diaInt=[[NSDateFormatter alloc]init];
     diaInt.dateFormat=@"dd/MM/YYYY";
-    [diaInt setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-
     
-    long dom=[[NSString stringWithFormat:@"%@",[soDia stringFromDate:weekSunday]] integerValue];
-    NSLog(@"%lu",dom);
-    long mes=[sundayComp month];
-    long ano=[sundayComp year];
-    long mostrar;
-    for (int i=0; i<weekArray.count; i++) {
-        UIButton *button=weekArray[i];
-        button.layer.cornerRadius=15;
-        
-        [weekArray[i] setTag:dom+i];
-        mostrar=[weekArray[i] tag];
-        if (mes==1||mes==3||mes==5||mes==7||mes==8||mes==10||mes==12) {//verifica se o mes tem mais de 31
-            if (mostrar>31) {
-                mostrar-=31;
-            }
-        }
-        if (mes==4 ||mes==6||mes==9||mes==11) {//verifica se o mes tem mais de 30
-            
-            if (mostrar>30) {
-                mostrar-=30;
-            }
-        }
-        if (mes==2) {//verifica se é fevereiro
-            
-            if (ano%4==0) {//verifica se é bissexto
-                if (mostrar>29) {
-                    mostrar-=29;
-                }
-            }
-            else{
-                if (mostrar>28) {
-                    mostrar-=28;
-                }
-            }
-        }
-        [weekArray[i] setTitle:[NSString stringWithFormat:@"%li",mostrar] forState:UIControlStateNormal];
-        [weekArray[i] setTintColor:[UIColor blackColor]];
-        
-        NSDateComponents *newComp=[[NSDateComponents alloc]init];
-        [newComp setDay:[sundayComp day]+i];
+    NSDateComponents *newComp=[[NSDateComponents alloc]init];
+    [newComp setDay:[sundayComp day]];
+    
+    for (UIButton *botao in weekArray){
         [newComp setMonth:[sundayComp month]];
         [newComp setYear:[sundayComp year]];
+        NSDate *newDate=[calendar dateFromComponents:newComp];
+        botao.layer.cornerRadius=15;
+        long dif =([newComp day]-[sundayComp day]);
+        NSLog(@"A GRANDE DIFEreNCa%li \n\n\n",dif);
+        [botao setTag:dif];
+        
+        [botao setTitle:[NSString stringWithFormat:@"%@",[soDia stringFromDate:newDate]] forState:UIControlStateNormal];
+        [botao setTintColor:[UIColor blackColor]];
+        
+        
+        
         NSDate *diaTeste=[calendar dateFromComponents:newComp];
         if ([[diaInt stringFromDate:diaTeste] isEqualToString:[diaInt stringFromDate:today]]) {
-            [weekArray[i] setBackgroundColor: [UIColor colorWithRed:.15 green:.48 blue:.8 alpha:1]];
+            [botao setBackgroundColor: [UIColor colorWithRed:.15 green:.48 blue:.8 alpha:1]];
             //            [weekArray[i] setTitle:@"hoje" forState:UIControlStateNormal];
         }
         else{
-            [weekArray[i] setBackgroundColor:nil];
-            [weekArray[i] setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+            [botao setBackgroundColor:nil];
+            [botao setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
         }
+        [newComp setDay:[newComp day]+1];
+        [newComp setMonth:[sundayComp month]];
+        [newComp setYear:[sundayComp year]];
     }
     
 }
@@ -176,17 +159,19 @@
     
     NSDateFormatter *format=[[NSDateFormatter alloc]init];
     [format setDateStyle:NSDateFormatterLongStyle];
+    
     NSDateComponents *diaSelecComp=[[NSDateComponents alloc]init];
     NSDateComponents *sundayComp=[calendar components:(NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear) fromDate:weekSunday];
-    [diaSelecComp setDay:[sundayComp day]+(sender.tag-[sundayComp day])];
+    [diaSelecComp setDay:[sundayComp day]+sender.tag];
+    
     [diaSelecComp setMonth:[sundayComp month]];
     [diaSelecComp setYear:[sundayComp year]];
-    [diaSelecComp setTimeZone:[NSTimeZone systemTimeZone]];
+    
     NSDate *diaSelec=[calendar dateFromComponents:diaSelecComp];
     
     selectedDay=diaSelec;
     [selectedDayLabel setText:[NSString stringWithFormat:@"%@",[format stringFromDate:diaSelec]]];
-    [diaSelecComp setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    
     selectedDay=[calendar dateFromComponents:diaSelecComp];
     NSLog(@"DIA SENDO MANDADO%@",selectedDay);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DateUpdated"
