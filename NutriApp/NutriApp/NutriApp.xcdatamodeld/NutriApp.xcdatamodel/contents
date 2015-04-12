@@ -26,18 +26,18 @@
         <attribute name="vitaminaC" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="zinco" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="categoria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GrupoAlimento" inverseName="contemAlimento" inverseEntity="GrupoAlimento" syncable="YES"/>
-        <relationship name="igredientOf" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RefeicoesAlimento" inverseName="alimento" inverseEntity="RefeicoesAlimento" syncable="YES"/>
+        <relationship name="igredientOf" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RefeicoesAlimento" inverseName="alimento" inverseEntity="RefeicoesAlimento" syncable="YES"/>
     </entity>
     <entity name="GrupoAlimento" representedClassName="GrupoAlimento" syncable="YES">
         <attribute name="nomeGrupo" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="contemAlimento" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Alimento" inverseName="categoria" inverseEntity="Alimento" syncable="YES"/>
+        <relationship name="contemAlimento" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Alimento" inverseName="categoria" inverseEntity="Alimento" syncable="YES"/>
     </entity>
     <entity name="Refeicoes" representedClassName="Refeicoes" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="nome" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="saved" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="tipoRefeicao" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="refeicoesAlimentos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RefeicoesAlimento" inverseName="refeicao" inverseEntity="RefeicoesAlimento" syncable="YES"/>
+        <relationship name="refeicoesAlimentos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RefeicoesAlimento" inverseName="refeicao" inverseEntity="RefeicoesAlimento" syncable="YES"/>
     </entity>
     <entity name="RefeicoesAlimento" representedClassName="RefeicoesAlimento" syncable="YES">
         <attribute name="quantidade" attributeType="Float" defaultValueString="1" syncable="YES"/>
@@ -45,9 +45,9 @@
         <relationship name="refeicao" maxCount="1" deletionRule="Nullify" destinationEntity="Refeicoes" inverseName="refeicoesAlimentos" inverseEntity="Refeicoes" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Alimento" positionX="0" positionY="0" width="128" height="435"/>
-        <element name="GrupoAlimento" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="Refeicoes" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="RefeicoesAlimento" positionX="0" positionY="0" width="128" height="88"/>
+        <element name="Alimento" positionX="36" positionY="-120" width="128" height="433"/>
+        <element name="GrupoAlimento" positionX="-135" positionY="-99" width="128" height="73"/>
+        <element name="Refeicoes" positionX="-495" positionY="222" width="128" height="118"/>
+        <element name="RefeicoesAlimento" positionX="-189" positionY="227" width="128" height="88"/>
     </elements>
 </model>

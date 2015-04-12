@@ -201,7 +201,7 @@ UIButton *botaoBusca;
 }
 
 -(void)saveFood{
-    [self.navigationController pushViewController:[[NovoAlimentoViewController alloc]init] animated:NO];
+    [self.navigationController pushViewController:[[NovoAlimentoViewController alloc]init] animated:YES];
 }
 
 #pragma mark - Table view data source

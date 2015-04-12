@@ -44,8 +44,11 @@ NSMutableArray *tudo;
             RefeicoesAlimento *refeicao = [[tudo objectAtIndex:section] objectAtIndex:i];
             totalCalorias += [[refeicao.alimento energia] floatValue];
         }
-
     }
+
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithTitle:@"Editar" style:UIBarButtonItemStylePlain target:self action:@selector(btnEdit:)];
+    self.navigationItem.rightBarButtonItem = btn;
+
     NSLog(@"TOTAL DE CALORIAS: %f kcal",totalCalorias);
 }
 
@@ -120,25 +123,45 @@ NSMutableArray *tudo;
     }
 }
 
-/*
+
+-(void)btnEdit:(UIBarButtonItem *)sender{
+    if(self.editing){
+        self.editing = NO;
+        sender.title = @"Editar";
+    }
+    else{
+        self.editing = YES;
+        sender.title = @"Concluir";
+    }
+}
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    if(indexPath.row == [[tudo objectAtIndex:indexPath.section] count]){
+        return NO;
+    }
+    else{
+        return YES;
+    }
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+//         Delete the row from the data source
+        CoreDataPersistence *cd = [CoreDataPersistence sharedInstance];
+        [[cd managedObjectContext] deleteObject:[[tudo objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+        [[HojeSingleton sharedInstance] loadTodayData];
+        tudo = [HojeSingleton sharedInstance].historicoDoDia;
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [cd saveContext];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+//         Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+//
 }
-*/
 
 /*
 // Override to support rearranging the table view.
