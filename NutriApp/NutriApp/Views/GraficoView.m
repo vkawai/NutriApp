@@ -89,7 +89,6 @@
     
     for (int i = 0; i < _dias.count; i++)
     {
-#warning dados deveriam trazer tambem o dia de cada valor, para escrever no grafico
         //NSString *text = [_dados objectAtIndex:1].texto OU ALGO DO TIPO
         NSString *texto = [NSString stringWithFormat:@"%@", [formatter stringFromDate:[_dias
                                                                                         objectAtIndex:i]]];
@@ -170,12 +169,11 @@
     if(fetchedData.count > 0){
         [_dias addObject:[(Refeicoes*)[fetchedData lastObject]data]];
     }
-    if(_dados.count==0){
+    else{
         [_dados addObject:@0.0]; // Workaround para a primeira vez (arrumar isso)
     }
-//     ------------------------------------------------
+	// ------------------------------------------------
 
-#warning POSSIVEL DIVISÃO POR 0!!1!1!eleven
 
     float varStepX = kDefaultGraphWidth/_dados.count;
     NSLog(@"%f",varStepX);
