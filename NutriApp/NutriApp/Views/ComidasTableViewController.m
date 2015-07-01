@@ -160,7 +160,13 @@ UIButton *botaoBusca;
 -(void)viewWillAppear:(BOOL)animated{
     //PREENCHER OS ARRAYS COM OS DADOS DO BD
     //[[HojeSingleton sharedInstance] loadTodayData];
-    [self fetchDataWithPredicate:nil];
+
+	if([textoBusca.text isEqual: @""]){
+		[self fetchDataWithPredicate:[NSPredicate predicateWithFormat:nil]];
+	}
+	else{
+		[self fetchDataWithPredicate:[NSPredicate predicateWithFormat:@"descricao BEGINSWITH[c] %@",textoBusca.text]];
+	}
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -191,8 +197,9 @@ UIButton *botaoBusca;
 
     [_tableView reloadData];
 }
+
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    NSLog(@"Voce buscou por: %@",searchBar.text);
+//    NSLog(@"Voce buscou por: %@",searchBar.text);
     if([searchBar.text isEqual: @""]){
         [self fetchDataWithPredicate:[NSPredicate predicateWithFormat:nil]];
     }
@@ -245,7 +252,7 @@ UIButton *botaoBusca;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     Alimento *esteAlimento = [[tudoFormatado objectAtIndex:[indexPath section]]objectAtIndex:indexPath.row];
-    NSLog(@"%@", esteAlimento.descricao);
+//    NSLog(@"%@", esteAlimento.descricao);
 
     [HojeSingleton sharedInstance].thisAlimento = esteAlimento;
     [HojeSingleton sharedInstance].numeroRefeicao = _num;
