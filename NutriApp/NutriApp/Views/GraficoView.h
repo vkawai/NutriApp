@@ -23,7 +23,7 @@
 
 //dimensoes do grafico
 #define kGraphHeight 300
-#define kDefaultGraphWidth 900
+#define kDefaultGraphWidth 500
 
 //constantes das linhas verticais
 #define kOffsetX 30
