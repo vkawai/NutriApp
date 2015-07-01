@@ -112,12 +112,25 @@ NSMutableArray *historicoDia;
     [self updateData:[notification object]];
     [_tableView reloadData];
     float totalCalorias = 0.0;
+    float totalCarb = 0.0;
+    float totalLip = 0.0;
     for(Refeicoes *r in historicoDia){
         for(RefeicoesAlimento *ra in r){
             float fator = [ra.quantidade floatValue]/100;
             totalCalorias += [[ra.alimento energia]floatValue] * fator;
+            totalCarb += [[ra.alimento carboidrato]floatValue] * fator;
+            totalLip += [[ra.alimento lipideos]floatValue] * fator;
         }
     }
+    NSUserDefaults *useDef = [NSUserDefaults standardUserDefaults];
+//    int tipoNutricao = [useDef objectForKey:@"tipoNutricao"];
+//    if (tipoNutricao == 1){
+//        _labelValorTotal.text = [NSString stringWithFormat:@"%.2f",totalCarb];
+//    } else if (tipoNutricao == 2){
+//        _labelValorTotal.text = [NSString stringWithFormat:@"%.2f",totalLip];
+//    } else {
+//        _labelValorTotal.text = [NSString stringWithFormat:@"%.2f",totalCalorias];
+//    }
     _labelValorTotal.text = [NSString stringWithFormat:@"%.2f",totalCalorias];
     
 }

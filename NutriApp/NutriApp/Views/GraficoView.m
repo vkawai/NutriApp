@@ -33,7 +33,11 @@
     CGContextMoveToPoint(context, kOffsetX, kGraphHeight - maxGraphHeight * [[_dados firstObject]floatValue]);
     
     for (int i = 0; i < _dados.count; i++){
-        CGContextAddLineToPoint(context, kOffsetX + i * varStepX, kGraphHeight - maxGraphHeight * [[_dados objectAtIndex:i]floatValue]);
+        float valorPonto = [[_dados objectAtIndex:i]floatValue];
+        if (valorPonto > 1){
+            valorPonto = 1;
+        }
+        CGContextAddLineToPoint(context, kOffsetX + i * varStepX, kGraphHeight - maxGraphHeight * valorPonto);
     }
     
     CGContextDrawPath(context, kCGPathStroke);
@@ -43,8 +47,12 @@
     //cria circulos inscritos a retangulos em cada data point, e entao preenche os circulos
     for (int i = 0; i < _dados.count; i++)
     {
+        float valorPonto = [[_dados objectAtIndex:i]floatValue];
+        if (valorPonto > 1){
+            valorPonto = 1;
+        }
         float x = kOffsetX + i * varStepX;
-        float y = kGraphHeight - maxGraphHeight * [[_dados objectAtIndex:i] floatValue];
+        float y = kGraphHeight - maxGraphHeight * valorPonto;
         CGRect rect = CGRectMake(x - kCircleRadius, y - kCircleRadius, 2 * kCircleRadius, 2 * kCircleRadius);
         CGContextAddEllipseInRect(context, rect);
     }
@@ -56,10 +64,18 @@
     
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, kOffsetX, kGraphHeight);
-    CGContextAddLineToPoint(context, kOffsetX, kGraphHeight - maxGraphHeight * [[_dados firstObject]floatValue]);
+    float valorFirst = [[_dados firstObject]floatValue];
+    if (valorFirst > 1){
+        valorFirst = 1;
+    }
+    CGContextAddLineToPoint(context, kOffsetX, kGraphHeight - maxGraphHeight * valorFirst);
     for (int i = 0; i < _dados.count; i++)
     {
-        CGContextAddLineToPoint(context, kOffsetX + i * varStepX, kGraphHeight - maxGraphHeight * [[_dados objectAtIndex:i]floatValue]);
+        float valorPonto = [[_dados objectAtIndex:i]floatValue];
+        if (valorPonto > 1){
+            valorPonto = 1;
+        }
+        CGContextAddLineToPoint(context, kOffsetX + i * varStepX, kGraphHeight - maxGraphHeight * valorPonto);
     }
     CGContextAddLineToPoint(context, kOffsetX + (_dados.count - 1) * varStepX, kGraphHeight);
     CGContextClosePath(context);
