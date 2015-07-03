@@ -11,12 +11,16 @@
 @interface ConfigViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tipoSelector;
-
 @property (weak, nonatomic) IBOutlet UITextField *limiteText;
+@property (strong, nonatomic) IBOutlet UILabel *qtdLimite;
+@property (strong, nonatomic) IBOutlet UISlider *slider;
+@property (strong) NSUserDefaults *useDef;
 
-- (IBAction)salvar:(id)sender;
+- (IBAction)salvar:(NSString*)limite;
 
 - (IBAction)limpar:(id)sender;
 
+- (IBAction)sliderValueChanged:(UISlider *)sender;
+- (IBAction)textValueChanged:(UITextField *)sender;
 
 @end

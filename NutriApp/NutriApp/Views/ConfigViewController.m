@@ -14,11 +14,21 @@
 
 @implementation ConfigViewController
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    _useDef=[NSUserDefaults standardUserDefaults];
+    _limiteText.borderStyle = UITextBorderStyleNone;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.tabBarItem.selectedImage =[UIImage imageNamed:@"User Male Circle Filled-32"];
+    
+    
+    NSNumber *qtd = [_useDef objectForKey:@"limiteNutricao"];
+    _limiteText.text = qtd.description;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,29 +50,43 @@
     [_limiteText resignFirstResponder];
 }
 
-- (IBAction)salvar:(id)sender {
-    NSError *erroRegex=nil;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^[0-9]+$" options:NSRegularExpressionCaseInsensitive error:&erroRegex];
+- (IBAction)salvar:(NSString*)limite {
     
-    if(![regex numberOfMatchesInString:_limiteText.text options:0 range:NSMakeRange(0, _limiteText.text.length)]){
-        UIAlertView *termoInvalido = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Termo inválido!",nil) message:NSLocalizedString(@"Por favor, insira apenas números inteiros.", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [termoInvalido show];
-        return;
-    }
     //NSLog(@"Voce escolheu um limite de %@ do tipo %ld",_limiteText.text, (long)_tipoSelector.selectedSegmentIndex);
     
     //guarda as configs do usuario no userDefault
-    NSUserDefaults *useDef = [NSUserDefaults standardUserDefaults];
-    [useDef setValue:[NSNumber numberWithLong:_tipoSelector.selectedSegmentIndex] forKey:@"tipoNutricao"];
+    
+    [_useDef setValue:[NSNumber numberWithLong:_tipoSelector.selectedSegmentIndex] forKey:@"tipoNutricao"];
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     f.numberStyle = NSNumberFormatterDecimalStyle;
-    NSNumber *limiteNum = [f numberFromString:_limiteText.text];
-    [useDef setValue:limiteNum forKey:@"limiteNutricao"];
+    NSNumber *limiteNum = [f numberFromString:limite];
+    _limiteText.text = limite;
+    [_useDef setValue:limiteNum forKey:@"limiteNutricao"];
     NSLog(@"SALVO");
     
 }
 
 - (IBAction)limpar:(id)sender {
     _limiteText.text = @"";
+}
+
+- (IBAction)sliderValueChanged:(UISlider *)sender {
+    
+    _limiteText.text = [NSString stringWithFormat:@"%i",(int)sender.value];
+    [self salvar:_limiteText.text];
+
+}
+
+- (IBAction)textValueChanged:(UITextField *)sender {
+    NSError *erroRegex=nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^[0-9]+$" options:NSRegularExpressionCaseInsensitive error:&erroRegex];
+    
+    if(![regex numberOfMatchesInString:sender.text options:0 range:NSMakeRange(0, sender.text.length)]){
+        UIAlertView *termoInvalido = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Termo inválido!",nil) message:NSLocalizedString(@"Por favor, insira apenas números inteiros.", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [termoInvalido show];
+        return;
+    }
+    [self salvar:sender.text];
+    _slider.value = sender.text.floatValue;
 }
 @end
