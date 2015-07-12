@@ -359,8 +359,9 @@
                                                         <state key="normal" title="88">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
-                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <rect key="frame" x="13" y="10" width="30" height="30"/>
                                                         </variation>
                                                     </button>
                                                 </subviews>
@@ -754,7 +755,7 @@
             </objects>
             <point key="canvasLocation" x="2077.5" y="672"/>
         </scene>
-        <!--NutriApp-->
+        <!--Nutros-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -1037,7 +1038,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="NutriApp" id="GTS-r5-FQt"/>
+                    <navigationItem key="navigationItem" title="Nutros" id="GTS-r5-FQt"/>
                     <connections>
                         <outlet property="graficoView" destination="izJ-Jm-Cef" id="xLI-kz-BJh"/>
                         <outlet property="scrollGrafico" destination="Cy6-Os-62G" id="IoR-jy-hcT"/>
@@ -1530,8 +1531,8 @@
     <resources>
         <image name="Camping Tent-32-2" width="32" height="32"/>
         <image name="NutriApp" width="587" height="132"/>
-        <image name="NutriAppForkImage" width="628" height="70"/>
-        <image name="NutriAppKnifeImage" width="618" height="105"/>
+        <image name="NutriAppForkImage" width="627" height="76"/>
+        <image name="NutriAppKnifeImage" width="618" height="115"/>
         <image name="User Male Circle-32" width="32" height="32"/>
         <image name="Watch-32" width="32" height="32"/>
     </resources>

@@ -98,6 +98,9 @@ UIButton *botaoBusca;
 //            self.navigationItem.title = @"Janta";
 //            break;
 //    }
+    
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(saveFood)];
 }
 
 -(void)fetchDataWithPredicate:(NSPredicate *)predicate{

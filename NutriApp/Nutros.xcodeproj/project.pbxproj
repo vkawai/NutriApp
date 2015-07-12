@@ -59,7 +59,7 @@
 		EB81328E1AD2BF3900F11F59 /* NovoAlimentoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NovoAlimentoViewController.h; path = Views/NovoAlimentoViewController.h; sourceTree = "<group>"; };
 		EB81328F1AD2BF3900F11F59 /* NovoAlimentoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NovoAlimentoViewController.m; path = Views/NovoAlimentoViewController.m; sourceTree = "<group>"; };
 		EB8132901AD2BF3900F11F59 /* NovoAlimentoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NovoAlimentoViewController.xib; path = Views/NovoAlimentoViewController.xib; sourceTree = "<group>"; };
-		EB9D32E11AC1CA0B00347EE5 /* NutriApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9D32E11AC1CA0B00347EE5 /* Nutros.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutros.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9D32E51AC1CA0B00347EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB9D32E61AC1CA0B00347EE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB9D32E81AC1CA0B00347EE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		EB9D32F21AC1CA0B00347EE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB9D32F41AC1CA0B00347EE5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB9D32F71AC1CA0B00347EE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		EB9D32FD1AC1CA0B00347EE5 /* NutriAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutriAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9D32FD1AC1CA0B00347EE5 /* NutrosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutrosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9D33021AC1CA0B00347EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB9D33031AC1CA0B00347EE5 /* NutriAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NutriAppTests.m; sourceTree = "<group>"; };
 		EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -135,8 +135,8 @@
 		EB9D32E21AC1CA0B00347EE5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EB9D32E11AC1CA0B00347EE5 /* NutriApp.app */,
-				EB9D32FD1AC1CA0B00347EE5 /* NutriAppTests.xctest */,
+				EB9D32E11AC1CA0B00347EE5 /* Nutros.app */,
+				EB9D32FD1AC1CA0B00347EE5 /* NutrosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,9 +280,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EB9D32E01AC1CA0B00347EE5 /* NutriApp */ = {
+		EB9D32E01AC1CA0B00347EE5 /* Nutros */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB9D33071AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "NutriApp" */;
+			buildConfigurationList = EB9D33071AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "Nutros" */;
 			buildPhases = (
 				EB9D32DD1AC1CA0B00347EE5 /* Sources */,
 				EB9D32DE1AC1CA0B00347EE5 /* Frameworks */,
@@ -292,14 +292,14 @@
 			);
 			dependencies = (
 			);
-			name = NutriApp;
+			name = Nutros;
 			productName = NutriApp;
-			productReference = EB9D32E11AC1CA0B00347EE5 /* NutriApp.app */;
+			productReference = EB9D32E11AC1CA0B00347EE5 /* Nutros.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EB9D32FC1AC1CA0B00347EE5 /* NutriAppTests */ = {
+		EB9D32FC1AC1CA0B00347EE5 /* NutrosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB9D330A1AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "NutriAppTests" */;
+			buildConfigurationList = EB9D330A1AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "NutrosTests" */;
 			buildPhases = (
 				EB9D32F91AC1CA0B00347EE5 /* Sources */,
 				EB9D32FA1AC1CA0B00347EE5 /* Frameworks */,
@@ -310,9 +310,9 @@
 			dependencies = (
 				EB9D32FF1AC1CA0B00347EE5 /* PBXTargetDependency */,
 			);
-			name = NutriAppTests;
+			name = NutrosTests;
 			productName = NutriAppTests;
-			productReference = EB9D32FD1AC1CA0B00347EE5 /* NutriAppTests.xctest */;
+			productReference = EB9D32FD1AC1CA0B00347EE5 /* NutrosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -326,6 +326,7 @@
 				TargetAttributes = {
 					EB9D32E01AC1CA0B00347EE5 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 9P64YE968V;
 					};
 					EB9D32FC1AC1CA0B00347EE5 = {
 						CreatedOnToolsVersion = 6.2;
@@ -333,7 +334,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EB9D32DC1AC1CA0B00347EE5 /* Build configuration list for PBXProject "NutriApp" */;
+			buildConfigurationList = EB9D32DC1AC1CA0B00347EE5 /* Build configuration list for PBXProject "Nutros" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -347,8 +348,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EB9D32E01AC1CA0B00347EE5 /* NutriApp */,
-				EB9D32FC1AC1CA0B00347EE5 /* NutriAppTests */,
+				EB9D32E01AC1CA0B00347EE5 /* Nutros */,
+				EB9D32FC1AC1CA0B00347EE5 /* NutrosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -418,7 +419,7 @@
 /* Begin PBXTargetDependency section */
 		EB9D32FF1AC1CA0B00347EE5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EB9D32E01AC1CA0B00347EE5 /* NutriApp */;
+			target = EB9D32E01AC1CA0B00347EE5 /* Nutros */;
 			targetProxy = EB9D32FE1AC1CA0B00347EE5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -535,9 +536,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NutriApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nutros;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -546,9 +548,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NutriApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Nutros;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -567,7 +570,7 @@
 				);
 				INFOPLIST_FILE = NutriAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NutrosTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriApp.app/NutriApp";
 			};
 			name = Debug;
@@ -582,7 +585,7 @@
 				);
 				INFOPLIST_FILE = NutriAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NutrosTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriApp.app/NutriApp";
 			};
 			name = Release;
@@ -590,7 +593,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EB9D32DC1AC1CA0B00347EE5 /* Build configuration list for PBXProject "NutriApp" */ = {
+		EB9D32DC1AC1CA0B00347EE5 /* Build configuration list for PBXProject "Nutros" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB9D33051AC1CA0B00347EE5 /* Debug */,
@@ -599,7 +602,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB9D33071AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "NutriApp" */ = {
+		EB9D33071AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "Nutros" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB9D33081AC1CA0B00347EE5 /* Debug */,
@@ -608,7 +611,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB9D330A1AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "NutriAppTests" */ = {
+		EB9D330A1AC1CA0B00347EE5 /* Build configuration list for PBXNativeTarget "NutrosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB9D330B1AC1CA0B00347EE5 /* Debug */,

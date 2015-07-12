@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"NutriApp";
+//    self.navigationItem.title = @"NutriApp";
     
     NSUserDefaults *useDef = [NSUserDefaults standardUserDefaults];
     if([useDef valueForKey:@"limiteNutricao"]==nil){

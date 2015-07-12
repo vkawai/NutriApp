@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:NutriApp.xcodeproj">
+      location = "self:/Users/felipemramos/Documents/Mini2/NutriApp/NutriApp/Nutros.xcodeproj">
    </FileRef>
 </Workspace>
