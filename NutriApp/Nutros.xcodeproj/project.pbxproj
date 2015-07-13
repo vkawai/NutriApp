@@ -19,7 +19,7 @@
 		EB9D32F31AC1CA0B00347EE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB9D32F11AC1CA0B00347EE5 /* Main.storyboard */; };
 		EB9D32F51AC1CA0B00347EE5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9D32F41AC1CA0B00347EE5 /* Images.xcassets */; };
 		EB9D32F81AC1CA0B00347EE5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB9D32F61AC1CA0B00347EE5 /* LaunchScreen.xib */; };
-		EB9D33041AC1CA0B00347EE5 /* NutriAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D33031AC1CA0B00347EE5 /* NutriAppTests.m */; };
+		EB9D33041AC1CA0B00347EE5 /* NutrosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9D33031AC1CA0B00347EE5 /* NutrosTests.m */; };
 		EBA43FD51AC3392200B5DC7E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */; };
 		EBA51DE71ACC731C00CE8E05 /* Refeicoes.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA51DE61ACC731C00CE8E05 /* Refeicoes.m */; };
 		EBA6799A1ACB231A00F8BF94 /* RefeicoesAlimento.m in Sources */ = {isa = PBXBuildFile; fileRef = EBA679991ACB231A00F8BF94 /* RefeicoesAlimento.m */; };
@@ -70,7 +70,7 @@
 		EB9D32F71AC1CA0B00347EE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EB9D32FD1AC1CA0B00347EE5 /* NutrosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutrosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9D33021AC1CA0B00347EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB9D33031AC1CA0B00347EE5 /* NutriAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NutriAppTests.m; sourceTree = "<group>"; };
+		EB9D33031AC1CA0B00347EE5 /* NutrosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NutrosTests.m; sourceTree = "<group>"; };
 		EBA43FD41AC3392200B5DC7E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		EBA51DE51ACC731C00CE8E05 /* Refeicoes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Refeicoes.h; path = Entidades/Refeicoes.h; sourceTree = "<group>"; };
 		EBA51DE61ACC731C00CE8E05 /* Refeicoes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Refeicoes.m; path = Entidades/Refeicoes.m; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		EB9D33001AC1CA0B00347EE5 /* NutriAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				EB9D33031AC1CA0B00347EE5 /* NutriAppTests.m */,
+				EB9D33031AC1CA0B00347EE5 /* NutrosTests.m */,
 				EB9D33011AC1CA0B00347EE5 /* Supporting Files */,
 			);
 			path = NutriAppTests;
@@ -410,7 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB9D33041AC1CA0B00347EE5 /* NutriAppTests.m in Sources */,
+				EB9D33041AC1CA0B00347EE5 /* NutrosTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,7 +571,7 @@
 				INFOPLIST_FILE = NutriAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = NutrosTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriApp.app/NutriApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nutros.app/Nutros";
 			};
 			name = Debug;
 		};
@@ -586,7 +586,7 @@
 				INFOPLIST_FILE = NutriAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = NutrosTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NutriApp.app/NutriApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nutros.app/Nutros";
 			};
 			name = Release;
 		};

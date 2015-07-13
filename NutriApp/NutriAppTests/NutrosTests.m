@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface NutriAppTests : XCTestCase
+@interface NutrosTests : XCTestCase
 
 @end
 
-@implementation NutriAppTests
+@implementation NutrosTests
 
 - (void)setUp {
     [super setUp];
